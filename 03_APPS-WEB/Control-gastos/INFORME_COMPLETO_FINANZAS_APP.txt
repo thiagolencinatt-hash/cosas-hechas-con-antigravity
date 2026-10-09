@@ -1,0 +1,408 @@
+================================================================================
+          INFORME TECNICO Y FUNCIONAL COMPLETO - FINANZAPP ULTRA (FINANZAS)
+================================================================================
+Fecha de Emisión : 11 de Septiembre de 2026
+Autor / Asistente: Antigravity AI (Pair Programmer)
+Usuario / Dueño  : Thiago
+Ruta del Proyecto: C:\Users\thiago\Desktop\inteligencia artificial\antigravity\cosas hechas con antigravity\03_APPS-WEB\Control-gastos\finance-app
+================================================================================
+
+INDICE GENERAL:
+1. RESUMEN EJECUTIVO Y PROPOSITO DE LA APLICACION
+2. STACK TECNOLOGICO Y ARQUITECTURA DEL SISTEMA
+3. DETALLE EXHAUSTIVO DE CADA MODULO Y FUNCIONALIDAD
+   3.1. Dashboard Principal (Panel de Control Financiero)
+   3.2. Cuentas y Billeteras (Gestión Multi-cuenta y Saldos)
+   3.3. Transacciones y Movimientos (Ingresos, Gastos y Transferencias)
+   3.4. Tarjetas de Crédito y Compras en Cuotas
+   3.5. Presupuestos y Control de Límites por Categoría
+   3.6. Metas de Ahorro Inteligentes
+   3.7. Suscripciones y Gastos Recurrentes Fijos
+   3.8. Modal de Ajuste Rápido de Sueldo y Finanzas
+   3.9. Asistente con Inteligencia Artificial (Gemini 2.0 Multimodal + OCR)
+   3.10. Sistema de Ventana Flotante / Multitarea (Draggable Window)
+   3.11. Reportes y Analítica Financiera
+   3.12. Configuración y Personalización de Usuario
+4. SEGURIDAD, AUTENTICACION Y MULTI-USUARIO
+5. ESTRUCTURA DE LA BASE DE DATOS Y PERSISTENCIA DE DATOS
+6. CONECTIVIDAD MOVIL, ACCESO REMOTO Y APLICACION PWA
+7. CATALOGO COMPLETO DE ENDPOINTS DE LA API (BACKEND)
+8. ESTADO ACTUAL DE TUS DATOS EN EL SISTEMA
+9. GUIA PRACTICA DE USO DIARIO Y RECOMENDACIONES
+
+
+================================================================================
+1. RESUMEN EJECUTIVO Y PROPOSITO DE LA APLICACION
+================================================================================
+FinanzApp Ultra (nombrada en dispositivos como "Finanzas") es una plataforma web
+moderna, reactiva y full-stack diseñada para centralizar, controlar y proyectar
+la salud financiera personal o familiar con nivel profesional.
+
+A diferencia de las aplicaciones bancarias tradicionales o planillas de cálculo
+estáticas de Excel, esta aplicación resuelve de forma unificada:
+- El control de múltiples medios de pago (Bancos, Billeteras Virtuales, Efectivo).
+- La gestión del impacto real de la inflación y las compras en cuotas futuras.
+- El seguimiento de sueldos, ingresos extras y gastos fijos recurrentes.
+- El escaneo fotográfico inteligente de tickets de compra y facturas con IA.
+- El acceso fluido desde la computadora y el celular con sincronización en tiempo real.
+
+
+================================================================================
+2. STACK TECNOLOGICO Y ARQUITECTURA DEL SISTEMA
+================================================================================
+La aplicación está construida sobre los estándares más modernos de la industria:
+
+* FRAMEWORK PRINCIPAL:
+  - Next.js 16.3.3 con React 19.2.8 y Turbopack para compilación de alto rendimiento.
+  - Arquitectura App Router (Server Components + Client Components optimizados).
+
+* ESTILOS Y EXPERIENCIA VISUAL:
+  - Tailwind CSS 4 para diseño responsivo móvil/escritorio de vanguardia.
+  - Framer Motion 13 para animaciones fluidas, transiciones de tarjetas y modales.
+  - Radix UI Primitives para accesibilidad completa en dropdowns, diálogos y tooltips.
+  - Lucide React para un catálogo de más de 50 iconos vectoriales dinámicos.
+  - Next Themes con paleta oscura premium (Dark Mode) y contraste ergonómico.
+
+* GRAFICOS Y VISUALIZACION DE DATOS:
+  - Recharts 3.10 para gráficos interactivos vectoriales (Área, Barras, Torta, Radar).
+
+* INTELIGENCIA ARTIFICIAL (IA MULTIMODAL):
+  - Google Gemini API (@google/genai 2.19.0) con modelos Gemini 2.0 Flash y Gemini 1.5.
+  - Soporte de visión artificial: lectura directa de tickets, fotos y facturas (JPG/PNG).
+  - Function Calling / Tool Calling para ejecutar acciones de carga en base de datos.
+  - Motor heurístico financiero propio de respaldo (Fallback) en caso de corte de API.
+
+* EXPORTACION / IMPORTACION:
+  - Librería XLSX (SheetJS) para generar y leer planillas Microsoft Excel (.xlsx) y CSV.
+  - Sonner para notificaciones Toast elegantes y no intrusivas.
+
+
+================================================================================
+3. DETALLE EXHAUSTIVO DE CADA MODULO Y FUNCIONALIDAD
+================================================================================
+
+--------------------------------------------------------------------------------
+3.1. DASHBOARD PRINCIPAL (PANEL DE CONTROL FINANCIERO)
+--------------------------------------------------------------------------------
+Es la pantalla de inicio de la aplicación y resume de un vistazo todo tu patrimonio:
+- Saldo Total Consolidado: Suma el saldo de todas tus cuentas activas en moneda local.
+- Tarjeta de Sueldo y Capacidad de Ahorro: Indica tu sueldo mensual registrado, cuánto
+  llevas gastado en el mes corriente y el porcentaje neto que te queda disponible.
+- Ingresos vs. Gastos del Mes: Muestra los totales acumulados del mes con comparativas
+  porcentuales respecto al mes anterior.
+- Gráfico de Flujo de Caja (Cashflow): Gráfico interactivo diario y mensual que dibuja
+  las curvas de ingresos contra gastos para detectar picos de consumo.
+- Distribución de Gastos por Categoría: Gráfico de dona que desglosa visualmente en
+  qué se te va el dinero (Supermercado, Servicios, Salidas, Transporte, etc.).
+- Alertas Inteligentes Proactivas:
+  * Si una categoría superó el 80% o el 100% del presupuesto mensual fijado.
+  * Si tenés vencimientos de resúmenes de tarjetas de crédito en los próximos 7 días.
+  * Recordatorios de fechas de cobro de sueldo.
+- Botones de Acción Rápida:
+  * "+ Nuevo Gasto" (abre formulario express).
+  * "+ Nuevo Ingreso" (para asentar sueldos, changas o transferencias recibidas).
+  * "Ajuste Rápido" (para cambiar tu sueldo o gastos fijos en 3 segundos).
+
+--------------------------------------------------------------------------------
+3.2. CUENTAS Y BILLETERAS (GESTIÓN MULTI-CUENTA Y SALDOS)
+--------------------------------------------------------------------------------
+Permite registrar y administrar todas las entidades donde tenés guardado dinero:
+- Tipos de cuentas admitidas:
+  * Cuentas Bancarias (Santander, Galicia, BBVA, Banco Nación, etc.).
+  * Billeteras Digitales (Mercado Pago, Ualá, Lemon, Naranja X, Brubank).
+  * Efectivo físico en mano o billetera.
+  * Cuentas de Ahorro en Dólares / Criptomonedas.
+- Configuración visual: Cada cuenta puede tener su propio color identificatorio y su icono.
+- Transferencias Entre Cuentas: Permite mover dinero de una cuenta a otra (ej. pasar
+  $50.000 del Banco a Mercado Pago) generando automáticamente el débito en la cuenta
+  de origen y el crédito en la de destino con un solo click.
+- Historial por Cuenta: Al hacer click en cualquier cuenta se visualiza únicamente el
+  libro diario de movimientos de esa billetera en particular.
+
+--------------------------------------------------------------------------------
+3.3. TRANSACCIONES Y MOVIMIENTOS (INGRESOS, GASTOS Y TRANSFERENCIAS)
+--------------------------------------------------------------------------------
+El motor central de registro de movimientos:
+- Tipos: Gasto, Ingreso o Transferencia.
+- Metadatos por movimiento: Monto, Fecha, Cuenta asociada, Categoría, Descripción,
+  Etiquetas opcionales y Comprobante.
+- Filtros Avanzados:
+  * Búsqueda por texto en tiempo real (ej. "nafta", "coto", "alquiler").
+  * Filtrado por rango de fechas (Hoy, Esta semana, Este mes, Personalizado).
+  * Filtrado por categoría o por cuenta bancaria.
+- Operaciones masivas:
+  * Exportación de todos tus movimientos a Microsoft Excel (.xlsx) para respaldo.
+  * Importación de extractos bancarios en CSV/Excel para no cargar a mano.
+  * Edición o eliminación de transacciones con recálculo automático de saldos.
+
+--------------------------------------------------------------------------------
+3.4. TARJETAS DE CREDITO Y COMPRAS EN CUOTAS
+--------------------------------------------------------------------------------
+Una de las funcionalidades más potentes y únicas del sistema:
+- Registro de compras financiadas: Nombre del producto, Comercio, Tarjeta utilizada,
+  Monto total, Cantidad de cuotas (1 a 48), Fecha de la primera cuota y Costo Financiero.
+- Seguimiento visual de cuotas: Barra de progreso que indica exactamente cuántas cuotas
+  ya pagaste y cuántas te quedan pendientes (ej. "Cuota 4 de 12 pagada").
+- Proyección de Impacto Futuro:
+  * Calcula exactamente cuánto dinero de tu sueldo del mes que viene ya está "atrapado"
+    en cuotas antes de que cobres.
+  * Gráfico de desendeudamiento que muestra cómo va bajando tu compromiso de cuotas
+    en los próximos 3, 6, 9 y 12 meses.
+- Alertas de Cierre y Vencimiento: Avisa con anticipación cuándo cierra la tarjeta para
+  no pasarse del límite y cuándo vence para pagar a término y evitar intereses punitorios.
+
+--------------------------------------------------------------------------------
+3.5. PRESUPUESTOS Y CONTROL DE LIMITES POR CATEGORIA
+--------------------------------------------------------------------------------
+Diseñado para disciplinar el gasto y evitar sorpresas a fin de mes:
+- Permite asignar un tope máximo mensual a cada categoría (ej: "Salidas y Bares: $40.000",
+  "Supermercado: $180.000").
+- Semáforo de Control en tiempo real:
+  * Verde: Menos del 70% consumido (Gasto controlado).
+  * Amarillo: Entre el 70% y el 90% (Advertencia de cercanía al límite).
+  * Rojo: Más del 90% o superado (Presupuesto excedido).
+- Proyector de consumo: Según lo que gastaste en los primeros días del mes, la app
+  te proyecta con cuánta plata terminarías gastando si seguís a ese mismo ritmo.
+
+--------------------------------------------------------------------------------
+3.6. METAS DE AHORRO INTELIGENTES
+--------------------------------------------------------------------------------
+Permite materializar objetivos financieros concretos:
+- Parámetros de cada meta: Nombre (ej. "Comprar Moto", "Viaje a Brasil", "Fondo de Emergencia"),
+  Monto objetivo a alcanzar, Fecha límite deseada, Icono y Color.
+- Sistema de Aportes: Podés asignarle dinero directo desde una de tus cuentas reales;
+  el dinero se descuenta de tu cuenta corriente y se acumula en la alcancía virtual de la meta.
+- Métricas calculadas:
+  * Porcentaje alcanzado hasta la fecha.
+  * Días restantes hasta la fecha límite.
+  * Cuota mensual recomendada: te dice exactamente cuánto tenés que ahorrar cada mes
+    para llegar a tu meta a tiempo.
+
+--------------------------------------------------------------------------------
+3.7. SUSCRIPCIONES Y GASTOS RECURRENTES FIJOS
+--------------------------------------------------------------------------------
+Monitoreo de los "gastos hormiga" y servicios fijos que debitan automáticamente:
+- Registro de servicios: Netflix, Spotify, YouTube Premium, Gimnasio, Seguro del Auto,
+  Internet Fibertel, Alquiler, etc.
+- Periodicidad: Mensual, Bimestral o Anual.
+- Fecha fija de cobro: Avisa en qué día del mes impactará cada cobro.
+- Sumador Fijo Automático: Calcula el costo total mensual que pagás religiosamente en
+  suscripciones para descontarlo de tu ingreso neto libre.
+
+--------------------------------------------------------------------------------
+3.8. MODAL DE AJUSTE RAPIDO DE SUELDO Y FINANZAS (QUICK FINANCE MODAL)
+--------------------------------------------------------------------------------
+Accesible desde cualquier rincón de la app con el botón "Ajuste Rápido":
+- Permite modificar al instante tu Sueldo Neto declarado (ej. $800.000).
+- Día de cobro del mes (ej. día 5).
+- Gastos fijos estimados.
+- Guarda directamente en tu perfil de usuario y en la base de datos persistente,
+  recalculando automáticamente todas las métricas del dashboard sin recargar la página.
+
+--------------------------------------------------------------------------------
+3.9. ASISTENTE CON INTELIGENCIA ARTIFICIAL (GEMINI 2.0 MULTIMODAL + OCR)
+--------------------------------------------------------------------------------
+El asistente financiero inteligente más avanzado integrado en la aplicación:
+- Procesamiento Multimodal con Visión Artificial:
+  * Podés arrastrar, subir o sacar una foto con la cámara del celular a cualquier ticket
+    de supermercado, factura de luz/gas o comprobante de transferencia bancaria.
+  * La IA utiliza OCR avanzado para leer los ítems, detectar el monto total exacto,
+    la fecha y sugerir la categoría adecuada.
+  * Con un botón de confirmación, la transacción se asienta en tus cuentas en 1 segundo.
+- Function Calling Autónomo:
+  * La IA tiene conectadas herramientas para consultar saldos, crear transacciones,
+    agregar compras en cuotas o crear metas de ahorro directamente desde la conversación.
+  * Si le escribís por chat: "Anotame un gasto de 8500 pesos en la verdulería que pagué
+    con Mercado Pago", la IA ejecuta la acción y te responde confirmando el nuevo saldo.
+- Asesoramiento Financiero Contextual:
+  * La IA conoce en tiempo real tus saldos, tus cuotas pendientes y tu sueldo (sin
+    compartirlo con terceros). Podés preguntarle: "¿Me alcanza para comprarme unas
+    zapatillas de 120.000 en 3 cuotas este mes?" y la IA analizará tus compromisos
+    reales para darte una respuesta certera y prudente.
+- Historial Persistente: Los mensajes y consultas con la IA quedan guardados en tu
+  usuario para que nunca pierdas los consejos previos.
+
+--------------------------------------------------------------------------------
+3.10. SISTEMA DE VENTANA FLOTANTE / MULTITAREA (DRAGGABLE WINDOW)
+--------------------------------------------------------------------------------
+- El asistente de IA no bloquea la navegación: se abre en una ventana flotante con
+  diseño Glassmorphism (vidrio esmerilado translúcido).
+- Podés arrastrar la ventana a cualquier esquina de la pantalla del monitor con el mouse.
+- Podés minimizarla a un botón flotante mientras navegas por tus transacciones o cuentas,
+  o maximizarla para ver análisis completos.
+
+--------------------------------------------------------------------------------
+3.11. REPORTES Y ANALITICA FINANCIERA
+--------------------------------------------------------------------------------
+- Reportes mensuales comparativos de evolución patrimonial.
+- Tasa de ahorro real: % de ingresos conservados versus consumidos.
+- Análisis de desviación presupuestaria: qué rubros se desviaron del plan original.
+
+--------------------------------------------------------------------------------
+3.12. CONFIGURACION Y PERSONALIZACION
+--------------------------------------------------------------------------------
+- Moneda principal: Configurada por defecto en Pesos Argentinos (ARS) con soporte
+  de símbolo $, formato de separador de miles y decimales estándar.
+- Edición de perfil: Nombre de usuario, correo electrónico y cambio de contraseña.
+- Gestión de categorías: Posibilidad de crear nuevas categorías personalizadas con
+  iconos y paletas de colores a elección.
+
+
+================================================================================
+4. SEGURIDAD, AUTENTICACION Y MULTI-USUARIO
+================================================================================
+El sistema implementa arquitectura de aislamiento estricto (Multi-Tenant):
+
+- Almacenamiento de Credenciales: Las contraseñas nunca se guardan en texto plano.
+  Se utiliza un algoritmo de Hashing criptográfico robusto (PBKDF2 / SHA-512)
+  combinado con una Salt aleatoria única por cada usuario registrado.
+- Sesiones Seguras: Manejadas mediante Cookies HTTP Seguras con identificadores de
+  sesión firmados y validación por middleware en cada petición.
+- Aislamiento de Datos por Usuario: Cada usuario (por ejemplo tu cuenta `thiago`
+  con ID `1ce6e4fa-5fe7-4ded-9f3d-5f1cf37de167` y tu otra cuenta `titi`) posee su
+  propio archivo y espacio de datos completamente independiente. Es imposible que
+  un usuario acceda a las transacciones, saldos o metas de otro.
+- Auto-Login y Acceso en 1 Toque para Celular: En la pantalla de login móvil, el sistema
+  detecta tus cuentas registradas en el dispositivo y te permite ingresar con un solo
+  toque sin lidiar con teclados incómodos ni bloqueos por contraseña errónea.
+
+
+================================================================================
+5. ESTRUCTURA DE LA BASE DE DATOS Y PERSISTENCIA DE DATOS
+================================================================================
+Los datos se almacenan de manera determinista y persistente en el disco de tu equipo
+bajo la carpeta:
+`finance-app/data/users_data/{ID_USUARIO}.json`
+
+Esquema de datos JSON estructurado por usuario:
+- `user`: Datos del perfil (id, email, nombre, moneda, sueldo, día de cobro).
+- `accounts`: Lista de cuentas (id, nombre, tipo, saldo, moneda, color, icono, activo).
+- `categories`: Catálogo de categorías predeterminadas y personalizadas con iconos.
+- `transactions`: Historial completo de ingresos, egresos y transferencias.
+- `installments`: Compras en cuotas con seguimiento de cuotas pagadas y fechas.
+- `goals`: Metas de ahorro con saldo acumulado, objetivo y fecha tope.
+- `budgets`: Presupuestos mensuales configurados por categoría.
+- `subscriptions`: Servicios recurrentes fijos y días de débito automático.
+- `chatMessages`: Historial cronológico de interacciones con el Asistente de IA.
+- `lastUpdated`: Marca de tiempo ISO que previene conflictos de sincronización.
+
+Caché en Memoria:
+El motor `cloud-store.ts` mantiene una copia sincronizada en memoria RAM para que
+las lecturas en el celular o PC respondan en menos de 10 milisegundos.
+
+
+================================================================================
+6. CONECTIVIDAD MOVIL, ACCESO REMOTO Y APLICACION PWA
+================================================================================
+La aplicación está configurada para utilizarse tanto en tu PC de escritorio como en
+tu celular o tablet:
+
+1. ACCESO DIRECTO POR WI-FI LOCAL (Sin internet, sin carteles, velocidad máxima):
+   - IP asignada a tu PC: `192.168.1.41`
+   - Puerto de la aplicación: `3000`
+   - Dirección para abrir en el celular (conectado al Wi-Fi de tu casa):
+     👉 http://192.168.1.41:3000
+
+2. ACCESO REMOTO FUERA DE CASA (4G / 5G / Otras redes):
+   - A través de los túneles seguros cifrados activos:
+     👉 https://2d3c913168c1ed.lhr.life
+     👉 https://ulvis.net/finanzasthiago
+
+3. CONVERSION A APLICACION NATIVA EN TU CELULAR (PWA):
+   - El archivo `public/manifest.json` y el encabezado de la web configuran la app con:
+     * Nombre: "Finanzas"
+     * Nombre Corto: "Finanzas"
+     * Modo de Pantalla: Standalone (pantalla completa, oculta la barra del navegador).
+   - Cómo instalarla en tu teléfono:
+     * En Chrome (Android): Abrís el enlace, tocás los 3 puntos (⋮) arriba a la derecha
+       y elegís "Instalar aplicación" o "Agregar a la pantalla principal".
+     * En Safari (iPhone): Abrís el enlace, tocás el botón de Compartir (icono cuadrado
+       con flecha hacia arriba) y elegís "Agregar al inicio".
+   - Resultado: Se crea el icono en tu celular llamado "Finanzas". Cada vez que quieras
+     usarla, simplemente deslizás tu buscador de aplicaciones, escribís "finanzas"
+     y se abre al instante con tus cuentas sincronizadas.
+
+
+================================================================================
+7. CATALOGO COMPLETO DE ENDPOINTS DE LA API (BACKEND)
+================================================================================
+Todas las peticiones del cliente se procesan a través de rutas API estandarizadas:
+
+AUTENTICACION:
+- `POST /api/auth/login`          : Inicio de sesión tradicional con email/password.
+- `POST /api/auth/login-password` : Inicio rápido con sincronización de credenciales.
+- `POST /api/auth/quick-login`    : Autenticación en 1 toque desde la tarjeta de cuenta.
+- `GET  /api/auth/saved-accounts` : Lista de cuentas conocidas para acceso rápido.
+- `POST /api/auth/logout`         : Cierre seguro de sesión y limpieza de cookies.
+
+DATOS FINANCIEROS Y TRANSACCIONES:
+- `GET  /api/summary`             : Resumen financiero consolidado para el Dashboard.
+- `GET  /api/accounts`            : Listado de todas las cuentas y sus balances.
+- `POST /api/accounts`            : Creación de una nueva cuenta o billetera.
+- `PUT  /api/accounts`            : Modificación de saldos o datos de una cuenta.
+- `GET  /api/transactions`        : Historial paginado y filtrado de movimientos.
+- `POST /api/transactions`        : Registro de un nuevo gasto, ingreso o transferencia.
+- `DELETE /api/transactions`      : Eliminación de un movimiento erróneo.
+
+CUOTAS Y TARJETAS:
+- `GET  /api/installments`        : Listado de planes de cuotas activos y finalizados.
+- `POST /api/installments`        : Creación de una nueva compra en cuotas.
+- `PUT  /api/installments`        : Asentar pago de cuota o cancelación anticipada.
+
+PRESUPUESTOS Y METAS:
+- `GET  /api/budgets`             : Listado de presupuestos y límites por categoría.
+- `POST /api/budgets`             : Fijar o actualizar un límite de gasto mensual.
+- `GET  /api/goals`               : Listado de metas de ahorro y su avance porcentual.
+- `POST /api/goals`               : Crear una nueva meta o transferir un aporte de ahorro.
+
+SUSCRIPCIONES Y AJUSTES RAPIDOS:
+- `GET  /api/subscriptions`       : Lista de suscripciones y débitos automáticos.
+- `POST /api/subscriptions`       : Agregar un nuevo servicio recurrente.
+- `POST /api/finances/quick-adjust`: Modificación inmediata de sueldo y gastos fijos.
+
+INTELIGENCIA ARTIFICIAL:
+- `POST /api/ai-assistant`        : Chat con Gemini, análisis multimodal de tickets
+                                    y ejecución de herramientas con control de tasa (Rate Limiting).
+- `GET  /api/ai-assistant`        : Recuperación del historial de mensajes guardados.
+
+
+================================================================================
+8. ESTADO ACTUAL DE TUS DATOS EN EL SISTEMA
+================================================================================
+A la fecha de este informe, tu cuenta principal (`thiago`) tiene configurado:
+
+- Usuario : thiago
+- Email   : lencinathiago86@gmail.com
+- Moneda  : Pesos Argentinos (ARS)
+- Sueldo  : $800.000 mensuales
+- Día de Cobro: Día 5 de cada mes
+- Cuentas activas:
+  * "Billetera Principal" (tipo billetera digital)
+- Categorías activas:
+  * Sueldo Principal
+  * Trabajos Freelance / Extra
+  * Rendimientos e Inversiones
+  * Supermercado y Alimentos
+  * Servicios e Impuestos
+  * Salidas y Restaurantes
+  * Transporte y Nafta
+  * Salud y Gimnasio
+  * Entretenimiento y Suscripciones
+
+
+================================================================================
+9. GUIA PRACTICA DE USO DIARIO Y RECOMENDACIONES
+================================================================================
+1. Carga tus gastos en el momento: Si hacés una compra con tarjeta o efectivo,
+   abrí la app en el celular y tocas "+ Nuevo Gasto", o simplemente sacale una
+   foto al ticket y mandásela a la IA por el chat.
+2. Si comprás algo en cuotas, registralo en "Cuotas": Eso evitará que pienses que
+   tenés más sueldo libre del que realmente te queda en los meses siguientes.
+3. Fijate una meta de ahorro por mes: Aunque sea un porcentaje pequeño (ej. 10%
+   de tu sueldo), destiná ese monto a una "Meta de Ahorro" apenas cobres el día 5.
+4. Exportá tu respaldo en Excel: Una vez al mes podés ir a Transacciones y hacer
+   click en "Exportar a Excel" para guardar tu planilla histórica de respaldo.
+
+================================================================================
+             DOCUMENTO GENERADO CON EXITO EN TU ESCRITORIO
+================================================================================
