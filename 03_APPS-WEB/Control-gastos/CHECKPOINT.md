@@ -1,20 +1,25 @@
-# CHECKPOINT — FinanzApp Ultra (GEL-050 Ergonomía Móvil & Botón Flotante Central)
+# CHECKPOINT — FinanzApp Ultra (GEL-051 Auditor Laboral LCT & Reclamo RRHH)
 
 ## Proyecto
 FinanzApp Ultra (Control de Gastos Pro & Horarios)
 
 ## Fecha y Git Commit
-2026-10-09 | Git: `a8ccb2f` (main)
+2026-10-09 | Git: `cd3e4c8` (main)
 
 ## Estado
 ✅ 100% Funcional en Producción (30 rutas Next.js Turbopack compiladas, 0 errores tsc, 0 advertencias de build, desplegado en GitHub y Vercel).
 
-## Logros de la Sesión (GEL-050)
-- **Botón Central Flotante de Carga Rápida ([BottomNav.tsx](file:///c:/Users/thiago/Desktop/inteligencia%20artificial/antigravity/cosas%20hechas%20con%20antigravity/03_APPS-WEB/Control-gastos/finance-app/components/layout/BottomNav.tsx)):**
-  * Botón flotante central `+` con estética 3D Spatial Luxury: gradiente esmeralda (`from-emerald-500 via-teal-400 to-emerald-300`), aura pulsante, micro-borde especular 3D, anillo de corte (`ring-4 ring-[#0b0e13]/90`) y elevación ergonómica.
-  * Disparo directo del modal de registro rápido (`QuickExpenseModal`) para transacciones inmediatas (gastos o ingresos).
-  * Feedback táctil háptico integrado (`navigator.vibrate(10)` con fallback seguro) tanto en el botón de acción rápida como en el selector de pestañas.
-  * Preservación estricta de safe areas (`bottom-[max(1.5rem,env(safe-area-inset-bottom,0px))]`) y espacio inferior de scroll (`pb-44`).
+## Logros de la Sesión (GEL-051)
+- **Motor de Discrepancia Laboral LCT ([payroll-calculator.ts](file:///c:/Users/thiago/Desktop/inteligencia%20artificial/antigravity/cosas%20hechas%20con%20antigravity/03_APPS-WEB/Control-gastos/finance-app/lib/utils/payroll-calculator.ts)):**
+  * Comparación matemática exacta entre horas diurnas/nocturnas de turnos del ciclo (26 al 25) vs. horas liquidadas en recibo.
+  * Cálculo del adicional por nocturnidad según Art. 200 LCT (+13.33% sobre el valor hora normal) y valorización económica exacta en pesos (\$ ARS).
+- **Auditor Laboral Interactivo & Reclamo para RRHH ([LaborAuditorCard.tsx](file:///c:/Users/thiago/Desktop/inteligencia%20artificial/antigravity/cosas%20hechas%20con%20antigravity/03_APPS-WEB/Control-gastos/finance-app/components/dashboard/LaborAuditorCard.tsx)):**
+  * Tarjeta destacada 3D Spatial con badge de estado dinámico ("Liquidación Correcta" en verde esmeralda o "Diferencia por cobrar: +$XX.XXX,XX" en ámbar/rojo con glow pulsante).
+  * Panel desplegable de cotejo personalizado para ajustar horas de recibo (diurnas/nocturnas) y valor hora.
+  * Botón con micro-interacción háptica "Copiar detalle de reclamo" que formatea automáticamente una solicitud formal para Recursos Humanos / Liquidaciones.
+  * Botón directo para compartir el detalle del reclamo por WhatsApp.
+- **Ergonomía Móvil (GEL-050):**
+  * Botón flotante central `+` en BottomNav con estética 3D Spatial Luxury y feedback háptico.
 
 ## Próximos Pasos
-- Probar en vivo consultas de dinero libre con el Asistente IA ("¿cuánto dinero libre me queda?") para observar el desglose matemático generado.
+- Probar en vivo el flujo completo desde el escaneo OCR de recibos hasta la generación del reclamo a RRHH.
