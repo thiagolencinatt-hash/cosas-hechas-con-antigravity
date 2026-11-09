@@ -23,12 +23,16 @@
   - Botones táctiles con amortiguación `active:scale-95`.
   - Iconografía 100% vectorial con Lucide React (cero emojis de sistema en toda la aplicación).
 
+- **Integración Directa de WhatsApp**:
+  - Teléfono oficial configurado: `+54 9 11 6657-3519` (`5491166573519`).
+  - Botón de envío de pedido con mensaje detallado y desglosado.
+  - Botones de consulta individual por perfume y contacto en el footer.
+
 - **Trust Building & Elementos de Confianza**:
   - Badges de seguridad en fichas de producto y checkout: 100% Sellado de Fábrica, Envíos Asegurados a Toda Argentina, Pago Coordinado Seguro por WhatsApp.
   - Pirámide olfativa completa (Salida, Corazón y Fondo).
-  - Mensaje de WhatsApp estructurado con pulcritud corporativa sin emojis.
 
-### Verificación Técnica
+### Verificación Técnica & Publicación
 - Compilación `tsc -b && vite build` exitosa con 0 errores de TypeScript y 0 warnings de lint.
-- Servidor local activo en `http://localhost:5173/` y `http://192.168.1.45:5173/`.
-- Túnel público HTTPS activo en: `https://flat-keys-work.loca.lt`.
+- Repositorio GitHub: `https://github.com/thiagolencinatt-hash/cosas-hechas-con-antigravity/tree/main/03_APPS-WEB/pagina%20propria`
+- Despliegue en vivo en Vercel: `https://brisk-pulsar-9wk93g2.tmp.now`
