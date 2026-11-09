@@ -9,7 +9,7 @@ export const CURRENCY_CONFIGS: Record<Currency, CurrencyConfig> = {
 };
 
 export const WHOLESALE_MIN_UNITS = 3;
-export const DEFAULT_WHATSAPP_NUMBER = "5492246405210";
+export const DEFAULT_WHATSAPP_NUMBER = "5491166573519";
 
 export type SortOption = 'rec' | 'asc' | 'desc' | 'az';
 export type ShowOption = 'todos' | 'ofertas' | 'stock';
