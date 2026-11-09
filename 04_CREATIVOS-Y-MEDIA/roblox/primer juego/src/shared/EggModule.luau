@@ -1,0 +1,317 @@
+--!strict
+export type SafeTier = "Chica" | "Mediana" | "Grande" | "Colosal"
+
+export type SafeTierConfig = {
+	Tier: SafeTier,
+	TierName: string,
+	Rarity: string,
+	HpMultiplier: number,
+	RewardMultiplier: number,
+	Size: Vector3,
+	AuraColor: Color3,
+	AuraEnabled: boolean,
+}
+
+export type CountrySafeConfig = {
+	EggName: string,
+	Country: string,
+	Flag: string,
+	PlaqueText: string,
+	BaseHealth: number,
+	BaseReward: number,
+	TimeSpawn: number,
+	DespawnTime: number,
+	BodyColor: Color3,
+	DoorColor: Color3,
+	DialColor: Color3,
+	AccentColor: Color3,
+	BodyMaterial: Enum.Material,
+	DoorMaterial: Enum.Material,
+	Tiers: { [SafeTier]: SafeTierConfig },
+	Rewards: { [string]: { Chance: number, Rarity: string } },
+}
+
+local TierDefaults: { [SafeTier]: SafeTierConfig } = {
+	["Chica"] = {
+		Tier = "Chica",
+		TierName = "Caja Pequeña",
+		Rarity = "Común",
+		HpMultiplier = 1.0,
+		RewardMultiplier = 1.0,
+		Size = Vector3.new(3.0, 3.4, 3.0),
+		AuraColor = Color3.fromRGB(180, 200, 220),
+		AuraEnabled = false,
+	},
+	["Mediana"] = {
+		Tier = "Mediana",
+		TierName = "Caja Reforzada",
+		Rarity = "Rara",
+		HpMultiplier = 2.5,
+		RewardMultiplier = 3.0,
+		Size = Vector3.new(4.2, 4.6, 4.0),
+		AuraColor = Color3.fromRGB(40, 150, 255),
+		AuraEnabled = true,
+	},
+	["Grande"] = {
+		Tier = "Grande",
+		TierName = "Bóveda Acorazada",
+		Rarity = "Épica",
+		HpMultiplier = 6.0,
+		RewardMultiplier = 8.0,
+		Size = Vector3.new(5.6, 6.2, 5.2),
+		AuraColor = Color3.fromRGB(180, 60, 255),
+		AuraEnabled = true,
+	},
+	["Colosal"] = {
+		Tier = "Colosal",
+		TierName = "Bóveda Colosal",
+		Rarity = "Legendaria",
+		HpMultiplier = 15.0,
+		RewardMultiplier = 25.0,
+		Size = Vector3.new(7.2, 8.0, 6.8),
+		AuraColor = Color3.fromRGB(255, 215, 0),
+		AuraEnabled = true,
+	},
+}
+
+local Egg: { [string]: any } = {
+	["Eggs1"] = {
+		EggName = "Caja Fuerte Argentina",
+		Country = "Argentina",
+		Flag = "🇦🇷",
+		PlaqueText = "🇦🇷 BÓVEDA CENTRAL PFA",
+		BaseHealth = 5,
+		BaseReward = 15,
+		TimeSpawn = 8,
+		DespawnTime = 12,
+		BodyColor = Color3.fromRGB(117, 170, 219),
+		DoorColor = Color3.fromRGB(235, 240, 248),
+		DialColor = Color3.fromRGB(255, 215, 0),
+		AccentColor = Color3.fromRGB(75, 120, 180),
+		BodyMaterial = Enum.Material.Metal,
+		DoorMaterial = Enum.Material.SmoothPlastic,
+		Tiers = TierDefaults,
+		Rewards = {
+			["Sol de Mayo Dorado"] = { Chance = 70, Rarity = "Común" },
+			["Ladrón Porteño Táctico"] = { Chance = 30, Rarity = "Raro" },
+		},
+	},
+	["Eggs2"] = {
+		EggName = "Caja Fuerte Brasileña",
+		Country = "Brasil",
+		Flag = "🇧🇷",
+		PlaqueText = "🇧🇷 COFRE FEDERAL PM",
+		BaseHealth = 15,
+		BaseReward = 45,
+		TimeSpawn = 9,
+		DespawnTime = 14,
+		BodyColor = Color3.fromRGB(0, 155, 58),
+		DoorColor = Color3.fromRGB(254, 223, 0),
+		DialColor = Color3.fromRGB(0, 39, 118),
+		AccentColor = Color3.fromRGB(0, 115, 45),
+		BodyMaterial = Enum.Material.DiamondPlate,
+		DoorMaterial = Enum.Material.Metal,
+		Tiers = TierDefaults,
+		Rewards = {
+			["Esmeralda de Copacabana"] = { Chance = 65, Rarity = "Raro" },
+			["Capoeirista Sigiloso"] = { Chance = 35, Rarity = "Épico" },
+		},
+	},
+	["Eggs3"] = {
+		EggName = "Caja Fuerte Federal (USA)",
+		Country = "Estados Unidos",
+		Flag = "🇺🇸",
+		PlaqueText = "🇺🇸 FORT KNOX VAULT",
+		BaseHealth = 35,
+		BaseReward = 120,
+		TimeSpawn = 10,
+		DespawnTime = 16,
+		BodyColor = Color3.fromRGB(20, 35, 80),
+		DoorColor = Color3.fromRGB(190, 30, 45),
+		DialColor = Color3.fromRGB(245, 210, 50),
+		AccentColor = Color3.fromRGB(220, 220, 230),
+		BodyMaterial = Enum.Material.Metal,
+		DoorMaterial = Enum.Material.DiamondPlate,
+		Tiers = TierDefaults,
+		Rewards = {
+			["Águila Calva Dorada"] = { Chance = 60, Rarity = "Raro" },
+			["Asaltante de Wall Street"] = { Chance = 40, Rarity = "Épico" },
+		},
+	},
+	["Eggs4"] = {
+		EggName = "Caja Fuerte Imperial (Japón)",
+		Country = "Japón",
+		Flag = "🇯🇵",
+		PlaqueText = "🇯🇵 BÓVEDA KEISATSU",
+		BaseHealth = 75,
+		BaseReward = 300,
+		TimeSpawn = 11,
+		DespawnTime = 18,
+		BodyColor = Color3.fromRGB(25, 25, 30),
+		DoorColor = Color3.fromRGB(195, 20, 25),
+		DialColor = Color3.fromRGB(255, 225, 100),
+		AccentColor = Color3.fromRGB(255, 50, 60),
+		BodyMaterial = Enum.Material.SmoothPlastic,
+		DoorMaterial = Enum.Material.Neon,
+		Tiers = TierDefaults,
+		Rewards = {
+			["Dragón de Jade Oriental"] = { Chance = 55, Rarity = "Épico" },
+			["Ninja Hacker Shinjuku"] = { Chance = 45, Rarity = "Legendario" },
+		},
+	},
+	["Eggs5"] = {
+		EggName = "Caja Fuerte Mexicana",
+		Country = "México",
+		Flag = "🇲🇽",
+		PlaqueText = "🇲🇽 BÓVEDA NACIONAL GN",
+		BaseHealth = 175,
+		BaseReward = 750,
+		TimeSpawn = 12,
+		DespawnTime = 20,
+		BodyColor = Color3.fromRGB(140, 80, 40),
+		DoorColor = Color3.fromRGB(0, 104, 71),
+		DialColor = Color3.fromRGB(206, 17, 38),
+		AccentColor = Color3.fromRGB(245, 190, 40),
+		BodyMaterial = Enum.Material.Sandstone,
+		DoorMaterial = Enum.Material.Metal,
+		Tiers = TierDefaults,
+		Rewards = {
+			["Reliquia Azteca Solar"] = { Chance = 50, Rarity = "Épico" },
+			["Bandido Charro Legendario"] = { Chance = 50, Rarity = "Legendario" },
+		},
+	},
+	["Eggs6"] = {
+		EggName = "Caja Fuerte Española",
+		Country = "España",
+		Flag = "🇪🇸",
+		PlaqueText = "🇪🇸 CÁMARA REAL CNP",
+		BaseHealth = 400,
+		BaseReward = 1800,
+		TimeSpawn = 14,
+		DespawnTime = 24,
+		BodyColor = Color3.fromRGB(45, 48, 55),
+		DoorColor = Color3.fromRGB(173, 21, 25),
+		DialColor = Color3.fromRGB(245, 190, 20),
+		AccentColor = Color3.fromRGB(120, 125, 135),
+		BodyMaterial = Enum.Material.Metal,
+		DoorMaterial = Enum.Material.SmoothPlastic,
+		Tiers = TierDefaults,
+		Rewards = {
+			["Corona Imperial de Castilla"] = { Chance = 50, Rarity = "Legendario" },
+			["Espadachín de Bóvedas"] = { Chance = 50, Rarity = "Legendario" },
+		},
+	},
+	["Eggs7"] = {
+		EggName = "Caja Fuerte Británica",
+		Country = "Reino Unido",
+		Flag = "🇬🇧",
+		PlaqueText = "🇬🇧 BANK OF ENGLAND",
+		BaseHealth = 900,
+		BaseReward = 4500,
+		TimeSpawn = 16,
+		DespawnTime = 28,
+		BodyColor = Color3.fromRGB(40, 20, 65),
+		DoorColor = Color3.fromRGB(1, 33, 105),
+		DialColor = Color3.fromRGB(255, 215, 0),
+		AccentColor = Color3.fromRGB(200, 16, 46),
+		BodyMaterial = Enum.Material.Metal,
+		DoorMaterial = Enum.Material.DiamondPlate,
+		Tiers = TierDefaults,
+		Rewards = {
+			["Cáliz Real de la Corona"] = { Chance = 45, Rarity = "Legendario" },
+			["Gentleman Ladrón de Londres"] = { Chance = 55, Rarity = "Mítico" },
+		},
+	},
+	["Eggs8"] = {
+		EggName = "Caja Fuerte Francesa",
+		Country = "Francia",
+		Flag = "🇫🇷",
+		PlaqueText = "🇫🇷 BÓVEDA DE PARÍS",
+		BaseHealth = 2000,
+		BaseReward = 11000,
+		TimeSpawn = 18,
+		DespawnTime = 32,
+		BodyColor = Color3.fromRGB(230, 235, 245),
+		DoorColor = Color3.fromRGB(0, 35, 149),
+		DialColor = Color3.fromRGB(255, 215, 60),
+		AccentColor = Color3.fromRGB(237, 41, 57),
+		BodyMaterial = Enum.Material.Marble,
+		DoorMaterial = Enum.Material.Metal,
+		Tiers = TierDefaults,
+		Rewards = {
+			["Diamante Corazón de París"] = { Chance = 40, Rarity = "Mítico" },
+			["Fantasma del Louvre"] = { Chance = 60, Rarity = "Mítico" },
+		},
+	},
+	["Eggs9"] = {
+		EggName = "Caja Fuerte Faraónica (Egipto)",
+		Country = "Egipto",
+		Flag = "🇪🇬",
+		PlaqueText = "🇪🇬 BÓVEDA DEL CAIRO",
+		BaseHealth = 5000,
+		BaseReward = 28000,
+		TimeSpawn = 22,
+		DespawnTime = 36,
+		BodyColor = Color3.fromRGB(218, 165, 32),
+		DoorColor = Color3.fromRGB(240, 205, 70),
+		DialColor = Color3.fromRGB(20, 160, 180),
+		AccentColor = Color3.fromRGB(150, 40, 20),
+		BodyMaterial = Enum.Material.Sandstone,
+		DoorMaterial = Enum.Material.Metal,
+		Tiers = TierDefaults,
+		Rewards = {
+			["Escarabajo Sagrado del Faraón"] = { Chance = 35, Rarity = "Mítico" },
+			["Ladrón de Tumbas Real"] = { Chance = 65, Rarity = "Divino" },
+		},
+	},
+	["Eggs10"] = {
+		EggName = "Caja Fuerte Nórdica",
+		Country = "País Nórdico",
+		Flag = "❄️",
+		PlaqueText = "❄️ BÓVEDA DE SVALBARD",
+		BaseHealth = 12500,
+		BaseReward = 75000,
+		TimeSpawn = 25,
+		DespawnTime = 40,
+		BodyColor = Color3.fromRGB(80, 150, 230),
+		DoorColor = Color3.fromRGB(210, 235, 255),
+		DialColor = Color3.fromRGB(240, 250, 255),
+		AccentColor = Color3.fromRGB(50, 100, 180),
+		BodyMaterial = Enum.Material.Ice,
+		DoorMaterial = Enum.Material.Glass,
+		Tiers = TierDefaults,
+		Rewards = {
+			["Runa Mística de Odín"] = { Chance = 30, Rarity = "Divino" },
+			["Saqueador Vikingo del Hielo"] = { Chance = 70, Rarity = "Divino" },
+		},
+	},
+}
+
+local EggMethods = {
+	TierDefaults = TierDefaults,
+	GetTierInfo = function(eggType: string, tier: SafeTier): SafeTierConfig
+		local eggData = Egg[eggType]
+		if eggData and eggData.Tiers and eggData.Tiers[tier] then
+			return eggData.Tiers[tier]
+		end
+		return TierDefaults[tier] or TierDefaults["Chica"]
+	end,
+	CalculateHealth = function(eggType: string, tier: SafeTier): number
+		local eggData = Egg[eggType]
+		local baseHp = (eggData and eggData.BaseHealth) or 5
+		local tierInfo = (EggMethods.GetTierInfo)(eggType, tier)
+		return math.floor(baseHp * tierInfo.HpMultiplier)
+	end,
+	CalculateReward = function(eggType: string, tier: SafeTier): number
+		local eggData = Egg[eggType]
+		local baseRew = (eggData and eggData.BaseReward) or 10
+		local tierInfo = (EggMethods.GetTierInfo)(eggType, tier)
+		return math.floor(baseRew * tierInfo.RewardMultiplier)
+	end,
+}
+
+setmetatable(Egg, {
+	__index = EggMethods,
+})
+
+return Egg

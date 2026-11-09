@@ -1,0 +1,90 @@
+--!strict
+local Pets = {
+	["Escarabajo de Oro"] = {
+		Name = "Escarabajo de Oro",
+		Rarity = "Común",
+		MoneyPerSecond = 5,
+		Icon = "rbxassetid://89306781652186",
+		Biome = "Pradera Verde",
+		Color = Color3.fromRGB(240, 200, 40),
+	},
+	["Escorpión de Cuarzo"] = {
+		Name = "Escorpión de Cuarzo",
+		Rarity = "Raro",
+		MoneyPerSecond = 15,
+		Icon = "rbxassetid://106953796028431",
+		Biome = "Desierto de Piedra",
+		Color = Color3.fromRGB(230, 220, 180),
+	},
+	["Yeti de Hielo"] = {
+		Name = "Yeti de Hielo",
+		Rarity = "Épico",
+		MoneyPerSecond = 40,
+		Icon = "rbxassetid://80823398251140",
+		Biome = "Zona de Hielo",
+		Color = Color3.fromRGB(150, 230, 255),
+	},
+	["Monstruo de Gomita"] = {
+		Name = "Monstruo de Gomita",
+		Rarity = "Épico",
+		MoneyPerSecond = 100,
+		Icon = "rbxassetid://74735631371205",
+		Biome = "Reino de Caramelo",
+		Color = Color3.fromRGB(255, 110, 180),
+	},
+	["Rana Mutante de 3 Ojos"] = {
+		Name = "Rana Mutante de 3 Ojos",
+		Rarity = "Épico",
+		MoneyPerSecond = 250,
+		Icon = "rbxassetid://89306781652186",
+		Biome = "Pantano Rocoso",
+		Color = Color3.fromRGB(110, 230, 50),
+	},
+	["Mini-Kraken"] = {
+		Name = "Mini-Kraken",
+		Rarity = "Legendario",
+		MoneyPerSecond = 600,
+		Icon = "rbxassetid://80823398251140",
+		Biome = "Zona de Agua",
+		Color = Color3.fromRGB(0, 180, 240),
+	},
+	["Sabueso de Lava"] = {
+		Name = "Sabueso de Lava",
+		Rarity = "Legendario",
+		MoneyPerSecond = 1500,
+		Icon = "rbxassetid://106953796028431",
+		Biome = "Zona Volcánica",
+		Color = Color3.fromRGB(255, 70, 20),
+	},
+	["Planta Carnívora"] = {
+		Name = "Planta Carnívora",
+		Rarity = "Mítico",
+		MoneyPerSecond = 4000,
+		Icon = "rbxassetid://74735631371205",
+		Biome = "Valle de Flores",
+		Color = Color3.fromRGB(230, 50, 120),
+	},
+	["Bestia Cósmica"] = {
+		Name = "Bestia Cósmica",
+		Rarity = "Mítico",
+		MoneyPerSecond = 10000,
+		Icon = "rbxassetid://80823398251140",
+		Biome = "Espacio Galáctico",
+		Color = Color3.fromRGB(170, 60, 255),
+	},
+	["Alien Xenomorfo"] = {
+		Name = "Alien Xenomorfo",
+		Rarity = "Divino",
+		MoneyPerSecond = 25000,
+		Icon = "rbxassetid://89306781652186",
+		Biome = "Planeta Alienígena",
+		Color = Color3.fromRGB(40, 255, 200),
+	},
+
+	-- Backwards compatibility aliases
+	["Basic Cat"] = { Rarity = "Común", MoneyPerSecond = 5, Icon = "" },
+	["Basic Dog"] = { Rarity = "Raro", MoneyPerSecond = 15, Icon = "" },
+	["Basic Golem"] = { Rarity = "Épico", MoneyPerSecond = 40, Icon = "" },
+}
+
+return Pets
