@@ -1,5 +1,6 @@
 import { ShieldCheck, Truck, Sparkles, MessageCircle, Instagram } from 'lucide-react';
 import { DEFAULT_WHATSAPP_NUMBER } from '../context/ShopContext';
+import { TikTokIcon } from './icons/TikTokIcon';
 
 export function Footer() {
   return (
@@ -72,13 +73,25 @@ export function Footer() {
             </a>
 
             <a
-              href="https://instagram.com"
+              href="https://www.instagram.com/lathe.essence?obrf=djBtZ2UwNGtseXBr&utm_source=qr"
               target="_blank"
               rel="noopener noreferrer"
-              className="w-9 h-9 rounded-full border border-black/10 dark:border-white/15 hover:border-black/30 dark:hover:border-white/30 text-neutral-800 dark:text-white flex items-center justify-center transition-colors"
-              aria-label="Instagram"
+              className="w-9 h-9 rounded-full border border-black/10 dark:border-white/15 hover:border-[#c9a24b] text-neutral-800 dark:text-white hover:text-[#c9a24b] flex items-center justify-center transition-colors"
+              aria-label="Instagram Oficial LATHE ESSENCE"
+              title="Instagram Oficial (@lathe.essence)"
             >
               <Instagram className="w-4 h-4" />
+            </a>
+
+            <a
+              href="https://www.tiktok.com/@lathe.essence?_r=1&_t=ZS-9BKR3UQA0Ty"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-9 h-9 rounded-full border border-black/10 dark:border-white/15 hover:border-[#c9a24b] text-neutral-800 dark:text-white hover:text-[#c9a24b] flex items-center justify-center transition-colors"
+              aria-label="TikTok Oficial LATHE ESSENCE"
+              title="TikTok Oficial (@lathe.essence)"
+            >
+              <TikTokIcon className="w-4 h-4" />
             </a>
           </div>
         </div>

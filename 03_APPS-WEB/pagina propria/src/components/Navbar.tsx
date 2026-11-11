@@ -1,7 +1,8 @@
 import { useState, useRef, useEffect } from 'react';
-import { Search, ShoppingBag, Heart, X, ArrowRight, Sun, Moon, ShieldCheck, Sparkles } from 'lucide-react';
+import { Search, ShoppingBag, Heart, X, ArrowRight, Sun, Moon, ShieldCheck, Sparkles, Instagram } from 'lucide-react';
 import { useShop } from '../context/ShopContext';
 import { sanitizeInput } from '../utils/security';
+import { TikTokIcon } from './icons/TikTokIcon';
 
 interface NavbarProps {
   onOpenWholesaleModal?: () => void;
@@ -72,10 +73,33 @@ export function Navbar({ onOpenWholesaleModal }: NavbarProps) {
             <span className="text-neutral-400 dark:text-neutral-600 hidden sm:inline">•</span>
             <span className="text-neutral-500 dark:text-neutral-400 hidden sm:inline">Lotes Certificados IFRA / Paris & Dubái</span>
           </div>
-          <div className="flex items-center gap-4">
-            <span className="text-[#c9a24b] hidden md:inline font-medium">
+          <div className="flex items-center gap-3 sm:gap-4">
+            <span className="text-[#c9a24b] hidden lg:inline font-medium">
               Combos Emprendedores desde 3u • Pedidos Personalizados
             </span>
+            <div className="flex items-center gap-2.5 font-mono text-[10px]">
+              <a
+                href="https://www.instagram.com/lathe.essence?obrf=djBtZ2UwNGtseXBr&utm_source=qr"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-1 text-neutral-700 dark:text-neutral-300 hover:text-[#c9a24b] transition-colors"
+                title="Instagram Oficial @lathe.essence"
+              >
+                <Instagram className="w-3 h-3 text-[#c9a24b]" />
+                <span className="font-semibold">Instagram</span>
+              </a>
+              <span className="text-neutral-400 dark:text-neutral-600">/</span>
+              <a
+                href="https://www.tiktok.com/@lathe.essence?_r=1&_t=ZS-9BKR3UQA0Ty"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-1 text-neutral-700 dark:text-neutral-300 hover:text-[#c9a24b] transition-colors"
+                title="TikTok Oficial @lathe.essence"
+              >
+                <TikTokIcon className="w-3 h-3 text-[#c9a24b]" />
+                <span className="font-semibold">TikTok</span>
+              </a>
+            </div>
             <button
               onClick={onOpenWholesaleModal}
               className="text-neutral-900 dark:text-white hover:text-[#c9a24b] underline underline-offset-4 transition-colors font-semibold cursor-pointer"
@@ -128,9 +152,33 @@ export function Navbar({ onOpenWholesaleModal }: NavbarProps) {
             </button>
           </nav>
 
-          {/* Right Action Controls: B2B Switcher, Cotizador B2B, Lupa Search, Wishlist, Cart, Static Theme Switcher */}
-          <div className="flex items-center gap-2 sm:gap-3 shrink-0">
+          {/* Right Action Controls: Redes, B2B Switcher, Cotizador B2B, Lupa Search, Wishlist, Cart, Static Theme Switcher */}
+          <div className="flex items-center gap-1.5 sm:gap-2.5 shrink-0">
             
+            {/* Social Network Quick Icons (Instagram & TikTok) */}
+            <div className="flex items-center gap-1 sm:gap-1.5 border-r border-black/10 dark:border-white/10 pr-1.5 sm:pr-2.5">
+              <a
+                href="https://www.instagram.com/lathe.essence?obrf=djBtZ2UwNGtseXBr&utm_source=qr"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-8 h-8 sm:w-9 sm:h-9 flex items-center justify-center border border-neutral-300 dark:border-white/10 bg-neutral-100 dark:bg-[#14161D] text-neutral-800 dark:text-neutral-200 hover:text-[#c9a24b] hover:border-[#c9a24b]/60 dark:hover:text-[#c9a24b] dark:hover:border-[#c9a24b]/60 transition-all active:scale-[0.97] cursor-pointer"
+                aria-label="Instagram Oficial LATHE ESSENCE"
+                title="Instagram Oficial (@lathe.essence)"
+              >
+                <Instagram className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
+              </a>
+              <a
+                href="https://www.tiktok.com/@lathe.essence?_r=1&_t=ZS-9BKR3UQA0Ty"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-8 h-8 sm:w-9 sm:h-9 flex items-center justify-center border border-neutral-300 dark:border-white/10 bg-neutral-100 dark:bg-[#14161D] text-neutral-800 dark:text-neutral-200 hover:text-[#c9a24b] hover:border-[#c9a24b]/60 dark:hover:text-[#c9a24b] dark:hover:border-[#c9a24b]/60 transition-all active:scale-[0.97] cursor-pointer"
+                aria-label="TikTok Oficial LATHE ESSENCE"
+                title="TikTok Oficial (@lathe.essence)"
+              >
+                <TikTokIcon className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
+              </a>
+            </div>
+
             {/* Mode Switcher Button (B2C / B2B) - Exact match to user reference */}
             <button
               onClick={handleToggleMode}
