@@ -43,7 +43,7 @@ function StoreLayout() {
         {/* 5. Wholesale Matrix & Volume Procurement (Tier 1, 2, 3) */}
         <MatrizComercialB2B onOpenWholesaleModal={() => setIsWholesaleModalOpen(true)} />
 
-        {/* 6. Private Discovery Set Showcase (5 x 5ml) */}
+        {/* 6. Caja 20 Perfumes en Tubo (35ml) Showcase */}
         <DiscoverySetShowcase />
       </main>
 

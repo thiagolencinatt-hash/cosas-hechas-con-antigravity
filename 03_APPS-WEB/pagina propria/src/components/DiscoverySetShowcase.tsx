@@ -7,10 +7,10 @@ export function DiscoverySetShowcase() {
 
   const discoveryProduct: Product = {
     id: 9999,
-    name: 'Kit de Descubrimiento Privado (5 x 5ml)',
+    name: 'Caja 20 Perfumes en Tubo (20 x 35ml a Elección)',
     brand: 'LATHE ESSENCE',
     gender: 'unisex',
-    category: 'Discovery Set',
+    category: 'Tubos 35ml',
     price: 43000,
     retailPrice: 48000,
     image:
@@ -19,7 +19,7 @@ export function DiscoverySetShowcase() {
     rating: 5,
     reviewsCount: 38,
     description:
-      'Cinco frascos tubulares de 5ml en estuche de lujo con atomizadores de micro-niebla. $48.000 la unidad o $43.000 c/u a partir de 3 unidades.',
+      'Caja con 20 frascos tubulares de 35ml con atomizador spray. Fragancias 100% a elección del cliente armadas personalmente por nosotros. Ultra prácticos para llevar en el bolso, la guantera del auto o retocar a diario. $48.000 la unidad o $43.000 c/u a partir de 3 unidades.',
     pyramid: {
       top: ['Bergamota de Calabria', 'Cardamomo Negro'],
       heart: ['Oud de Trat', 'Jazmín Sambac', 'Rosa de Mayo'],
@@ -30,7 +30,7 @@ export function DiscoverySetShowcase() {
 
   const handleAddDiscovery = () => {
     addToCart(discoveryProduct, 1, 'minorista');
-    showToast('Kit de Descubrimiento Privado añadido al carrito.');
+    showToast('Caja de 20 Perfumes en Tubo (35ml) añadida al carrito.');
   };
 
   return (
@@ -45,15 +45,17 @@ export function DiscoverySetShowcase() {
           <div className="lg:col-span-7 flex flex-col gap-6 z-10">
             <div className="inline-flex items-center gap-2 font-mono text-[11px] text-[#c9a24b] uppercase tracking-[0.25em]">
               <Sparkles className="w-3.5 h-3.5" />
-              <span>Experiencia Sensorial en Tubos</span>
+              <span>Experiencia Práctica en Tubos 35ml</span>
             </div>
 
             <h2 className="font-sans text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-neutral-900 dark:text-white leading-tight">
-              Perfumes en Tubo: Caja Colección Privada
+              Perfumes en Tubo: Caja de 20 Unidades (35ml)
             </h2>
 
             <p className="font-sans text-neutral-600 dark:text-neutral-300 text-sm sm:text-base font-normal leading-relaxed max-w-xl">
-              Cinco frascos tubulares de 5ml con atomizadores de micro-niebla. El formato estrella para probar fijación en piel a lo largo del día o revender con altísima rotación.
+              Caja con <strong>20 frascos tubulares de 35ml</strong> con atomizador spray. 
+              Las fragancias son <strong>100% a tu elección y las armamos nosotros</strong> artesanalmente según tus preferencias. 
+              El formato más versátil y cómodo: ultra prácticos para llevar en el bolso, la mochila, en el auto o para usar todos los días sin cargar frascos pesados.
             </p>
 
             <div className="flex flex-wrap items-center gap-4 pt-2">
@@ -69,15 +71,15 @@ export function DiscoverySetShowcase() {
             <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 pt-4 border-t border-black/10 dark:border-white/10 max-w-lg">
               <div>
                 <span className="font-mono text-[10px] text-neutral-500 dark:text-neutral-400 uppercase block">Formato</span>
-                <span className="font-sans text-xs text-neutral-900 dark:text-white font-semibold">5 x 5ml Tubos Spray</span>
+                <span className="font-sans text-xs text-neutral-900 dark:text-white font-semibold">20 x 35ml Tubos Spray</span>
               </div>
               <div>
-                <span className="font-mono text-[10px] text-neutral-500 dark:text-neutral-400 uppercase block">Concentración</span>
-                <span className="font-sans text-xs text-neutral-900 dark:text-white font-semibold">32% Extrait de Parfum</span>
+                <span className="font-mono text-[10px] text-neutral-500 dark:text-neutral-400 uppercase block">Armado</span>
+                <span className="font-sans text-xs text-neutral-900 dark:text-white font-semibold">100% a Elección</span>
               </div>
               <div>
-                <span className="font-mono text-[10px] text-neutral-500 dark:text-neutral-400 uppercase block">Despacho</span>
-                <span className="font-sans text-xs text-[#c9a24b] font-semibold">A todo el país</span>
+                <span className="font-mono text-[10px] text-neutral-500 dark:text-neutral-400 uppercase block">Practicidad</span>
+                <span className="font-sans text-xs text-[#c9a24b] font-semibold">Bolso, Auto & Salidas</span>
               </div>
             </div>
 
@@ -87,7 +89,7 @@ export function DiscoverySetShowcase() {
                 className="px-8 py-3.5 bg-black dark:bg-white text-white dark:text-black font-sans text-xs uppercase tracking-wider font-semibold hover:opacity-90 transition-opacity flex items-center gap-2 cursor-pointer shadow-xl active:scale-[0.97]"
               >
                 <ShoppingBag className="w-4 h-4" />
-                <span>Añadir Set al Carrito ($ 48.000 ARS)</span>
+                <span>Añadir Caja de 20 al Carrito ($ 48.000 ARS)</span>
               </button>
             </div>
           </div>

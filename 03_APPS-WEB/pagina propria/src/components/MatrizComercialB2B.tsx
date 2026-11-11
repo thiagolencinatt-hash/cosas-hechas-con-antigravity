@@ -74,10 +74,10 @@ export function MatrizComercialB2B({ onOpenWholesaleModal }: MatrizComercialProp
   // Tubos Discovery Product
   const discoverySetProduct: Product = {
     id: 9999,
-    name: 'Caja Perfumes en Tubo (Set 5x5ml)',
+    name: 'Caja 20 Perfumes en Tubo (20x35ml a Elección)',
     brand: 'LATHE ESSENCE',
     gender: 'unisex',
-    category: 'Discovery Set',
+    category: 'Tubos 35ml',
     price: 43000,
     retailPrice: 48000,
     image:
@@ -86,14 +86,14 @@ export function MatrizComercialB2B({ onOpenWholesaleModal }: MatrizComercialProp
     rating: 5,
     reviewsCount: 42,
     description:
-      'Caja con 5 frascos tubulares de 5ml atomizadores de micro-niebla. $48.000 la unidad o $43.000 c/u llevando 3 o más cajas.',
+      'Caja con 20 frascos tubulares de 35ml atomizadores spray. Fragancias 100% a tu elección y armadas por nosotros. Prácticos para llevar en el bolso, en el auto y retocar en cualquier momento. $48.000 la unidad o $43.000 c/u llevando 3 o más cajas.',
     isFeatured: true,
   };
 
   const handleAddDiscoverySet = () => {
     addToCart(discoverySetProduct, 1, 'minorista');
     setIsCartOpen(true);
-    showToast('Caja de Perfumes en Tubo añadida al pedido ($ 48.000 ARS).');
+    showToast('Caja de 20 Perfumes en Tubo (35ml) añadida al pedido ($ 48.000 ARS).');
   };
 
   const handleStartEmprendedor = () => {
@@ -197,13 +197,26 @@ export function MatrizComercialB2B({ onOpenWholesaleModal }: MatrizComercialProp
                 <div className="flex items-center gap-2 mb-1 text-neutral-900 dark:text-white">
                   <Layers className="w-4 h-4 text-[#c9a24b]" />
                   <h3 className="font-sans text-lg sm:text-xl font-bold tracking-tight">
-                    Perfumes en Tubo
+                    Caja 20 Tubos (35ml)
                   </h3>
                 </div>
 
                 <p className="font-sans text-xs text-neutral-600 dark:text-neutral-400 mt-1 leading-relaxed">
-                  Caja de 5 viales tubulares de 5ml con atomizadores de micro-niebla. El formato estrella para probar y revender.
+                  Caja de <strong>20 perfumes en tubo de 35ml</strong> con atomizador spray. Fragancias a elección y las armamos nosotros a tu gusto.
                 </p>
+
+                {/* Practicality badges */}
+                <div className="mt-3 flex flex-wrap gap-1.5 text-[10px] font-sans text-neutral-600 dark:text-neutral-300">
+                  <span className="inline-flex items-center gap-1 bg-black/5 dark:bg-white/5 border border-black/5 dark:border-white/10 px-2 py-0.5">
+                    👜 Para el bolso o mochila
+                  </span>
+                  <span className="inline-flex items-center gap-1 bg-black/5 dark:bg-white/5 border border-black/5 dark:border-white/10 px-2 py-0.5">
+                    🚗 En el auto
+                  </span>
+                  <span className="inline-flex items-center gap-1 bg-black/5 dark:bg-white/5 border border-black/5 dark:border-white/10 px-2 py-0.5">
+                    ✨ Ultra prácticos
+                  </span>
+                </div>
               </div>
 
               <div className="flex flex-col gap-3 pt-5 mt-4 border-t border-black/10 dark:border-white/10">
@@ -233,7 +246,7 @@ export function MatrizComercialB2B({ onOpenWholesaleModal }: MatrizComercialProp
                   className="mt-2 w-full py-2.5 bg-black dark:bg-white text-white dark:text-black font-sans text-xs font-semibold uppercase tracking-wider hover:opacity-90 transition-opacity flex items-center justify-center gap-1.5 cursor-pointer shadow-md active:scale-[0.97]"
                 >
                   <ShoppingBag className="w-3.5 h-3.5" />
-                  <span>Añadir Set ($ 48.000)</span>
+                  <span>Añadir Caja ($ 48.000)</span>
                 </button>
               </div>
             </Interactive3DCard>
