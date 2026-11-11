@@ -3,7 +3,7 @@ import { DEFAULT_WHATSAPP_NUMBER } from '../context/ShopContext';
 
 export function Footer() {
   return (
-    <footer className="border-t border-black/10 dark:border-white/10 bg-neutral-900 dark:bg-[#070707] text-neutral-400 pt-12 pb-16 font-sans transition-colors duration-200">
+    <footer className="border-t border-black/10 dark:border-white/10 bg-neutral-100 dark:bg-[#070707] text-neutral-600 dark:text-neutral-400 pt-12 pb-16 font-sans transition-colors duration-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
         {/* Trust Badges */}

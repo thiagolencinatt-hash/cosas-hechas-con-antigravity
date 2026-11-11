@@ -1,41 +1,44 @@
 # ESTADO ACTUAL: LATHE ESSENCE HAUTE PARFUMERIE
 
-**Fecha de Actualización:** 10 de Noviembre de 2026  
-**Estado:** Producción Verificada y Operativa al 100% (Desktop & Mobile)  
-**URL Pública para Clientes:** `https://offline-installations-motherboard-importance.trycloudflare.com`  
+**Fecha de Actualización:** 11 de Noviembre de 2026  
+**Estado:** Producción Verificada y Operativa al 100% con Historia de Fundadores, Tarjetas 3D, Precios en Tubos, Modo Blanco Estático y 100% ARS  
+**URL Pública para Clientes:** `https://lap-mba-sherman-vic.trycloudflare.com`  
 **Servidor Local:** `http://localhost:5173/` (Vite 6 + React 19 + Tailwind CSS)  
-**Repositorio GitHub:** `https://github.com/thiagolencinatt-hash/cosas-hechas-con-antigravity.git` (Rama `main`, commit `79f7ac5`)
+**Repositorio GitHub:** `https://github.com/thiagolencinatt-hash/cosas-hechas-con-antigravity.git` (Rama `main`)
 
 ---
 
-## 1. Experiencia de Usuario & Parámetros Optimizados (Zero Overlap & Zero Freezing)
+## 1. Novedades Implementadas
 
-1. **Choreographed Scroll Narrative (120 FPS sin tirones ni trabas):**
-   - **Canvas Lerp Easing:** Motor de animación sincrónico sobre HTML5 Canvas con 140 fotogramas WebP ultralivianos (2.6 MB en total).
-   - **Intervalos de Visibilidad Sin Solapamiento:**
-     - `p = [0.00 - 0.24]`: **Amber.** — *Warm. The first thing they notice.*
-     - `p = [0.26 - 0.50]`: **Oud.** — *Rare, dark wood. The reason they turn around.*
-     - `p = [0.52 - 0.76]`: **Smoke.** — *Faint. The part no one can explain.*
-     - `p = [0.80 - 1.00]`: **LATHE ESSENCE (Meseta de Llegada)** — Logotipo oficial, insignia *"ALTA PERFUMERÍA • COLECCIÓN PRIVADA"*, título *"Tu Firma Olfativa"* y 3 CTAs principales (Explorar Colección, Portal B2B, Oráculo Olfativo).
-   - Cada bloque de texto tiene su propio espacio temporal con desvanecimiento limpio antes de la entrada del siguiente, garantizando cero interferencias visuales.
+1. **Historia de Pareja Fundadora & Visión de Escala Nacional:**
+   - La sección comercial comunica la auténtica visión del negocio: una pareja apasionada por la perfumería internacional con el objetivo de escalar a nivel nacional en toda Argentina.
+   - Destaca los pilares fundamentales:
+     - **Pedidos 100% Personalizados:** Elección libre de cualquier fragancia y marca sin cajas cerradas forzadas.
+     - **Combos Emprendedores desde 3 unidades:** Márgenes reales de reventa del 35% al 50%.
+     - **Envíos Asegurados a Todo el País:** Despacho con seguimiento puerta a puerta vía Correo y expresos.
 
-2. **Tipografía Editorial de Alta Gama:**
-   - Importación de fuentes Google Fonts optimizadas: **Cormorant Garamond** (Serif editorial de lujo), **Plus Jakarta Sans** (Sans moderna legible) y **Geist Mono** (códigos B2B e indicadores técnicos).
+2. **Perfumes en Tubo (Set 5x5ml) con Tarifas Escalonadas:**
+   - Formato destacado de descubrimiento y reventa:
+     - **1 Caja Individual:** **$ 48.000 ARS**
+     - **3 o más Cajas:** **$ 43.000 ARS** por unidad (ahorro de $5.000 por caja).
+   - Botón directo de adición al carrito y compra optimista.
 
-3. **Responsividad Móvil Exhaustiva (Probada en 390px x 844px y pantallas reducidas):**
-   - Escalado fluido de tipografía (`text-3xl` a `text-6xl` en mobile).
-   - Márgenes y paddings seguros sin desbordes horizontales ni recortes de texto.
-   - Botones táctiles adaptados a la zona del pulgar (touch targets > 44px).
-   - Cuadrícula de catálogo adaptativa de 1 a 4 columnas.
+3. **Tarjetas 3D Interactivas (Aceleración GPU):**
+   - Tarjetas comerciales con seguimiento de cursor 3D Tilt (`perspective(1000px) rotateX(...) rotateY(...) scale3d(...)`).
+   - Físicas suaves con curvas reactivas de Emil Kowalski (`cubic-bezier(0.16, 1, 0.3, 1)`).
+   - Tipografía limpia, moderna y accesible (`Plus Jakarta Sans`), eliminando fuentes góticas o difíciles de leer.
 
-4. **Identidad de Marca LATHE ESSENCE Preservada:**
-   - Logotipo oficial blanco integrado en Navbar, Hero Beat 4, Modales B2B y Catálogo, y Footer.
+4. **Botón Estático de Modo Blanco / Claro (Dual Theme):**
+   - Interruptor anclado firmemente junto al carrito con dimensiones rígidas (`w-10 h-10 shrink-0`) que **no se mueve ni salta de posición al hacer clic**.
+   - Al pulsar "Cambiar a color blanco", la página completa adquiere una estética de ultra-lujo blanca:
+     - Logotipo vectorial negro de LATHE ESSENCE.
+     - Fondos claros (`bg-white` y `bg-neutral-50`) con micro-bordes refinados.
+     - Tipografía de alto contraste legible en cualquier pantalla.
+     - Transición suave y persistencia en `localStorage`.
 
----
+5. **100% Pesos Argentinos (ARS):**
+   - Eliminadas todas las menciones a USD o EUR en precios, fichas técnicas y pedidos.
 
-## 2. Enlaces de Despliegue para el Cliente
-
-- **Enlace de Prueba Inmediato (Cloudflare Tunnel - Sin contraseña ni registros):**  
-  👉 `https://offline-installations-motherboard-importance.trycloudflare.com`
-- **Repositorio Git Sincronizado para Vercel:**  
-  Todos los cambios están subidos y actualizados en `origin/main`. Si el repositorio está conectado a Vercel, el deploy se ejecuta automáticamente.
+6. **Lupa de Búsqueda & Paginación Modular (12 u/página):**
+   - Lupa de búsqueda con atajo `⌘K` en el navbar y barra integrada en el catálogo.
+   - Paginación fluida con flechas de avance/retroceso para máxima velocidad en celulares.

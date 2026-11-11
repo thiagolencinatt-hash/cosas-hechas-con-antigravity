@@ -1,5 +1,5 @@
 import { useState, useRef, useEffect } from 'react';
-import { Search, ShoppingBag, Heart, X, Compass, ArrowRight } from 'lucide-react';
+import { Search, ShoppingBag, Heart, X, Compass, ArrowRight, Sun, Moon } from 'lucide-react';
 import { useShop } from '../context/ShopContext';
 
 interface NavbarProps {
@@ -16,6 +16,8 @@ export function Navbar({ onOpenWholesaleModal }: NavbarProps) {
     searchQuery,
     setSearchQuery,
     filteredProducts,
+    theme,
+    toggleTheme,
   } = useShop();
 
   const [isSearchOpen, setIsSearchOpen] = useState(false);
@@ -48,21 +50,21 @@ export function Navbar({ onOpenWholesaleModal }: NavbarProps) {
   return (
     <>
       {/* 1. Micro Ticker / Announcement Bar (Minimalist Luxury) */}
-      <aside aria-label="Aviso comercial" className="bg-[#050608] text-neutral-300 py-2 px-4 sm:px-8 text-[11px] font-mono tracking-wider uppercase border-b border-white/10 select-none z-30 relative">
+      <aside aria-label="Aviso comercial" className="bg-neutral-100 dark:bg-[#050608] text-neutral-700 dark:text-neutral-300 py-2 px-4 sm:px-8 text-[11px] font-mono tracking-wider uppercase border-b border-black/5 dark:border-white/10 select-none z-30 relative transition-colors duration-200">
         <div className="max-w-[1440px] mx-auto flex flex-col sm:flex-row items-center justify-between gap-2">
           <div className="flex items-center gap-2">
             <span className="w-1.5 h-1.5 rounded-full bg-[#c9a24b] animate-pulse" />
-            <span className="font-semibold text-white tracking-widest">DESPACHO ASEGURADO FEDEX PRIORITY 48H</span>
-            <span className="text-neutral-600 hidden sm:inline">•</span>
-            <span className="text-neutral-400 hidden sm:inline">Lotes Certificados IFRA / Paris & Dubái</span>
+            <span className="font-semibold text-neutral-900 dark:text-white tracking-widest">DESPACHO ASEGURADO FEDEX PRIORITY 48H</span>
+            <span className="text-neutral-400 dark:text-neutral-600 hidden sm:inline">•</span>
+            <span className="text-neutral-500 dark:text-neutral-400 hidden sm:inline">Lotes Certificados IFRA / Paris & Dubái</span>
           </div>
           <div className="flex items-center gap-4">
-            <span className="text-[#c9a24b] hidden md:inline">
-              Precios Escalonados (Pack 6u: -30% • Caja 12u: -45% • Pallet: -55%)
+            <span className="text-[#c9a24b] hidden md:inline font-medium">
+              Combos Emprendedores desde 3u • Pedidos Personalizados
             </span>
             <button
               onClick={onOpenWholesaleModal}
-              className="text-white hover:text-[#c9a24b] underline underline-offset-4 transition-colors font-semibold cursor-pointer"
+              className="text-neutral-900 dark:text-white hover:text-[#c9a24b] underline underline-offset-4 transition-colors font-semibold cursor-pointer"
             >
               Tarifas B2B
             </button>
@@ -71,10 +73,10 @@ export function Navbar({ onOpenWholesaleModal }: NavbarProps) {
       </aside>
 
       {/* 2. Main Sticky Architectural Navbar (Minimalist Luxury) */}
-      <header className="sticky top-0 z-40 bg-[#0B0C10]/95 backdrop-blur-xl border-b border-white/10 transition-colors duration-200">
+      <header className="sticky top-0 z-40 bg-white/95 dark:bg-[#0B0C10]/95 backdrop-blur-xl border-b border-black/10 dark:border-white/10 text-neutral-900 dark:text-white transition-colors duration-200">
         <div className="max-w-[1440px] mx-auto px-4 sm:px-8 lg:px-12 h-20 flex items-center justify-between gap-4 sm:gap-6">
           
-          {/* Brand Logo Real (LATHE ESSENCE) */}
+          {/* Brand Logo Real (LATHE ESSENCE) - Adapts to White / Dark mode */}
           <a
             href="#top"
             className="flex items-center gap-3 group flex-shrink-0 text-inherit no-underline"
@@ -83,23 +85,28 @@ export function Navbar({ onOpenWholesaleModal }: NavbarProps) {
             <img
               src="/images/logo/lathe-logo-white.png"
               alt="LATHE ESSENCE"
-              className="h-8 sm:h-11 w-auto object-contain transition-transform duration-200 group-hover:scale-[1.03]"
+              className="h-8 sm:h-11 w-auto object-contain hidden dark:block transition-transform duration-200 group-hover:scale-[1.03]"
+            />
+            <img
+              src="/images/logo/lathe-logo-black.png"
+              alt="LATHE ESSENCE"
+              className="h-8 sm:h-11 w-auto object-contain dark:hidden transition-transform duration-200 group-hover:scale-[1.03]"
             />
           </a>
 
           {/* Navigation Links (Desktop) */}
-          <nav className="hidden lg:flex items-center gap-8 font-mono text-xs uppercase tracking-widest text-neutral-300">
-            <a href="#top" className="hover:text-white transition-colors py-1 border-b border-transparent hover:border-white">
+          <nav className="hidden lg:flex items-center gap-8 font-mono text-xs uppercase tracking-widest text-neutral-600 dark:text-neutral-300">
+            <a href="#top" className="hover:text-black dark:hover:text-white transition-colors py-1 border-b border-transparent hover:border-black dark:hover:border-white">
               Inicio
             </a>
-            <a href="#pilares" className="hover:text-white transition-colors py-1 border-b border-transparent hover:border-white">
+            <a href="#pilares" className="hover:text-black dark:hover:text-white transition-colors py-1 border-b border-transparent hover:border-black dark:hover:border-white">
               Pilares
             </a>
-            <a href="#catalogo" className="hover:text-white transition-colors py-1 border-b border-transparent hover:border-white">
+            <a href="#catalogo" className="hover:text-black dark:hover:text-white transition-colors py-1 border-b border-transparent hover:border-black dark:hover:border-white">
               Catálogo
             </a>
-            <a href="#b2b-matriz" className="hover:text-white transition-colors py-1 border-b border-transparent hover:border-white">
-              Tarifas B2B
+            <a href="#b2b-matriz" className="hover:text-black dark:hover:text-white transition-colors py-1 border-b border-transparent hover:border-black dark:hover:border-white">
+              Emprendedores
             </a>
             <button
               onClick={() => setIsQuizOpen(true)}
@@ -110,8 +117,8 @@ export function Navbar({ onOpenWholesaleModal }: NavbarProps) {
             </button>
           </nav>
 
-          {/* Right Action Controls: Lupa Search, Wishlist, Cart */}
-          <div className="flex items-center gap-2 sm:gap-3">
+          {/* Right Action Controls: Lupa Search, Wishlist, Cart, Static Theme Switcher */}
+          <div className="flex items-center gap-2 sm:gap-3 shrink-0">
             
             {/* Lupa (Search Button) - Visible on ALL screens */}
             <button
@@ -123,8 +130,8 @@ export function Navbar({ onOpenWholesaleModal }: NavbarProps) {
               }}
               className={`p-2.5 transition-colors cursor-pointer border ${
                 isSearchOpen || searchQuery
-                  ? 'bg-white text-black border-white shadow-md'
-                  : 'bg-[#14161D] border-white/10 text-neutral-300 hover:text-white hover:border-white/30'
+                  ? 'bg-black text-white dark:bg-white dark:text-black border-black dark:border-white shadow-md'
+                  : 'bg-neutral-100 dark:bg-[#14161D] border-black/10 dark:border-white/10 text-neutral-700 dark:text-neutral-300 hover:text-black dark:hover:text-white hover:border-black/30 dark:hover:border-white/30'
               }`}
               aria-label="Buscar perfume (Lupa)"
               title="Buscar perfume (⌘K)"
@@ -135,7 +142,7 @@ export function Navbar({ onOpenWholesaleModal }: NavbarProps) {
             {/* Wishlist Button */}
             <button
               onClick={() => setIsWishlistOpen(true)}
-              className="p-2.5 text-neutral-300 hover:text-white bg-[#14161D] border border-white/10 relative transition-colors cursor-pointer"
+              className="p-2.5 text-neutral-700 dark:text-neutral-300 hover:text-black dark:hover:text-white bg-neutral-100 dark:bg-[#14161D] border border-black/10 dark:border-white/10 relative transition-colors cursor-pointer"
               aria-label="Favoritos"
             >
               <Heart className="w-4 h-4" />
@@ -149,7 +156,7 @@ export function Navbar({ onOpenWholesaleModal }: NavbarProps) {
             {/* Cart Drawer Button */}
             <button
               onClick={() => setIsCartOpen(true)}
-              className="p-2.5 bg-white text-black hover:bg-neutral-200 transition-colors relative flex items-center justify-center cursor-pointer shadow-lg active:scale-[0.97]"
+              className="p-2.5 bg-black dark:bg-white text-white dark:text-black hover:opacity-90 transition-opacity relative flex items-center justify-center cursor-pointer shadow-lg active:scale-[0.97]"
               aria-label="Carrito de compras"
             >
               <ShoppingBag className="w-4 h-4" />
@@ -160,15 +167,29 @@ export function Navbar({ onOpenWholesaleModal }: NavbarProps) {
               )}
             </button>
 
+            {/* Static Theme Switcher (Color Blanco / Oscuro) - Statically Anchored */}
+            <button
+              onClick={toggleTheme}
+              className="w-10 h-10 flex items-center justify-center shrink-0 border border-neutral-300 dark:border-white/10 bg-neutral-100 dark:bg-[#14161D] text-neutral-800 dark:text-neutral-200 hover:border-black/40 dark:hover:border-white/40 transition-colors cursor-pointer select-none active:scale-[0.97]"
+              aria-label={theme === 'dark' ? 'Cambiar a color blanco' : 'Cambiar a color oscuro'}
+              title={theme === 'dark' ? 'Cambiar a color blanco' : 'Cambiar a color oscuro'}
+            >
+              {theme === 'dark' ? (
+                <Sun className="w-4 h-4 text-[#e6cb85]" />
+              ) : (
+                <Moon className="w-4 h-4 text-neutral-800" />
+              )}
+            </button>
+
           </div>
 
         </div>
 
         {/* 3. Luxury Slide-Down Search Drawer (Triggered by Lupa) */}
         {isSearchOpen && (
-          <div className="w-full bg-[#12141A] border-t border-white/10 border-b border-white/15 px-4 sm:px-8 lg:px-12 py-3.5 animate-fade-in shadow-2xl transition-all">
+          <div className="w-full bg-neutral-100 dark:bg-[#12141A] border-t border-black/10 dark:border-white/10 border-b border-black/15 dark:border-white/15 px-4 sm:px-8 lg:px-12 py-3.5 animate-fade-in shadow-2xl transition-all">
             <div className="max-w-[1440px] mx-auto flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3">
-              <form onSubmit={handleSearchSubmit} className="flex-1 flex items-center gap-3 bg-[#0B0C10] border border-white/15 px-4 py-2">
+              <form onSubmit={handleSearchSubmit} className="flex-1 flex items-center gap-3 bg-white dark:bg-[#0B0C10] border border-black/15 dark:border-white/15 px-4 py-2">
                 <Search className="w-4 h-4 text-[#c9a24b] shrink-0" />
                 <input
                   ref={searchInputRef}
@@ -176,14 +197,14 @@ export function Navbar({ onOpenWholesaleModal }: NavbarProps) {
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
                   placeholder="Buscar por nombre, nota (ej. Vainilla, Oud, Ámbar) o marca (ej. Lattafa, Tom Ford)..."
-                  className="w-full bg-transparent text-white placeholder:text-neutral-500 font-sans text-xs sm:text-sm focus:outline-none"
+                  className="w-full bg-transparent text-neutral-900 dark:text-white placeholder:text-neutral-500 font-sans text-xs sm:text-sm focus:outline-none"
                   autoFocus
                 />
                 {searchQuery && (
                   <button
                     type="button"
                     onClick={() => setSearchQuery('')}
-                    className="p-1 text-neutral-400 hover:text-white"
+                    className="p-1 text-neutral-500 hover:text-black dark:text-neutral-400 dark:hover:text-white"
                     aria-label="Borrar búsqueda"
                   >
                     <X className="w-3.5 h-3.5" />
@@ -192,13 +213,13 @@ export function Navbar({ onOpenWholesaleModal }: NavbarProps) {
               </form>
 
               <div className="flex items-center gap-2 justify-end">
-                <span className="text-[11px] font-mono text-neutral-400">
+                <span className="text-[11px] font-mono text-neutral-600 dark:text-neutral-400">
                   {filteredProducts.length} fragancia{filteredProducts.length === 1 ? '' : 's'}
                 </span>
 
                 <button
                   onClick={() => handleSearchSubmit()}
-                  className="px-4 py-2 bg-white text-black font-mono text-xs uppercase font-semibold hover:bg-neutral-200 transition-colors flex items-center gap-1.5 cursor-pointer"
+                  className="px-4 py-2 bg-black dark:bg-white text-white dark:text-black font-mono text-xs uppercase font-semibold hover:opacity-90 transition-opacity flex items-center gap-1.5 cursor-pointer"
                 >
                   <span>Explorar</span>
                   <ArrowRight className="w-3.5 h-3.5" />
@@ -206,7 +227,7 @@ export function Navbar({ onOpenWholesaleModal }: NavbarProps) {
 
                 <button
                   onClick={() => setIsSearchOpen(false)}
-                  className="p-2 text-neutral-400 hover:text-white transition-colors cursor-pointer"
+                  className="p-2 text-neutral-600 hover:text-black dark:text-neutral-400 dark:hover:text-white transition-colors cursor-pointer"
                   aria-label="Cerrar buscador"
                   title="Cerrar (Esc)"
                 >

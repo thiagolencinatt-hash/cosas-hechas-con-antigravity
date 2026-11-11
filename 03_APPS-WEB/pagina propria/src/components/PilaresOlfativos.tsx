@@ -72,7 +72,7 @@ export function PilaresOlfativos() {
   };
 
   return (
-    <section id="pilares" className="w-full bg-[#0B0C10] py-20 border-b border-white/10 relative z-20 shadow-2xl">
+    <section id="pilares" className="w-full bg-neutral-50 dark:bg-[#0B0C10] py-20 border-b border-black/10 dark:border-white/10 relative z-20 shadow-2xl transition-colors duration-200">
       <div className="max-w-[1440px] mx-auto px-4 sm:px-8 lg:px-12">
         
         {/* Section Header */}
@@ -82,11 +82,11 @@ export function PilaresOlfativos() {
               <Sparkles className="w-3.5 h-3.5" />
               <span>01 / Arquitectura Sensorial</span>
             </div>
-            <h2 className="font-serif text-4xl sm:text-5xl lg:text-6xl text-white font-normal tracking-tight">
+            <h2 className="font-serif text-4xl sm:text-5xl lg:text-6xl text-neutral-900 dark:text-white font-normal tracking-tight">
               Pilares Olfativos
             </h2>
           </div>
-          <p className="font-sans text-neutral-400 text-sm sm:text-base max-w-md font-light leading-relaxed">
+          <p className="font-sans text-neutral-600 dark:text-neutral-400 text-sm sm:text-base max-w-md font-light leading-relaxed">
             Composiciones puras destiladas a baja temperatura. Cuatro familias primarias formuladas para perdurar más de 18 horas sobre la epidermis.
           </p>
         </div>
@@ -97,7 +97,7 @@ export function PilaresOlfativos() {
             <div
               key={p.id}
               onClick={() => handlePillarClick(p)}
-              className="group relative flex flex-col bg-[#12141A] border border-white/10 overflow-hidden hover:border-[#c9a24b]/50 hover:bg-[#1A1D24] transition-all duration-300 cursor-pointer shadow-xl"
+              className="group relative flex flex-col bg-white dark:bg-[#12141A] border border-black/10 dark:border-white/10 overflow-hidden hover:border-[#c9a24b]/50 hover:bg-neutral-50 dark:hover:bg-[#1A1D24] transition-all duration-300 cursor-pointer shadow-xl"
             >
               {/* Photo Area */}
               <div className="aspect-[4/5] w-full overflow-hidden relative bg-black">
@@ -105,7 +105,7 @@ export function PilaresOlfativos() {
                   className="w-full h-full bg-cover bg-center transition-transform duration-700 ease-out group-hover:scale-105"
                   style={{ backgroundImage: `url('${p.bgImage}')` }}
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#12141A] via-transparent to-black/40" />
+                <div className="absolute inset-0 bg-gradient-to-t from-white/90 dark:from-[#12141A] via-transparent to-black/30" />
                 <span className="absolute top-4 left-4 font-mono text-[10px] bg-black/80 backdrop-blur-md border border-white/15 px-2.5 py-1 text-white uppercase tracking-wider">
                   PILARES // {p.num}
                 </span>
@@ -117,19 +117,19 @@ export function PilaresOlfativos() {
                   <span className="font-mono text-[11px] text-[#c9a24b] tracking-[0.2em] uppercase block mb-1">
                     {p.subtitle}
                   </span>
-                  <h3 className="font-serif text-2xl text-white font-normal mb-2 group-hover:text-[#f8f8f6] transition-colors">
+                  <h3 className="font-serif text-2xl text-neutral-900 dark:text-white font-normal mb-2 group-hover:text-black dark:group-hover:text-[#f8f8f6] transition-colors">
                     {p.title}
                   </h3>
-                  <p className="font-sans text-xs sm:text-sm text-neutral-400 font-light leading-relaxed">
+                  <p className="font-sans text-xs sm:text-sm text-neutral-600 dark:text-neutral-400 font-light leading-relaxed">
                     {p.desc}
                   </p>
                 </div>
 
-                <div className="pt-3 border-t border-white/10 flex items-center justify-between text-neutral-400 group-hover:text-white transition-colors">
+                <div className="pt-3 border-t border-black/10 dark:border-white/10 flex items-center justify-between text-neutral-500 dark:text-neutral-400 group-hover:text-black dark:group-hover:text-white transition-colors">
                   <span className="font-mono text-[11px] tracking-wider uppercase">
                     {p.fragranceCount} FRAGANCIAS
                   </span>
-                  <div className="w-7 h-7 rounded-full bg-white/5 flex items-center justify-center group-hover:bg-white group-hover:text-black transition-all">
+                  <div className="w-7 h-7 rounded-full bg-black/5 dark:bg-white/5 flex items-center justify-center group-hover:bg-black group-hover:text-white dark:group-hover:bg-white dark:group-hover:text-black transition-all">
                     <ArrowUpRight className="w-3.5 h-3.5" />
                   </div>
                 </div>

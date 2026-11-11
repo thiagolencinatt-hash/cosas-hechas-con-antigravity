@@ -7,26 +7,19 @@ LATHE ESSENCE — Haute Parfumerie & B2B Luxury E-Commerce
 2026-11-11
 
 ## Tarea actual
-Arquitectura cinematográfica 120 FPS, branding LATHE ESSENCE, responsividad móvil y portal B2B completados.
+Matriz B2B con historia de pareja fundadora y visión de escala nacional, tarjetas 3D interactivas, precios de perfumes en tubo ($48k individual / $43k c/u x 3+), 100% ARS y selector estático de Modo Blanco / Oscuro.
 
 ## Estado
-✅ Producción Verificada y Sincronizada en GitHub
+✅ Build de producción exitoso (0 errores TS/Vite) y verificado visualmente en Chrome DevTools.
 
 ## Archivos modificados
-- src/components/CinematicHero.tsx (Canvas 120 FPS Lerp, 140 WebP, cero solapamiento)
-- src/components/Navbar.tsx (Logo LATHE ESSENCE, modo B2B/B2C, ticker FedEx)
-- src/components/PilaresOlfativos.tsx, MatrizComercialB2B.tsx, DiscoverySetShowcase.tsx
-- src/components/Catalog.tsx, ProductCard.tsx, ProductModal.tsx, WholesalePortalModal.tsx
-- index.html (Cormorant Garamond, Cinzel, EB Garamond, Plus Jakarta Sans)
-- CURRENT_STATE.md, TASKS.md
-
-## Decisiones recientes
-- Reemplazo de seeking HTML5 video por Canvas render de fotogramas WebP pre-cacheados (2.6 MB).
-- Separación estricta de ventanas de opacidad para eliminar solapamiento entre beats narrativos.
-- Integración nativa del logotipo oficial y paleta Obsidian/Oro satinado.
-
-## Errores relevantes
-- Ninguno pendiente. Compilación TypeScript y Vite build exitosos en 4.40s.
+- `src/components/MatrizComercialB2B.tsx`: Historia de la pareja fundadora, escala nacional, combos emprendedores, tarjetas 3D tilt y precios de perfumes en tubo.
+- `src/components/DiscoverySetShowcase.tsx`: Adaptación de precios a $48.000 individual y $43.000 x 3+ cajas en ARS.
+- `src/components/Navbar.tsx`: Botón estático de alternancia Blanco/Oscuro, Lupa de búsqueda con drawer ⌘K, logo adaptable blanco/negro.
+- `src/components/Catalog.tsx`: Dual theme light/dark, paginación de 12u con flechas < y >, buscador con lupa.
+- `src/components/PilaresOlfativos.tsx`: Dual theme light/dark con tarjetas de arquitectura sensorial.
+- `src/components/Footer.tsx`: Dual theme light/dark y credenciales de confianza.
+- `src/App.tsx`: Soporte de fondo adaptable a blanco puro / dark slate.
 
 ## Siguiente paso
-Recibir feedback del cliente tras visualización en enlace público Cloudflare o producción Vercel.
+Monitorear interacción del usuario y cliente en el enlace público.

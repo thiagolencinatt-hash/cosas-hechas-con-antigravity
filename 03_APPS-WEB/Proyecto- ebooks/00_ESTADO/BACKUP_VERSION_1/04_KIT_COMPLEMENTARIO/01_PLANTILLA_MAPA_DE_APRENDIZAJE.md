@@ -1,0 +1,60 @@
+# RECURSO 01: PLANTILLA DE MAPA DE APRENDIZAJE INTELIGENTE
+
+> **Kit Complementario:** El Sistema de Aprendizaje Acelerado con IA  
+> **Fase del Método:** FASE 1: PREPARAR  
+> **Propósito:** Descomponer una habilidad o materia compleja en submetas jerárquicas alcanzables, evitando la sobrecarga de la memoria de trabajo.
+
+---
+
+## Instrucciones de Uso
+1. **Definí tu Meta Terminal:** No escribas un deseo difuso ("saber finanzas"). Escribí qué vas a ser capaz de producir o demostrar de forma autónoma.
+2. **Identificá tus 3 conocimientos previos:** Anotá qué conceptos previos tenés para tender puentes cognitivos.
+3. **Dividí en 4 Módulos Obligatorios:** Asigná a cada módulo una submeta concreta con su prueba de validación antes de pasar al siguiente.
+4. **Imprimí o guardá esta plantilla:** Colocala a la vista en tu espacio de trabajo.
+
+---
+
+## Formulario Rellenable
+
+### 1. DATOS DE IDENTIFICACIÓN
+- **Habilidad / Disciplina:** __________________________________________________
+- **Fecha de Inicio:** _____ / _____ / _________
+- **Fecha Objetivo de Culminación (Día 30):** _____ / _____ / _________
+- **Horas semanales de dedicación real:** ________ horas (en bloques de 45 minutos).
+
+### 2. META TERMINAL MEDIBLE (EL ENTREGABLE)
+*"Al finalizar este proceso, seré capaz de:"*
+__________________________________________________________________________________
+__________________________________________________________________________________
+*Criterio de validación observable (¿Cómo sabré que lo logré?):* _________________
+
+### 3. INVENTARIO DE ANCLAJE (CONOCIMIENTOS PREVIOS)
+1. _______________________________________________________________________________
+2. _______________________________________________________________________________
+3. _______________________________________________________________________________
+
+### 4. MAPA JERÁRQUICO DE SUBMETAS (4 MÓDULOS)
+
+#### MÓDULO 1: Fundamentos y Conceptos Umbral (Semana 1)
+- **Submeta a alcanzar:** _______________________________________________________
+- **Conceptos críticos:** _______________________________________________________
+- **Prueba de validación (Condición de paso):** _________________________________
+- **Estado:** [ ] No iniciado   [ ] En progreso   [ ] Validado
+
+#### MÓDULO 2: Mecánicas y Operaciones Centrales (Semana 2)
+- **Submeta a alcanzar:** _______________________________________________________
+- **Procedimientos clave:** _____________________________________________________
+- **Prueba de validación (Condición de paso):** _________________________________
+- **Estado:** [ ] No iniciado   [ ] En progreso   [ ] Validado
+
+#### MÓDULO 3: Integración y Casos Prácticos (Semana 3)
+- **Submeta a alcanzar:** _______________________________________________________
+- **Casos desafiantes:** ________________________________________________________
+- **Prueba de validación (Condición de paso):** _________________________________
+- **Estado:** [ ] No iniciado   [ ] En progreso   [ ] Validado
+
+#### MÓDULO 4: Demostración Autónoma y Proyecto Real (Semana 4)
+- **Submeta a alcanzar:** _______________________________________________________
+- **Proyecto de transferencia:** ________________________________________________
+- **Prueba de desconexión digital (sin ayuda de IA):** __________________________
+- **Estado:** [ ] No iniciado   [ ] En progreso   [ ] Validado

@@ -21,7 +21,7 @@ function StoreLayout() {
   const [isWholesaleModalOpen, setIsWholesaleModalOpen] = useState(false);
 
   return (
-    <div id="top" className="min-h-screen bg-[#0B0C10] text-[#F5F5F0] selection:bg-white/20 selection:text-white relative transition-colors duration-200">
+    <div id="top" className="min-h-screen bg-neutral-50 dark:bg-[#0B0C10] text-neutral-900 dark:text-[#F5F5F0] selection:bg-neutral-800 selection:text-white dark:selection:bg-white/20 dark:selection:text-white relative transition-colors duration-300">
       
       {/* Top Architectural Navigation */}
       <Navbar onOpenWholesaleModal={() => setIsWholesaleModalOpen(true)} />

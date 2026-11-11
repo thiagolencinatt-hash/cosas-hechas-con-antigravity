@@ -69,7 +69,7 @@ export function Catalog() {
   };
 
   return (
-    <section id="catalogo" className="py-16 bg-[#0B0C10] text-white border-b border-white/10 transition-colors duration-200">
+    <section id="catalogo" className="py-16 bg-white dark:bg-[#0B0C10] text-neutral-900 dark:text-white border-b border-black/10 dark:border-white/10 transition-colors duration-200">
       <div className="max-w-[1440px] mx-auto px-4 sm:px-8 lg:px-12">
         
         {/* Header & Title Bar */}
@@ -79,11 +79,11 @@ export function Catalog() {
               <Sparkles className="w-3.5 h-3.5" />
               <span>02 / Curaduría de Alta Perfumería</span>
             </div>
-            <h2 className="font-serif text-3xl sm:text-5xl font-normal tracking-tight text-white">
+            <h2 className="font-serif text-3xl sm:text-5xl font-normal tracking-tight text-neutral-900 dark:text-white">
               Catálogo General de Fragancias
             </h2>
-            <p className="font-sans text-xs sm:text-sm text-neutral-400 mt-2 max-w-2xl font-light leading-relaxed">
-              Composiciones extraídas en micro-lotes. Precios dinámicos en tiempo real según modalidad: menudeo minorista desde <strong className="text-white font-medium">1 unidad</strong> o adquisición mayorista desde <strong className="text-white font-medium">3 unidades surtidas</strong> con margen de hasta el 55%.
+            <p className="font-sans text-xs sm:text-sm text-neutral-600 dark:text-neutral-400 mt-2 max-w-2xl font-light leading-relaxed">
+              Composiciones extraídas en micro-lotes. Precios dinámicos en tiempo real según modalidad: menudeo minorista desde <strong className="text-neutral-900 dark:text-white font-medium">1 unidad</strong> o adquisición mayorista desde <strong className="text-neutral-900 dark:text-white font-medium">3 unidades surtidas</strong> con margen de hasta el 55%.
             </p>
           </div>
 
@@ -97,12 +97,12 @@ export function Catalog() {
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 placeholder="Buscar perfume (Lupa)..."
-                className="w-full h-9 pl-9 pr-8 bg-[#14161D] border border-white/10 hover:border-white/20 focus:border-[#c9a24b] text-white placeholder:text-neutral-500 font-sans text-xs focus:outline-none transition-colors"
+                className="w-full h-9 pl-9 pr-8 bg-neutral-100 dark:bg-[#14161D] border border-black/10 dark:border-white/10 hover:border-black/25 dark:hover:border-white/20 focus:border-[#c9a24b] text-neutral-900 dark:text-white placeholder:text-neutral-500 font-sans text-xs focus:outline-none transition-colors"
               />
               {searchQuery && (
                 <button
                   onClick={() => setSearchQuery('')}
-                  className="absolute right-2.5 top-1/2 -translate-y-1/2 p-0.5 text-neutral-400 hover:text-white"
+                  className="absolute right-2.5 top-1/2 -translate-y-1/2 p-0.5 text-neutral-400 hover:text-black dark:hover:text-white"
                   aria-label="Limpiar búsqueda"
                 >
                   <X className="w-3 h-3" />
@@ -111,14 +111,14 @@ export function Catalog() {
             </div>
 
             {/* View Mode Toggle (Cuadrícula / Tabla) */}
-            <div className="flex items-center bg-[#14161D] border border-white/10 p-1">
+            <div className="flex items-center bg-neutral-100 dark:bg-[#14161D] border border-black/10 dark:border-white/10 p-1">
               <button
                 type="button"
                 onClick={() => setViewMode('grid')}
                 className={`flex items-center gap-1.5 px-3 py-1.5 font-mono text-xs uppercase tracking-wider transition-colors cursor-pointer ${
                   viewMode === 'grid'
-                    ? 'bg-white text-black font-semibold'
-                    : 'text-neutral-400 hover:text-white'
+                    ? 'bg-black text-white dark:bg-white dark:text-black font-semibold'
+                    : 'text-neutral-600 dark:text-neutral-400 hover:text-black dark:hover:text-white'
                 }`}
                 title="Vista Cuadrícula"
               >
@@ -131,8 +131,8 @@ export function Catalog() {
                 onClick={() => setViewMode('table')}
                 className={`flex items-center gap-1.5 px-3 py-1.5 font-mono text-xs uppercase tracking-wider transition-colors cursor-pointer ${
                   viewMode === 'table'
-                    ? 'bg-white text-black font-semibold'
-                    : 'text-neutral-400 hover:text-white'
+                    ? 'bg-black text-white dark:bg-white dark:text-black font-semibold'
+                    : 'text-neutral-600 dark:text-neutral-400 hover:text-black dark:hover:text-white'
                 }`}
                 title="Vista Tabla Técnica B2B"
               >
@@ -144,7 +144,7 @@ export function Catalog() {
             {/* Filter Drawer Trigger */}
             <button
               onClick={() => setIsFilterDrawerOpen(true)}
-              className="flex items-center gap-2 px-4 py-2 bg-[#14161D] border border-white/10 hover:border-white/30 text-white font-mono text-xs uppercase tracking-wider transition-colors cursor-pointer"
+              className="flex items-center gap-2 px-4 py-2 bg-neutral-100 dark:bg-[#14161D] border border-black/10 dark:border-white/10 hover:border-black/30 dark:hover:border-white/30 text-neutral-900 dark:text-white font-mono text-xs uppercase tracking-wider transition-colors cursor-pointer"
             >
               <SlidersHorizontal className="w-3.5 h-3.5 text-[#c9a24b]" />
               <span>Filtros {activeFiltersCount > 0 ? `(${activeFiltersCount})` : ''}</span>
@@ -153,16 +153,16 @@ export function Catalog() {
             {/* Export Buttons */}
             <button
               onClick={handleExportExcel}
-              className="hidden lg:flex items-center gap-1.5 px-3 py-2 bg-white/5 hover:bg-white/10 border border-white/10 text-neutral-300 hover:text-white font-mono text-xs uppercase tracking-wider transition-colors cursor-pointer"
+              className="hidden lg:flex items-center gap-1.5 px-3 py-2 bg-neutral-100 dark:bg-white/5 hover:bg-neutral-200 dark:hover:bg-white/10 border border-black/10 dark:border-white/10 text-neutral-700 dark:text-neutral-300 hover:text-black dark:hover:text-white font-mono text-xs uppercase tracking-wider transition-colors cursor-pointer"
               title="Descargar Excel"
             >
-              <FileSpreadsheet className="w-3.5 h-3.5 text-emerald-400" />
+              <FileSpreadsheet className="w-3.5 h-3.5 text-emerald-500" />
               <span>Excel</span>
             </button>
 
             <button
               onClick={handleExportPDF}
-              className="hidden lg:flex items-center gap-1.5 px-3 py-2 bg-white/5 hover:bg-white/10 border border-white/10 text-neutral-300 hover:text-white font-mono text-xs uppercase tracking-wider transition-colors cursor-pointer"
+              className="hidden lg:flex items-center gap-1.5 px-3 py-2 bg-neutral-100 dark:bg-white/5 hover:bg-neutral-200 dark:hover:bg-white/10 border border-black/10 dark:border-white/10 text-neutral-700 dark:text-neutral-300 hover:text-black dark:hover:text-white font-mono text-xs uppercase tracking-wider transition-colors cursor-pointer"
               title="Descargar Catálogo PDF"
             >
               <Download className="w-3.5 h-3.5 text-[#c9a24b]" />
@@ -173,40 +173,40 @@ export function Catalog() {
 
         {/* Active Filters Bar */}
         {activeFiltersCount > 0 && (
-          <div className="flex flex-wrap items-center gap-2 mb-6 p-3 bg-[#12141A] border border-white/10 text-xs font-mono">
-            <span className="text-neutral-400 uppercase">Filtros activos:</span>
+          <div className="flex flex-wrap items-center gap-2 mb-6 p-3 bg-neutral-100 dark:bg-[#12141A] border border-black/10 dark:border-white/10 text-xs font-mono">
+            <span className="text-neutral-500 dark:text-neutral-400 uppercase">Filtros activos:</span>
             
             {selectedBrand !== 'Todas' && (
-              <span className="inline-flex items-center gap-1.5 px-3 py-1 bg-black/60 text-white border border-white/15">
+              <span className="inline-flex items-center gap-1.5 px-3 py-1 bg-white dark:bg-black/60 text-neutral-800 dark:text-white border border-black/10 dark:border-white/15">
                 Marca: {selectedBrand}
-                <button onClick={() => setSelectedBrand('Todas')} className="hover:text-red-400 cursor-pointer">
+                <button onClick={() => setSelectedBrand('Todas')} className="hover:text-red-500 cursor-pointer">
                   <X className="w-3 h-3" />
                 </button>
               </span>
             )}
 
             {selectedGender !== 'Todos' && (
-              <span className="inline-flex items-center gap-1.5 px-3 py-1 bg-black/60 text-white border border-white/15">
+              <span className="inline-flex items-center gap-1.5 px-3 py-1 bg-white dark:bg-black/60 text-neutral-800 dark:text-white border border-black/10 dark:border-white/15">
                 Para: {selectedGender}
-                <button onClick={() => setSelectedGender('Todos')} className="hover:text-red-400 cursor-pointer">
+                <button onClick={() => setSelectedGender('Todos')} className="hover:text-red-500 cursor-pointer">
                   <X className="w-3 h-3" />
                 </button>
               </span>
             )}
 
             {selectedCategory !== 'Todos' && (
-              <span className="inline-flex items-center gap-1.5 px-3 py-1 bg-black/60 text-white border border-white/15">
+              <span className="inline-flex items-center gap-1.5 px-3 py-1 bg-white dark:bg-black/60 text-neutral-800 dark:text-white border border-black/10 dark:border-white/15">
                 Familia: {selectedCategory}
-                <button onClick={() => setSelectedCategory('Todos')} className="hover:text-red-400 cursor-pointer">
+                <button onClick={() => setSelectedCategory('Todos')} className="hover:text-red-500 cursor-pointer">
                   <X className="w-3 h-3" />
                 </button>
               </span>
             )}
 
             {searchQuery && (
-              <span className="inline-flex items-center gap-1.5 px-3 py-1 bg-black/60 text-white border border-white/15">
+              <span className="inline-flex items-center gap-1.5 px-3 py-1 bg-white dark:bg-black/60 text-neutral-800 dark:text-white border border-black/10 dark:border-white/15">
                 Búsqueda: "{searchQuery}"
-                <button onClick={() => setSearchQuery('')} className="hover:text-red-400 cursor-pointer">
+                <button onClick={() => setSearchQuery('')} className="hover:text-red-500 cursor-pointer">
                   <X className="w-3 h-3" />
                 </button>
               </span>
@@ -223,15 +223,15 @@ export function Catalog() {
 
         {/* Empty Search State */}
         {filteredProducts.length === 0 ? (
-          <div className="py-20 text-center border border-white/10 bg-[#12141A] p-8">
+          <div className="py-20 text-center border border-black/10 dark:border-white/10 bg-neutral-100 dark:bg-[#12141A] p-8">
             <Search className="w-8 h-8 text-[#c9a24b] mx-auto mb-3 opacity-80" />
-            <h3 className="font-serif text-2xl text-white mb-2">No se encontraron fragancias</h3>
-            <p className="text-neutral-400 font-sans text-xs sm:text-sm max-w-md mx-auto mb-6">
+            <h3 className="font-serif text-2xl text-neutral-900 dark:text-white mb-2">No se encontraron fragancias</h3>
+            <p className="text-neutral-600 dark:text-neutral-400 font-sans text-xs sm:text-sm max-w-md mx-auto mb-6">
               No hay productos que coincidan con los criterios de búsqueda. Intenta con otro término o limpia los filtros.
             </p>
             <button
               onClick={clearFilters}
-              className="px-6 py-2.5 bg-white text-black font-mono text-xs uppercase font-semibold hover:bg-neutral-200 transition-colors cursor-pointer"
+              className="px-6 py-2.5 bg-black dark:bg-white text-white dark:text-black font-mono text-xs uppercase font-semibold hover:opacity-90 transition-opacity cursor-pointer"
             >
               Restablecer filtros
             </button>
@@ -247,10 +247,10 @@ export function Catalog() {
               </div>
             ) : (
               /* View Mode 2: Stitch B2B Technical Table (Paginated) */
-              <div className="overflow-x-auto border border-white/10 bg-[#12141A] shadow-2xl animate-fade-in">
+              <div className="overflow-x-auto border border-black/10 dark:border-white/10 bg-white dark:bg-[#12141A] shadow-2xl animate-fade-in">
                 <table className="w-full text-left border-collapse">
                   <thead>
-                    <tr className="border-b border-white/10 bg-[#171A22] text-[10px] font-mono text-neutral-400 uppercase tracking-widest">
+                    <tr className="border-b border-black/10 dark:border-white/10 bg-neutral-100 dark:bg-[#171A22] text-[10px] font-mono text-neutral-600 dark:text-neutral-400 uppercase tracking-widest">
                       <th className="py-3 px-4">Fragancia & Referencia</th>
                       <th className="py-3 px-4">Familia Olfativa</th>
                       <th className="py-3 px-4">Formato / Conc.</th>
@@ -260,9 +260,9 @@ export function Catalog() {
                       <th className="py-3 px-4 text-right">Acción</th>
                     </tr>
                   </thead>
-                  <tbody className="divide-y divide-white/5 font-mono text-xs">
+                  <tbody className="divide-y divide-black/5 dark:divide-white/5 font-mono text-xs">
                     {paginatedProducts.map((p) => (
-                      <tr key={p.id} className="hover:bg-white/[0.03] transition-colors">
+                      <tr key={p.id} className="hover:bg-black/[0.02] dark:hover:bg-white/[0.03] transition-colors">
                         <td className="py-3.5 px-4">
                           <div className="flex items-center gap-3">
                             <img
@@ -270,21 +270,21 @@ export function Catalog() {
                               alt={p.name}
                               loading="lazy"
                               decoding="async"
-                              className="w-10 h-10 object-contain bg-black/60 border border-white/10 p-1 shrink-0"
+                              className="w-10 h-10 object-contain bg-white dark:bg-black/60 border border-black/10 dark:border-white/10 p-1 shrink-0"
                             />
                             <div>
-                              <div className="font-serif text-sm text-white font-normal">{p.name}</div>
-                              <div className="text-[10px] text-neutral-400 uppercase">{p.brand} • REF #{p.id.toString().padStart(4, '0')}</div>
+                              <div className="font-serif text-sm text-neutral-900 dark:text-white font-normal">{p.name}</div>
+                              <div className="text-[10px] text-neutral-500 dark:text-neutral-400 uppercase">{p.brand} • REF #{p.id.toString().padStart(4, '0')}</div>
                             </div>
                           </div>
                         </td>
-                        <td className="py-3.5 px-4 text-neutral-300">
+                        <td className="py-3.5 px-4 text-neutral-700 dark:text-neutral-300">
                           {p.category}
                         </td>
-                        <td className="py-3.5 px-4 text-neutral-300">
+                        <td className="py-3.5 px-4 text-neutral-700 dark:text-neutral-300">
                           {p.size || '100 ML'} • 32% Extrait
                         </td>
-                        <td className="py-3.5 px-4 text-neutral-400">
+                        <td className="py-3.5 px-4 text-neutral-500 dark:text-neutral-400">
                           {p.retailPrice ? formatPrice(p.retailPrice) : formatPrice(Math.round(p.price * 1.5))}
                         </td>
                         <td className="py-3.5 px-4 font-semibold text-[#c9a24b]">
@@ -292,8 +292,8 @@ export function Catalog() {
                           <span className="text-[9px] text-neutral-500 block">(-35% MOQ 3u)</span>
                         </td>
                         <td className="py-3.5 px-4">
-                          <span className="inline-flex items-center gap-1.5 text-emerald-400 text-[11px]">
-                            <span className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
+                          <span className="inline-flex items-center gap-1.5 text-emerald-600 dark:text-emerald-400 text-[11px]">
+                            <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
                             {p.inStock !== false ? '140+ uds' : 'Consultar'}
                           </span>
                         </td>
@@ -301,7 +301,7 @@ export function Catalog() {
                           <div className="inline-flex items-center gap-2">
                             <button
                               onClick={() => setSelectedProductForModal(p)}
-                              className="p-1.5 text-neutral-400 hover:text-white bg-white/5 hover:bg-white/10 transition-colors cursor-pointer"
+                              className="p-1.5 text-neutral-600 dark:text-neutral-400 hover:text-black dark:hover:text-white bg-black/5 dark:bg-white/5 hover:bg-black/10 dark:hover:bg-white/10 transition-colors cursor-pointer"
                               title="Ver Ficha Técnica"
                             >
                               <Eye className="w-4 h-4" />
@@ -311,7 +311,7 @@ export function Catalog() {
                                 addToCart(p, 1, globalPricingMode);
                                 showToast(`Añadido ${p.name} al pedido.`);
                               }}
-                              className="px-3 py-1.5 bg-white text-black hover:bg-neutral-200 font-mono text-[11px] uppercase font-semibold transition-all active:scale-[0.97] cursor-pointer"
+                              className="px-3 py-1.5 bg-black dark:bg-white text-white dark:text-black hover:opacity-90 font-mono text-[11px] uppercase font-semibold transition-all active:scale-[0.97] cursor-pointer"
                             >
                               Añadir
                             </button>
@@ -326,10 +326,10 @@ export function Catalog() {
 
             {/* Pagination Controls with Left & Right Arrows */}
             {totalPages > 1 && (
-              <div className="mt-12 pt-8 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4 select-none">
+              <div className="mt-12 pt-8 border-t border-black/10 dark:border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4 select-none">
                 {/* Range Info */}
-                <div className="font-mono text-xs text-neutral-400">
-                  Mostrando <span className="text-white font-medium">{startIndex + 1}</span>–<span className="text-white font-medium">{endIndex}</span> de <span className="text-white font-medium">{filteredProducts.length}</span> fragancias
+                <div className="font-mono text-xs text-neutral-600 dark:text-neutral-400">
+                  Mostrando <span className="text-neutral-900 dark:text-white font-medium">{startIndex + 1}</span>–<span className="text-neutral-900 dark:text-white font-medium">{endIndex}</span> de <span className="text-neutral-900 dark:text-white font-medium">{filteredProducts.length}</span> fragancias
                 </div>
 
                 {/* Arrow Controls & Page Numbers */}
@@ -340,8 +340,8 @@ export function Catalog() {
                     disabled={currentPage === 1}
                     className={`flex items-center gap-1.5 px-3.5 py-2 border font-mono text-xs uppercase tracking-wider transition-all cursor-pointer ${
                       currentPage === 1
-                        ? 'opacity-25 border-white/5 text-neutral-600 pointer-events-none'
-                        : 'border-white/15 hover:border-white/40 text-neutral-200 hover:text-white hover:bg-white/5 active:scale-[0.97]'
+                        ? 'opacity-25 border-black/5 dark:border-white/5 text-neutral-400 dark:text-neutral-600 pointer-events-none'
+                        : 'border-black/15 dark:border-white/15 hover:border-black/40 dark:hover:border-white/40 text-neutral-800 dark:text-neutral-200 hover:text-black dark:hover:text-white hover:bg-black/5 dark:hover:bg-white/5 active:scale-[0.97]'
                     }`}
                     aria-label="Página anterior"
                     title="Página anterior"
@@ -368,7 +368,7 @@ export function Catalog() {
                         return (
                           <div key={page} className="flex items-center">
                             {showEllipsis && (
-                              <span className="px-1.5 text-neutral-600 font-mono text-xs select-none">
+                              <span className="px-1.5 text-neutral-400 dark:text-neutral-600 font-mono text-xs select-none">
                                 ...
                               </span>
                             )}
@@ -376,8 +376,8 @@ export function Catalog() {
                               onClick={() => handlePageChange(page)}
                               className={`min-w-[36px] h-9 px-2 flex items-center justify-center font-mono text-xs transition-all cursor-pointer ${
                                 currentPage === page
-                                  ? 'bg-white text-black font-bold shadow-md'
-                                  : 'text-neutral-400 hover:text-white hover:bg-white/5 border border-transparent hover:border-white/10'
+                                  ? 'bg-black dark:bg-white text-white dark:text-black font-bold shadow-md'
+                                  : 'text-neutral-600 dark:text-neutral-400 hover:text-black dark:hover:text-white hover:bg-black/5 dark:hover:bg-white/5 border border-transparent hover:border-black/10 dark:hover:border-white/10'
                               }`}
                               aria-current={currentPage === page ? 'page' : undefined}
                               title={`Ir a página ${page}`}
@@ -395,8 +395,8 @@ export function Catalog() {
                     disabled={currentPage === totalPages}
                     className={`flex items-center gap-1.5 px-3.5 py-2 border font-mono text-xs uppercase tracking-wider transition-all cursor-pointer ${
                       currentPage === totalPages
-                        ? 'opacity-25 border-white/5 text-neutral-600 pointer-events-none'
-                        : 'border-white/15 hover:border-white/40 text-neutral-200 hover:text-white hover:bg-white/5 active:scale-[0.97]'
+                        ? 'opacity-25 border-black/5 dark:border-white/5 text-neutral-400 dark:text-neutral-600 pointer-events-none'
+                        : 'border-black/15 dark:border-white/15 hover:border-black/40 dark:hover:border-white/40 text-neutral-800 dark:text-neutral-200 hover:text-black dark:hover:text-white hover:bg-black/5 dark:hover:bg-white/5 active:scale-[0.97]'
                     }`}
                     aria-label="Página siguiente"
                     title="Página siguiente"
