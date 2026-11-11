@@ -7,16 +7,16 @@ LATHE ESSENCE — Haute Parfumerie & B2B Luxury E-Commerce
 2026-11-11
 
 ## Tarea actual
-Incorporación de fotografías reales del producto en la sección de Perfumes en Tubo (Caja 20u x 35ml): Carrusel interactivo con flechas de navegación, selector inferior y badges de autenticidad en stock.
+Pilares Olfativos ultra compactos y discretos (acceso inmediato al catálogo al scrollear) + Logo de marca en color crema característico con animación de ola de luz 3D continua y contraste perfecto en modos Claro y Oscuro.
 
 ## Estado
-✅ Verificado con capturas reales en Chrome DevTools en modo oscuro y claro. Build sin errores y servidor activo.
+✅ Verificado visualmente con Chrome DevTools en Dark y Light Mode. Build Vite exitoso (4.71s, 0 errores). Túnel Cloudflare activo en producción.
 
 ## Archivos modificados
-- `public/images/tubos/`: Fotografías reales optimizadas, calibradas y recortadas profesionalmente (`caja-tubos-set-a.jpg` y `caja-tubos-set-b.jpg`).
-- `src/components/DiscoverySetShowcase.tsx`: Carrusel interactivo con flechas integradas en la imagen, barra de control inferior con flechas `<` y `>`, indicadores de posición y detalles de fragancias.
-- `src/components/MatrizComercialB2B.tsx`: Vinculación de imagen real a la tarjeta y carrito.
-- `CURRENT_STATE.md`, `TASKS.md`: Sincronización documental.
+- `src/components/PilaresOlfativos.tsx`: Reducción de altura vertical (-80%), diseño arquitectónico en mosaicos apaisados con scroll horizontal en móviles para evitar fatiga de scroll.
+- `src/components/Navbar.tsx`: Integración del logo de marca con contenedor 3D y máscara vectorial con degradado crema.
+- `src/index.css`: Animación GPU `@keyframes logoWaveSweep` (3.6s) y clases `.logo-cream-wave` con paleta crema champaña/oro en dark mode y bronce crema profundo en light mode.
+- `src/components/DiscoverySetShowcase.tsx`: Carrusel interactivo de fotografías reales de la caja de 20 tubos (35ml) con flechas táctiles.
 
 ## Siguiente paso
-Monitorear navegación del cliente en el túnel Cloudflare: `https://lap-mba-sherman-vic.trycloudflare.com`
+Entrega al cliente con enlace activo en Cloudflare: `https://lap-mba-sherman-vic.trycloudflare.com`

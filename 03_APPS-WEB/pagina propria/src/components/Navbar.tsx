@@ -76,22 +76,18 @@ export function Navbar({ onOpenWholesaleModal }: NavbarProps) {
       <header className="sticky top-0 z-40 bg-white/95 dark:bg-[#0B0C10]/95 backdrop-blur-xl border-b border-black/10 dark:border-white/10 text-neutral-900 dark:text-white transition-colors duration-200">
         <div className="max-w-[1440px] mx-auto px-4 sm:px-8 lg:px-12 h-20 flex items-center justify-between gap-4 sm:gap-6">
           
-          {/* Brand Logo Real (LATHE ESSENCE) - Adapts to White / Dark mode */}
+          {/* Brand Logo Real (LATHE ESSENCE) - Luxury Cream 3D Wave Animation */}
           <a
             href="#top"
-            className="flex items-center gap-3 group flex-shrink-0 text-inherit no-underline"
+            className="flex items-center gap-3 group flex-shrink-0 text-inherit no-underline select-none"
             aria-label="LATHE ESSENCE Inicio"
           >
-            <img
-              src="/images/logo/lathe-logo-white.png"
-              alt="LATHE ESSENCE"
-              className="h-8 sm:h-11 w-auto object-contain hidden dark:block transition-transform duration-200 group-hover:scale-[1.03]"
-            />
-            <img
-              src="/images/logo/lathe-logo-black.png"
-              alt="LATHE ESSENCE"
-              className="h-8 sm:h-11 w-auto object-contain dark:hidden transition-transform duration-200 group-hover:scale-[1.03]"
-            />
+            <div className="relative h-8 sm:h-11 w-28 sm:w-36 transition-transform duration-300 group-hover:scale-[1.03] flex items-center">
+              <div
+                className="w-full h-full logo-cream-wave"
+                title="LATHE ESSENCE Haute Parfumerie"
+              />
+            </div>
           </a>
 
           {/* Navigation Links (Desktop) */}

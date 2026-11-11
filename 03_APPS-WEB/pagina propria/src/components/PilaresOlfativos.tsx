@@ -72,66 +72,62 @@ export function PilaresOlfativos() {
   };
 
   return (
-    <section id="pilares" className="w-full bg-neutral-50 dark:bg-[#0B0C10] py-20 border-b border-black/10 dark:border-white/10 relative z-20 shadow-2xl transition-colors duration-200">
+    <section id="pilares" className="w-full bg-neutral-100 dark:bg-[#0B0C10] py-8 sm:py-10 border-b border-black/10 dark:border-white/10 relative z-20 transition-colors duration-200">
       <div className="max-w-[1440px] mx-auto px-4 sm:px-8 lg:px-12">
         
-        {/* Section Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
-          <div>
-            <div className="inline-flex items-center gap-2 font-mono text-[11px] text-[#c9a24b] uppercase tracking-[0.25em] mb-2">
-              <Sparkles className="w-3.5 h-3.5" />
-              <span>01 / Arquitectura Sensorial</span>
-            </div>
-            <h2 className="font-serif text-4xl sm:text-5xl lg:text-6xl text-neutral-900 dark:text-white font-normal tracking-tight">
+        {/* Compact & Discreet Section Header */}
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between mb-5 gap-2">
+          <div className="flex items-center gap-3">
+            <span className="inline-flex items-center gap-1.5 font-mono text-[10px] text-[#c9a24b] uppercase tracking-[0.25em] bg-[#c9a24b]/10 border border-[#c9a24b]/30 px-2.5 py-0.5 font-semibold">
+              <Sparkles className="w-3 h-3" />
+              <span>01 // ARQUITECTURA SENSORIAL</span>
+            </span>
+            <h2 className="font-sans text-base sm:text-lg font-bold tracking-tight text-neutral-900 dark:text-white">
               Pilares Olfativos
             </h2>
           </div>
-          <p className="font-sans text-neutral-600 dark:text-neutral-400 text-sm sm:text-base max-w-md font-light leading-relaxed">
-            Composiciones puras destiladas a baja temperatura. Cuatro familias primarias formuladas para perdurar más de 18 horas sobre la epidermis.
+          <p className="font-sans text-xs text-neutral-600 dark:text-neutral-400 font-normal">
+            Elegí una familia olfativa para filtrar el catálogo al instante
           </p>
         </div>
 
-        {/* 4 Architectural Cards Grid (Stitch Specification) */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        {/* Compact Architectural Landscape Tiles (Minimalist & Discreet) */}
+        <div className="flex gap-3 overflow-x-auto no-scrollbar sm:grid sm:grid-cols-4 sm:gap-4 snap-x snap-mandatory py-1">
           {PILLARS.map((p) => (
             <div
               key={p.id}
               onClick={() => handlePillarClick(p)}
-              className="group relative flex flex-col bg-white dark:bg-[#12141A] border border-black/10 dark:border-white/10 overflow-hidden hover:border-[#c9a24b]/50 hover:bg-neutral-50 dark:hover:bg-[#1A1D24] transition-all duration-300 cursor-pointer shadow-xl"
+              className="group relative flex flex-col justify-between h-28 sm:h-32 lg:h-36 p-3.5 sm:p-4 rounded-none border border-black/10 dark:border-white/10 hover:border-[#c9a24b] transition-all duration-300 cursor-pointer overflow-hidden shadow-lg active:scale-[0.98] shrink-0 min-w-[220px] sm:min-w-0 snap-start select-none"
             >
-              {/* Photo Area */}
-              <div className="aspect-[4/5] w-full overflow-hidden relative bg-black">
-                <div
-                  className="w-full h-full bg-cover bg-center transition-transform duration-700 ease-out group-hover:scale-105"
-                  style={{ backgroundImage: `url('${p.bgImage}')` }}
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-white/90 dark:from-[#12141A] via-transparent to-black/30" />
-                <span className="absolute top-4 left-4 font-mono text-[10px] bg-black/80 backdrop-blur-md border border-white/15 px-2.5 py-1 text-white uppercase tracking-wider">
+              {/* Background Atmospheric Artwork */}
+              <div
+                className="absolute inset-0 bg-cover bg-center transition-transform duration-700 ease-out group-hover:scale-105"
+                style={{ backgroundImage: `url('${p.bgImage}')` }}
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/55 to-black/30 group-hover:from-black/85 transition-colors" />
+
+              {/* Top Meta: Roman Numeral & Subtitle */}
+              <div className="relative z-10 flex items-center justify-between">
+                <span className="font-mono text-[9px] bg-black/75 backdrop-blur-md border border-white/15 px-2 py-0.5 text-white uppercase tracking-wider">
                   PILARES // {p.num}
+                </span>
+                <span className="font-mono text-[9px] text-[#e6cb85] uppercase tracking-wider font-semibold">
+                  {p.subtitle}
                 </span>
               </div>
 
-              {/* Text Meta Content */}
-              <div className="p-6 flex flex-col flex-1 justify-between gap-4">
+              {/* Bottom Meta: Title & Fragrance Count */}
+              <div className="relative z-10 flex items-end justify-between gap-2">
                 <div>
-                  <span className="font-mono text-[11px] text-[#c9a24b] tracking-[0.2em] uppercase block mb-1">
-                    {p.subtitle}
-                  </span>
-                  <h3 className="font-serif text-2xl text-neutral-900 dark:text-white font-normal mb-2 group-hover:text-black dark:group-hover:text-[#f8f8f6] transition-colors">
+                  <h3 className="font-sans text-sm sm:text-base font-bold text-white tracking-tight group-hover:text-[#f8f8f6] transition-colors leading-snug">
                     {p.title}
                   </h3>
-                  <p className="font-sans text-xs sm:text-sm text-neutral-600 dark:text-neutral-400 font-light leading-relaxed">
-                    {p.desc}
-                  </p>
-                </div>
-
-                <div className="pt-3 border-t border-black/10 dark:border-white/10 flex items-center justify-between text-neutral-500 dark:text-neutral-400 group-hover:text-black dark:group-hover:text-white transition-colors">
-                  <span className="font-mono text-[11px] tracking-wider uppercase">
-                    {p.fragranceCount} FRAGANCIAS
+                  <span className="font-mono text-[10px] text-neutral-300 block mt-0.5">
+                    {p.fragranceCount} fragancias
                   </span>
-                  <div className="w-7 h-7 rounded-full bg-black/5 dark:bg-white/5 flex items-center justify-center group-hover:bg-black group-hover:text-white dark:group-hover:bg-white dark:group-hover:text-black transition-all">
-                    <ArrowUpRight className="w-3.5 h-3.5" />
-                  </div>
+                </div>
+                <div className="w-6 h-6 rounded-full bg-white/10 group-hover:bg-[#c9a24b] group-hover:text-black text-white flex items-center justify-center transition-all shrink-0">
+                  <ArrowUpRight className="w-3.5 h-3.5" />
                 </div>
               </div>
             </div>

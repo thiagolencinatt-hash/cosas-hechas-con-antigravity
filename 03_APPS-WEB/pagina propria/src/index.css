@@ -421,4 +421,60 @@ html.light ::-webkit-scrollbar-thumb {
   scrollbar-width: none;
 }
 
+/* Luxury Cream Logo 3D Wave Animation (Continuous fluid shimmer) */
+@keyframes logoWaveSweep {
+  0% {
+    background-position: -250% 0;
+  }
+  100% {
+    background-position: 250% 0;
+  }
+}
+
+.logo-cream-wave {
+  display: block;
+  -webkit-mask-image: url('/images/logo/lathe-logo-white.png');
+  mask-image: url('/images/logo/lathe-logo-white.png');
+  -webkit-mask-size: contain;
+  mask-size: contain;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-position: left center;
+  mask-position: left center;
+  background-size: 250% 100%;
+  animation: logoWaveSweep 3.6s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+  will-change: background-position;
+}
+
+/* In Dark Mode: Warm Luminous Cream / Champagne Gold with bright wave */
+.dark .logo-cream-wave {
+  background-image: linear-gradient(
+    115deg,
+    #E8D7B8 0%,
+    #D9C299 26%,
+    #FFF8E7 45%,
+    #FFFFFF 50%,
+    #FFF8E7 55%,
+    #E8D7B8 74%,
+    #C5A566 100%
+  );
+  filter: drop-shadow(0 1px 3px rgba(0, 0, 0, 0.6)) drop-shadow(0 0 10px rgba(232, 215, 184, 0.35));
+}
+
+/* In Light Mode: Deep Antique Rich Cream / Bronzed Champagne with high contrast against white */
+html.light .logo-cream-wave {
+  background-image: linear-gradient(
+    115deg,
+    #2E2210 0%,
+    #4D391A 26%,
+    #B59045 45%,
+    #E6CB85 50%,
+    #B59045 55%,
+    #4D391A 74%,
+    #241A0B 100%
+  );
+  filter: drop-shadow(0 1px 1px rgba(0, 0, 0, 0.15)) drop-shadow(0 0 4px rgba(77, 57, 26, 0.2));
+}
+
+
 
