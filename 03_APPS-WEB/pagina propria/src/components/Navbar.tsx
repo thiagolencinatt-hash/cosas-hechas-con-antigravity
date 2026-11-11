@@ -1,5 +1,5 @@
-import { useRef, useEffect } from 'react';
-import { Search, ShoppingBag, Heart, X, ShieldCheck, Compass } from 'lucide-react';
+import { useState, useRef, useEffect } from 'react';
+import { Search, ShoppingBag, Heart, X, Compass, ArrowRight } from 'lucide-react';
 import { useShop } from '../context/ShopContext';
 
 interface NavbarProps {
@@ -8,8 +8,6 @@ interface NavbarProps {
 
 export function Navbar({ onOpenWholesaleModal }: NavbarProps) {
   const {
-    globalPricingMode,
-    setGlobalPricingMode,
     cartItemsCount,
     setIsCartOpen,
     wishlist,
@@ -17,18 +15,21 @@ export function Navbar({ onOpenWholesaleModal }: NavbarProps) {
     setIsQuizOpen,
     searchQuery,
     setSearchQuery,
-    showToast,
+    filteredProducts,
   } = useShop();
 
+  const [isSearchOpen, setIsSearchOpen] = useState(false);
   const searchInputRef = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
         e.preventDefault();
-        searchInputRef.current?.focus();
+        setIsSearchOpen(true);
+        setTimeout(() => searchInputRef.current?.focus(), 50);
       }
       if (e.key === 'Escape') {
+        setIsSearchOpen(false);
         searchInputRef.current?.blur();
       }
     };
@@ -36,19 +37,17 @@ export function Navbar({ onOpenWholesaleModal }: NavbarProps) {
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, []);
 
-  const handleToggleMode = () => {
-    const newMode = globalPricingMode === 'mayorista' ? 'minorista' : 'mayorista';
-    setGlobalPricingMode(newMode);
-    showToast(
-      newMode === 'mayorista'
-        ? 'Modalidad Mayorista activada (Mínimo 3 unidades surtidas con 35% a 55% de descuento).'
-        : 'Modalidad Minorista activada (Venta individual sin mínimo de compra).'
-    );
+  const handleSearchSubmit = (e?: React.FormEvent) => {
+    if (e) e.preventDefault();
+    const catEl = document.getElementById('catalogo');
+    if (catEl) {
+      catEl.scrollIntoView({ behavior: 'smooth' });
+    }
   };
 
   return (
     <>
-      {/* 1. Micro Ticker / Announcement Bar (Stitch Specification) */}
+      {/* 1. Micro Ticker / Announcement Bar (Minimalist Luxury) */}
       <aside aria-label="Aviso comercial" className="bg-[#050608] text-neutral-300 py-2 px-4 sm:px-8 text-[11px] font-mono tracking-wider uppercase border-b border-white/10 select-none z-30 relative">
         <div className="max-w-[1440px] mx-auto flex flex-col sm:flex-row items-center justify-between gap-2">
           <div className="flex items-center gap-2">
@@ -71,7 +70,7 @@ export function Navbar({ onOpenWholesaleModal }: NavbarProps) {
         </div>
       </aside>
 
-      {/* 2. Main Sticky Architectural Navbar */}
+      {/* 2. Main Sticky Architectural Navbar (Minimalist Luxury) */}
       <header className="sticky top-0 z-40 bg-[#0B0C10]/95 backdrop-blur-xl border-b border-white/10 transition-colors duration-200">
         <div className="max-w-[1440px] mx-auto px-4 sm:px-8 lg:px-12 h-20 flex items-center justify-between gap-4 sm:gap-6">
           
@@ -89,7 +88,7 @@ export function Navbar({ onOpenWholesaleModal }: NavbarProps) {
           </a>
 
           {/* Navigation Links (Desktop) */}
-          <nav className="hidden xl:flex items-center gap-8 font-mono text-xs uppercase tracking-widest text-neutral-300">
+          <nav className="hidden lg:flex items-center gap-8 font-mono text-xs uppercase tracking-widest text-neutral-300">
             <a href="#top" className="hover:text-white transition-colors py-1 border-b border-transparent hover:border-white">
               Inicio
             </a>
@@ -111,56 +110,26 @@ export function Navbar({ onOpenWholesaleModal }: NavbarProps) {
             </button>
           </nav>
 
-          {/* Central Live Search Bar */}
-          <div className="flex-1 max-w-xs md:max-w-sm mx-2 relative hidden md:block">
-            <div className="relative flex items-center">
-              <Search className="w-3.5 h-3.5 absolute left-3.5 text-neutral-400 pointer-events-none" />
-              <input
-                ref={searchInputRef}
-                type="text"
-                value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
-                placeholder="Buscar esencia o lote (⌘K)..."
-                className="w-full h-10 pl-9 pr-8 bg-[#14161D] border border-white/10 text-white placeholder:text-neutral-500 font-mono text-xs focus:outline-none focus:border-[#c9a24b] transition-colors"
-              />
-              {searchQuery && (
-                <button
-                  onClick={() => setSearchQuery('')}
-                  className="absolute right-3 p-1 text-neutral-400 hover:text-white"
-                  aria-label="Limpiar búsqueda"
-                >
-                  <X className="w-3 h-3" />
-                </button>
-              )}
-            </div>
-          </div>
-
-          {/* Right Action Controls: Pricing Mode Toggle, Currency, Wishlist, Cart */}
+          {/* Right Action Controls: Lupa Search, Wishlist, Cart */}
           <div className="flex items-center gap-2 sm:gap-3">
             
-            {/* Dual Mode Switcher Button (B2C / B2B) */}
+            {/* Lupa (Search Button) - Visible on ALL screens */}
             <button
-              onClick={handleToggleMode}
-              className="hidden sm:flex items-center bg-[#14161D] border border-white/10 px-3 py-1.5 gap-2 hover:border-white/30 transition-all cursor-pointer"
-              title="Cambiar modalidad de precios"
+              onClick={() => {
+                setIsSearchOpen((prev) => !prev);
+                if (!isSearchOpen) {
+                  setTimeout(() => searchInputRef.current?.focus(), 80);
+                }
+              }}
+              className={`p-2.5 transition-colors cursor-pointer border ${
+                isSearchOpen || searchQuery
+                  ? 'bg-white text-black border-white shadow-md'
+                  : 'bg-[#14161D] border-white/10 text-neutral-300 hover:text-white hover:border-white/30'
+              }`}
+              aria-label="Buscar perfume (Lupa)"
+              title="Buscar perfume (⌘K)"
             >
-              <span className={`font-mono text-[10px] uppercase font-bold tracking-wider ${
-                globalPricingMode === 'mayorista' ? 'text-[#c9a24b]' : 'text-neutral-400'
-              }`}>
-                {globalPricingMode === 'mayorista' ? 'MAYORISTA B2B' : 'MINORISTA'}
-              </span>
-              <span className="font-mono text-[9px] bg-white/10 px-1.5 py-0.5 text-neutral-300">
-                {globalPricingMode === 'mayorista' ? '-35%' : '1u'}
-              </span>
-            </button>
-
-            {/* B2B Portal Modal Trigger Button */}
-            <button
-              onClick={onOpenWholesaleModal}
-              className="hidden lg:flex items-center gap-1.5 px-3 py-2 bg-white/10 hover:bg-white/20 border border-white/20 text-white font-mono text-xs uppercase tracking-wider transition-colors cursor-pointer"
-            >
-              <ShieldCheck className="w-3.5 h-3.5 text-[#c9a24b]" />
-              <span>Cotizador B2B</span>
+              <Search className="w-4 h-4" />
             </button>
 
             {/* Wishlist Button */}
@@ -194,6 +163,59 @@ export function Navbar({ onOpenWholesaleModal }: NavbarProps) {
           </div>
 
         </div>
+
+        {/* 3. Luxury Slide-Down Search Drawer (Triggered by Lupa) */}
+        {isSearchOpen && (
+          <div className="w-full bg-[#12141A] border-t border-white/10 border-b border-white/15 px-4 sm:px-8 lg:px-12 py-3.5 animate-fade-in shadow-2xl transition-all">
+            <div className="max-w-[1440px] mx-auto flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3">
+              <form onSubmit={handleSearchSubmit} className="flex-1 flex items-center gap-3 bg-[#0B0C10] border border-white/15 px-4 py-2">
+                <Search className="w-4 h-4 text-[#c9a24b] shrink-0" />
+                <input
+                  ref={searchInputRef}
+                  type="text"
+                  value={searchQuery}
+                  onChange={(e) => setSearchQuery(e.target.value)}
+                  placeholder="Buscar por nombre, nota (ej. Vainilla, Oud, Ámbar) o marca (ej. Lattafa, Tom Ford)..."
+                  className="w-full bg-transparent text-white placeholder:text-neutral-500 font-sans text-xs sm:text-sm focus:outline-none"
+                  autoFocus
+                />
+                {searchQuery && (
+                  <button
+                    type="button"
+                    onClick={() => setSearchQuery('')}
+                    className="p-1 text-neutral-400 hover:text-white"
+                    aria-label="Borrar búsqueda"
+                  >
+                    <X className="w-3.5 h-3.5" />
+                  </button>
+                )}
+              </form>
+
+              <div className="flex items-center gap-2 justify-end">
+                <span className="text-[11px] font-mono text-neutral-400">
+                  {filteredProducts.length} fragancia{filteredProducts.length === 1 ? '' : 's'}
+                </span>
+
+                <button
+                  onClick={() => handleSearchSubmit()}
+                  className="px-4 py-2 bg-white text-black font-mono text-xs uppercase font-semibold hover:bg-neutral-200 transition-colors flex items-center gap-1.5 cursor-pointer"
+                >
+                  <span>Explorar</span>
+                  <ArrowRight className="w-3.5 h-3.5" />
+                </button>
+
+                <button
+                  onClick={() => setIsSearchOpen(false)}
+                  className="p-2 text-neutral-400 hover:text-white transition-colors cursor-pointer"
+                  aria-label="Cerrar buscador"
+                  title="Cerrar (Esc)"
+                >
+                  <X className="w-4 h-4" />
+                </button>
+              </div>
+            </div>
+          </div>
+        )}
       </header>
     </>
   );
