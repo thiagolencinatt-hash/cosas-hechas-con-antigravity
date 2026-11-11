@@ -1,6 +1,7 @@
 import { X, Plus, Minus, Trash2, MessageCircle, AlertCircle, Sparkles, ShieldCheck, Truck, BadgeCheck } from 'lucide-react';
 import { useShop, WHOLESALE_MIN_UNITS } from '../context/ShopContext';
 import { ARGENTINA_PROVINCES } from '../data/products';
+import { sanitizeInput } from '../utils/security';
 
 export function CartDrawer() {
   const {
@@ -225,20 +226,21 @@ export function CartDrawer() {
               </strong>
             </div>
 
-            {/* Customer Data Inputs */}
+            {/* Customer Data Inputs (Sanitizados Anti-XSS) */}
             <div className="space-y-2">
               <input
                 type="text"
                 placeholder="Nombre y Apellido *"
+                maxLength={80}
                 value={customerData.name}
-                onChange={(e) => setCustomerData((prev) => ({ ...prev, name: e.target.value }))}
+                onChange={(e) => setCustomerData((prev) => ({ ...prev, name: sanitizeInput(e.target.value, 80) }))}
                 className="w-full h-10 px-3.5 rounded-xl bg-white dark:bg-white/[0.06] border border-black/10 dark:border-white/10 text-xs text-neutral-900 dark:text-white placeholder:text-neutral-400 focus:outline-none focus:border-black/30 dark:focus:border-white/40 shadow-sm"
               />
 
               <div className="grid grid-cols-2 gap-2">
                 <select
                   value={customerData.province}
-                  onChange={(e) => setCustomerData((prev) => ({ ...prev, province: e.target.value }))}
+                  onChange={(e) => setCustomerData((prev) => ({ ...prev, province: sanitizeInput(e.target.value, 50) }))}
                   className="h-10 px-3 rounded-xl bg-white dark:bg-neutral-900 border border-black/10 dark:border-white/10 text-xs text-neutral-900 dark:text-white focus:outline-none focus:border-black/30 dark:focus:border-white/40 shadow-sm"
                 >
                   <option value="">Provincia...</option>
@@ -252,8 +254,9 @@ export function CartDrawer() {
                 <input
                   type="text"
                   placeholder="Localidad / Ciudad"
+                  maxLength={80}
                   value={customerData.locality}
-                  onChange={(e) => setCustomerData((prev) => ({ ...prev, locality: e.target.value }))}
+                  onChange={(e) => setCustomerData((prev) => ({ ...prev, locality: sanitizeInput(e.target.value, 80) }))}
                   className="h-10 px-3.5 rounded-xl bg-white dark:bg-white/[0.06] border border-black/10 dark:border-white/10 text-xs text-neutral-900 dark:text-white placeholder:text-neutral-400 focus:outline-none focus:border-black/30 dark:focus:border-white/40 shadow-sm"
                 />
               </div>
@@ -261,8 +264,9 @@ export function CartDrawer() {
               <input
                 type="text"
                 placeholder="Aclaraciones o notas (opcional)"
+                maxLength={300}
                 value={customerData.notes || ''}
-                onChange={(e) => setCustomerData((prev) => ({ ...prev, notes: e.target.value }))}
+                onChange={(e) => setCustomerData((prev) => ({ ...prev, notes: sanitizeInput(e.target.value, 300) }))}
                 className="w-full h-9 px-3.5 rounded-xl bg-white dark:bg-white/[0.04] border border-black/10 dark:border-white/10 text-xs text-neutral-900 dark:text-white placeholder:text-neutral-400 focus:outline-none focus:border-black/30 dark:focus:border-white/40 shadow-sm"
               />
             </div>

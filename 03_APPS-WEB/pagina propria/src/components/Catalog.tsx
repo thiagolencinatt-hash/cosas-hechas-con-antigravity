@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { ProductCard } from './ProductCard';
 import { useShop } from '../context/ShopContext';
+import { sanitizeInput } from '../utils/security';
 import {
   SlidersHorizontal,
   X,
@@ -94,8 +95,9 @@ export function Catalog() {
               <Search className="w-3.5 h-3.5 text-neutral-400 absolute left-3 top-1/2 -translate-y-1/2 pointer-events-none" />
               <input
                 type="text"
+                maxLength={80}
                 value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
+                onChange={(e) => setSearchQuery(sanitizeInput(e.target.value, 80))}
                 placeholder="Buscar perfume (Lupa)..."
                 className="w-full h-9 pl-9 pr-8 bg-neutral-100 dark:bg-[#14161D] border border-black/10 dark:border-white/10 hover:border-black/25 dark:hover:border-white/20 focus:border-[#c9a24b] text-neutral-900 dark:text-white placeholder:text-neutral-500 font-sans text-xs focus:outline-none transition-colors"
               />

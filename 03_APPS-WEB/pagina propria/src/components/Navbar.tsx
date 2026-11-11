@@ -1,6 +1,7 @@
 import { useState, useRef, useEffect } from 'react';
 import { Search, ShoppingBag, Heart, X, ArrowRight, Sun, Moon, ShieldCheck, Sparkles } from 'lucide-react';
 import { useShop } from '../context/ShopContext';
+import { sanitizeInput } from '../utils/security';
 
 interface NavbarProps {
   onOpenWholesaleModal?: () => void;
@@ -234,8 +235,9 @@ export function Navbar({ onOpenWholesaleModal }: NavbarProps) {
                 <input
                   ref={searchInputRef}
                   type="text"
+                  maxLength={80}
                   value={searchQuery}
-                  onChange={(e) => setSearchQuery(e.target.value)}
+                  onChange={(e) => setSearchQuery(sanitizeInput(e.target.value, 80))}
                   placeholder="Buscar por nombre, nota (ej. Vainilla, Oud, Ámbar) o marca (ej. Lattafa, Tom Ford)..."
                   className="w-full bg-transparent text-neutral-900 dark:text-white placeholder:text-neutral-500 font-sans text-xs sm:text-sm focus:outline-none"
                   autoFocus

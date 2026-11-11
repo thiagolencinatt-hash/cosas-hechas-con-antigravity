@@ -1,6 +1,7 @@
 import React, { createContext, useContext, useState, useEffect, useMemo } from 'react';
 import { Currency, CurrencyConfig, Product, CartItem, Theme, CustomerOrderData, PricingMode } from '../types';
 import { PRODUCTS } from '../data/products';
+import { sanitizeInput } from '../utils/security';
 
 export const CURRENCY_CONFIGS: Record<Currency, CurrencyConfig> = {
   ARS: { code: 'ARS', symbol: '$', rate: 1.0, label: 'Pesos Argentinos ($)' },
@@ -510,11 +511,17 @@ export function ShopProvider({ children }: { children: React.ReactNode }) {
       )
       .join('\n');
 
+    // Sanitización estricta anti-XSS antes de procesar y concatenar
+    const cleanName = sanitizeInput(customerData.name || '', 80);
+    const cleanProvince = sanitizeInput(customerData.province || '', 50);
+    const cleanLocality = sanitizeInput(customerData.locality || '', 80);
+    const cleanNotes = sanitizeInput(customerData.notes || '', 300);
+
     const customerDetails = [
-      customerData.name ? `Cliente: ${customerData.name}` : '',
-      customerData.province ? `Provincia: ${customerData.province}` : '',
-      customerData.locality ? `Localidad: ${customerData.locality}` : '',
-      customerData.notes ? `Notas: ${customerData.notes}` : '',
+      cleanName ? `Cliente: ${cleanName}` : '',
+      cleanProvince ? `Provincia: ${cleanProvince}` : '',
+      cleanLocality ? `Localidad: ${cleanLocality}` : '',
+      cleanNotes ? `Notas: ${cleanNotes}` : '',
     ]
       .filter(Boolean)
       .join('\n');

@@ -14,6 +14,7 @@ import { FilterDrawer } from './components/FilterDrawer';
 import { WishlistModal } from './components/WishlistModal';
 import { FragranceQuizModal } from './components/FragranceQuizModal';
 import { WholesalePortalModal } from './components/WholesalePortalModal';
+import { CookieBanner } from './components/CookieBanner';
 import { Check } from 'lucide-react';
 
 function StoreLayout() {
@@ -60,6 +61,9 @@ function StoreLayout() {
         isOpen={isWholesaleModalOpen}
         onClose={() => setIsWholesaleModalOpen(false)}
       />
+
+      {/* Luxury Privacy & Cookie Consent Banner */}
+      <CookieBanner />
 
       {/* Global Minimalist Toast Notification */}
       {toastMessage && (

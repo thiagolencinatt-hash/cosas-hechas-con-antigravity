@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { X, Calculator, Download, Send, Building2, User, Phone, Mail } from 'lucide-react';
 import { useShop } from '../context/ShopContext';
+import { sanitizeInput, sanitizePhone, sanitizeEmail } from '../utils/security';
 
 interface WholesalePortalModalProps {
   isOpen: boolean;
@@ -52,14 +53,25 @@ export function WholesalePortalModal({ isOpen, onClose }: WholesalePortalModalPr
 
   const handleSubmitRegistration = (e: React.FormEvent) => {
     e.preventDefault();
+    const cleanBusiness = sanitizeInput(businessName, 100);
+    const cleanContact = sanitizeInput(contactName, 80);
+    const cleanPhone = sanitizePhone(phone, 30);
+    const cleanMail = sanitizeEmail(email, 100);
+
+    if (!cleanBusiness || !cleanContact || !cleanPhone || !cleanMail) {
+      showToast('Por favor completá los campos con información válida.');
+      return;
+    }
+
     setGlobalPricingMode('mayorista');
-    showToast(`Solicitud enviada con éxito para "${businessName}". Te contactará un ejecutivo comercial.`);
+    showToast(`Solicitud procesada con éxito para "${cleanBusiness}". Te contactará un ejecutivo comercial.`);
     onClose();
   };
 
   const handleWhatsAppQuote = () => {
+    const cleanBusiness = sanitizeInput(businessName, 100) || 'Boutique';
     const text = encodeURIComponent(
-      `Hola LATHE ESSENCE B2B. Deseo solicitar cotización mayorista para:\n- Unidades: ${customUnits}\n- Descuento: -${Math.round(discountRate * 100)}%\n- Costo Estimado: $${totalWholesaleCost.toLocaleString()} USD\n- Negocio: ${businessName || 'Boutique'}`
+      `Hola LATHE ESSENCE B2B. Deseo solicitar cotización mayorista para:\n- Unidades: ${customUnits}\n- Descuento: -${Math.round(discountRate * 100)}%\n- Costo Estimado: $${totalWholesaleCost.toLocaleString()} USD\n- Negocio: ${cleanBusiness}`
     );
     window.open(`https://wa.me/5491123456789?text=${text}`, '_blank');
   };
@@ -273,8 +285,9 @@ export function WholesalePortalModal({ isOpen, onClose }: WholesalePortalModalPr
                   <input
                     type="text"
                     required
+                    maxLength={100}
                     value={businessName}
-                    onChange={(e) => setBusinessName(e.target.value)}
+                    onChange={(e) => setBusinessName(sanitizeInput(e.target.value, 100))}
                     placeholder="Ej. Maison Belle, Palermo Soho"
                     className="w-full bg-white dark:bg-[#1A1D24] border border-black/15 dark:border-white/15 px-3 py-2.5 pl-10 text-xs text-neutral-900 dark:text-white placeholder-neutral-400 focus:outline-none focus:border-[#c9a24b] transition-colors"
                   />
@@ -290,8 +303,9 @@ export function WholesalePortalModal({ isOpen, onClose }: WholesalePortalModalPr
                   <input
                     type="text"
                     required
+                    maxLength={80}
                     value={contactName}
-                    onChange={(e) => setContactName(e.target.value)}
+                    onChange={(e) => setContactName(sanitizeInput(e.target.value, 80))}
                     placeholder="Ej. Lucas Ferrari"
                     className="w-full bg-white dark:bg-[#1A1D24] border border-black/15 dark:border-white/15 px-3 py-2.5 pl-10 text-xs text-neutral-900 dark:text-white placeholder-neutral-400 focus:outline-none focus:border-[#c9a24b] transition-colors"
                   />
@@ -307,8 +321,9 @@ export function WholesalePortalModal({ isOpen, onClose }: WholesalePortalModalPr
                   <input
                     type="tel"
                     required
+                    maxLength={30}
                     value={phone}
-                    onChange={(e) => setPhone(e.target.value)}
+                    onChange={(e) => setPhone(sanitizePhone(e.target.value, 30))}
                     placeholder="+54 9 11 1234-5678"
                     className="w-full bg-white dark:bg-[#1A1D24] border border-black/15 dark:border-white/15 px-3 py-2.5 pl-10 text-xs text-neutral-900 dark:text-white placeholder-neutral-400 focus:outline-none focus:border-[#c9a24b] transition-colors"
                   />
@@ -324,8 +339,9 @@ export function WholesalePortalModal({ isOpen, onClose }: WholesalePortalModalPr
                   <input
                     type="email"
                     required
+                    maxLength={100}
                     value={email}
-                    onChange={(e) => setEmail(e.target.value)}
+                    onChange={(e) => setEmail(sanitizeEmail(e.target.value, 100))}
                     placeholder="contacto@boutique.com"
                     className="w-full bg-white dark:bg-[#1A1D24] border border-black/15 dark:border-white/15 px-3 py-2.5 pl-10 text-xs text-neutral-900 dark:text-white placeholder-neutral-400 focus:outline-none focus:border-[#c9a24b] transition-colors"
                   />
