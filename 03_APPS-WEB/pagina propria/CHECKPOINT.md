@@ -7,16 +7,16 @@ LATHE ESSENCE — Haute Parfumerie & B2B Luxury E-Commerce
 2026-11-11
 
 ## Tarea actual
-Actualización de Perfumes en Tubo: Caja de 20 tubos de 35ml a elección armadas por los fundadores, prácticas para bolso/auto, con precios $48.000 individual y $43.000 c/u x 3+ cajas.
+Incorporación de fotografías reales del producto en la sección de Perfumes en Tubo (Caja 20u x 35ml): Carrusel interactivo con flechas de navegación, selector inferior y badges de autenticidad en stock.
 
 ## Estado
-✅ Verificado en producción local y túnel Cloudflare. Build sin errores.
+✅ Verificado con capturas reales en Chrome DevTools en modo oscuro y claro. Build sin errores y servidor activo.
 
 ## Archivos modificados
-- `src/components/MatrizComercialB2B.tsx`: Tarjeta 1 actualizada a Caja 20 Tubos (35ml), fragancias a elección armadas por los fundadores, badges para bolso, auto y uso diario.
-- `src/components/DiscoverySetShowcase.tsx`: Especificaciones y copy actualizados a 20 tubos de 35ml con practicidad para bolso/auto.
-- `src/App.tsx`: Referencia actualizada.
-- `CURRENT_STATE.md`: Documentación sincronizada.
+- `public/images/tubos/`: Fotografías reales optimizadas, calibradas y recortadas profesionalmente (`caja-tubos-set-a.jpg` y `caja-tubos-set-b.jpg`).
+- `src/components/DiscoverySetShowcase.tsx`: Carrusel interactivo con flechas integradas en la imagen, barra de control inferior con flechas `<` y `>`, indicadores de posición y detalles de fragancias.
+- `src/components/MatrizComercialB2B.tsx`: Vinculación de imagen real a la tarjeta y carrito.
+- `CURRENT_STATE.md`, `TASKS.md`: Sincronización documental.
 
 ## Siguiente paso
 Monitorear navegación del cliente en el túnel Cloudflare: `https://lap-mba-sherman-vic.trycloudflare.com`

@@ -80,8 +80,7 @@ export function MatrizComercialB2B({ onOpenWholesaleModal }: MatrizComercialProp
     category: 'Tubos 35ml',
     price: 43000,
     retailPrice: 48000,
-    image:
-      'https://lh3.googleusercontent.com/aida-public/AB6AXuBVp-lLW0vZGhfWExYQkwWFWrLfNZQbOcp_bchfCFmJn04GuII1cKbMgd5LfAiK4I3qpQmg9mYPPFAKKI-Ql1c9SFR_y1DvBrIU9w9eKuPycCYnoTIq3Qx6CqYltoA0snlV476PN5ufnKuCo6hf0wq9UUzTeDmcWcJoCLzeFn5DbxhjAkvExTVrYBC1HK3S7vRqTPEAxKCOsdfSpTDM6yr-Ig9wAsm66X3Z9Qmmib50',
+    image: '/images/tubos/caja-tubos-set-a.jpg',
     inStock: true,
     rating: 5,
     reviewsCount: 42,
