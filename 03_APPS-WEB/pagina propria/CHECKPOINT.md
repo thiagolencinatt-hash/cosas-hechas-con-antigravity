@@ -1,20 +1,16 @@
-# CHECKPOINT: LATHE ESSENCE — Open Graph, Social Cards & PWA
+# CHECKPOINT: LATHE ESSENCE — Social Links (Instagram & TikTok)
 
-- **Fecha:** 2026-11-11 20:35
-- **Git Commit:** `a062df5` (Sincronizado en `origin/main` en GitHub)
+- **Fecha:** 2026-11-11 20:52
+- **Git Commit:** `fe38ced` (Sincronizado en `origin/main` en GitHub)
 - **Túnel Activo:** `https://lap-mba-sherman-vic.trycloudflare.com`
 
 ### Logros Implementados en esta Sesión:
-1. **Tarjetas Open Graph & Twitter Cards de Ultra-Lujo (1200 x 630 px):**
-   - Banner panorámico oficial generado (`public/og-lathe-essence.jpg`) con frasco de mármol negro y ámbar líquido dorado, tipografía Georgia y logotipo oficial LATHE ESSENCE en oro puro.
-   - Metadatos completos en `<head>`: `og:title`, `og:description`, `og:image`, `og:type`, `og:url`, `og:locale="es_AR"` y `twitter:card="summary_large_image"`.
-   - Textos exactos solicitados: Título en negrita y descripción comercial optimizada para WhatsApp, Telegram, Instagram y X.
-   - Datos estructurados JSON-LD Schema.org para Google Rich Snippets.
-2. **PWA (Progressive Web App - "Instalar App en el Celular"):**
-   - Suite de iconos PWA generados: `192x192`, `512x512`, `512x512 maskable` y `180x180 apple-touch-icon`.
-   - Manifiesto oficial `public/manifest.json` y `public/site.webmanifest` con accesos directos al catálogo y al portal mayorista.
-   - Service Worker `public/sw.js` activo con pre-cacheo de shell y respuesta offline.
-   - Componente interactivo `PWAInstallPrompt.tsx` con soporte nativo de instalación (`beforeinstallprompt`) e instrucciones para iOS Safari ("Compartir → Agregar a pantalla de inicio").
-3. **Validación:**
-   - `npm run build` compilado con 0 errores en 4.7s.
-   - Evento PWA verificado en Chrome DevTools y registro de Service Worker comprobado.
+1. **Redes Sociales Oficiales Integradas (Instagram & TikTok):**
+   - Iconos geométricos de lujo en la barra de navegación principal ([`Navbar.tsx`](file:///c:/Users/thiago/Desktop/inteligencia%20artificial/antigravity/cosas%20hechas%20con%20antigravity/03_APPS-WEB/pagina%20propria/src/components/Navbar.tsx)), al lado de la búsqueda y el carrito, visibles en todo momento.
+   - Enlaces en la barra superior de anuncios (Micro Ticker) y en el pie de página ([`Footer.tsx`](file:///c:/Users/thiago/Desktop/inteligencia%20artificial/antigravity/cosas%20hechas%20con%20antigravity/03_APPS-WEB/pagina%20propria/src/components/Footer.tsx)).
+   - Enlaces exactos configurados:
+     - Instagram: `https://www.instagram.com/lathe.essence?obrf=djBtZ2UwNGtseXBr&utm_source=qr`
+     - TikTok: `https://www.tiktok.com/@lathe.essence?_r=1&_t=ZS-9BKR3UQA0Ty`
+   - Efecto hover en oro `#c9a24b`, estado activo táctil y apertura segura en nueva pestaña (`target="_blank" rel="noopener noreferrer"`).
+2. **PWA y Open Graph previas:**
+   - 100% activas y sincronizadas.
