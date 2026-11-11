@@ -1,19 +1,32 @@
-# CHECKPOINT — LATHE ESSENCE E-Commerce (2026-11-09)
+# CHECKPOINT
 
-- **Proyecto**: E-commerce de alta perfumería LATHE ESSENCE.
-- **Ruta Local**: `cosas hechas con antigravity/03_APPS-WEB/pagina propria`
-- **Estado**: Refactorización 100% completada, verificada y publicada.
+## Proyecto
+LATHE ESSENCE — Haute Parfumerie & B2B Luxury E-Commerce
 
-### Logros Clave:
-1. **Identidad de Marca**: Logos oficiales integrados (blanco y negro sobre transparencias RGBA), diseño monocromático de lujo sobrio sin saturación dorada, tipografía Plus Jakarta Sans.
-2. **Catálogo Completo**: 145 fragancias con imágenes reales y categorización precisa (Arabes, Diseñador, Nicho, Body splash). Cero emojis genéricos (100% iconos Lucide SVG).
-3. **Modalidad Dual**: Minorista (desde 1u) y Mayorista (estricto mín. 3u con 35% de ahorro). Recálculo dinámico en tarjetas, modales y carrito con validación en tiempo real.
-4. **WhatsApp Integrado**: Conectado directamente al número del usuario (+54 9 11 6657-3519) para consultas y pedidos formateados profesionalmente.
-5. **Despliegues y URLs**:
-   - Vercel: `https://brisk-pulsar-9wk93g2.tmp.now`
-   - GitHub: `https://github.com/thiagolencinatt-hash/cosas-hechas-con-antigravity`
+## Fecha
+2026-11-11
 
-### Próximos Pasos:
-- Conectar dominio personalizado si el cliente lo adquiere.
-- Reclamar el despliegue en Vercel para mantenerlo permanente.
+## Tarea actual
+Arquitectura cinematográfica 120 FPS, branding LATHE ESSENCE, responsividad móvil y portal B2B completados.
 
+## Estado
+✅ Producción Verificada y Sincronizada en GitHub
+
+## Archivos modificados
+- src/components/CinematicHero.tsx (Canvas 120 FPS Lerp, 140 WebP, cero solapamiento)
+- src/components/Navbar.tsx (Logo LATHE ESSENCE, modo B2B/B2C, ticker FedEx)
+- src/components/PilaresOlfativos.tsx, MatrizComercialB2B.tsx, DiscoverySetShowcase.tsx
+- src/components/Catalog.tsx, ProductCard.tsx, ProductModal.tsx, WholesalePortalModal.tsx
+- index.html (Cormorant Garamond, Cinzel, EB Garamond, Plus Jakarta Sans)
+- CURRENT_STATE.md, TASKS.md
+
+## Decisiones recientes
+- Reemplazo de seeking HTML5 video por Canvas render de fotogramas WebP pre-cacheados (2.6 MB).
+- Separación estricta de ventanas de opacidad para eliminar solapamiento entre beats narrativos.
+- Integración nativa del logotipo oficial y paleta Obsidian/Oro satinado.
+
+## Errores relevantes
+- Ninguno pendiente. Compilación TypeScript y Vite build exitosos en 4.40s.
+
+## Siguiente paso
+Recibir feedback del cliente tras visualización en enlace público Cloudflare o producción Vercel.
