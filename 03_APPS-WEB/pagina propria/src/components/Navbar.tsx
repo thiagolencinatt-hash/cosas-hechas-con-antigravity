@@ -1,5 +1,5 @@
 import { useState, useRef, useEffect } from 'react';
-import { Search, ShoppingBag, Heart, X, Compass, ArrowRight, Sun, Moon, ShieldCheck } from 'lucide-react';
+import { Search, ShoppingBag, Heart, X, ArrowRight, Sun, Moon, ShieldCheck, Sparkles } from 'lucide-react';
 import { useShop } from '../context/ShopContext';
 
 interface NavbarProps {
@@ -120,9 +120,10 @@ export function Navbar({ onOpenWholesaleModal }: NavbarProps) {
             <button
               onClick={() => setIsQuizOpen(true)}
               className="hover:text-[#c9a24b] transition-colors flex items-center gap-1.5 cursor-pointer py-1"
+              title="Test Olfativo: Descubrí tus Gustos y Perfume Ideal"
             >
-              <Compass className="w-3.5 h-3.5 text-[#c9a24b]" />
-              <span>Oráculo</span>
+              <Sparkles className="w-3.5 h-3.5 text-[#c9a24b]" />
+              <span>Descubrí tu Fragancia</span>
             </button>
           </nav>
 

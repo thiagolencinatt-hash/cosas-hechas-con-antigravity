@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
-import { ArrowDown, Sparkles, Compass, ShieldCheck } from 'lucide-react';
+import { ArrowDown, Sparkles, ShieldCheck } from 'lucide-react';
 import { useShop } from '../context/ShopContext';
 
 const TOTAL_FRAMES = 140;
@@ -400,8 +400,8 @@ export function CinematicHero() {
               onClick={() => setIsQuizOpen(true)}
               className="flex items-center gap-2 px-5 py-3 sm:px-6 sm:py-3.5 rounded-none bg-black/60 border border-white/15 hover:border-white/40 text-neutral-300 hover:text-white font-sans font-medium text-xs sm:text-sm transition-all duration-150 ease-out active:scale-[0.97] backdrop-blur-md cursor-pointer"
             >
-              <Compass className="w-4 h-4 text-[#c9a24b]" />
-              <span>Consultar al Oráculo</span>
+              <Sparkles className="w-4 h-4 text-[#c9a24b]" />
+              <span>Descubrí tu Fragancia Ideal</span>
             </button>
           </div>
         </div>

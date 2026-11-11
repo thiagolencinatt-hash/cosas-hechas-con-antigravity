@@ -141,9 +141,9 @@ export function Storytelling() {
             <div className="pt-3">
               <button
                 onClick={() => setIsQuizOpen(true)}
-                className="w-full py-4 rounded-md bg-white hover:bg-neutral-100 text-[#0A0A0A] font-sans text-[11px] uppercase tracking-[0.2em] font-semibold transition-colors flex items-center justify-center gap-3 active:scale-[0.98]"
+                className="w-full py-4 rounded-none bg-white hover:bg-neutral-100 text-[#0A0A0A] font-sans text-[11px] uppercase tracking-[0.2em] font-semibold transition-colors flex items-center justify-center gap-3 active:scale-[0.98]"
               >
-                Consult the Scent Oracle
+                Descubrí tu Fragancia Ideal
                 <ArrowRight className="w-4 h-4" />
               </button>
             </div>
