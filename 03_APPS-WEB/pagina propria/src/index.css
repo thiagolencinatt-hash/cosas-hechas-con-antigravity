@@ -278,5 +278,14 @@ html.light .logo-cream-wave {
   filter: drop-shadow(0 1px 1px rgba(0, 0, 0, 0.15)) drop-shadow(0 0 4px rgba(77, 57, 26, 0.2));
 }
 
+/* Performance Optimizations: Skip off-screen rendering for ultra-fluid scrolling on mobile */
+#catalogo,
+#b2b-matriz,
+footer {
+  content-visibility: auto;
+  contain-intrinsic-size: 800px;
+}
+
+
 
 

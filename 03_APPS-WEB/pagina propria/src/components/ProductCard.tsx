@@ -109,6 +109,7 @@ export function ProductCard({ product }: ProductCardProps) {
           src={product.image}
           alt={product.name}
           loading="lazy"
+          decoding="async"
           className="w-full h-full object-contain transition-transform duration-500 group-hover:scale-105"
           onError={(e) => {
             (e.target as HTMLElement).style.opacity = '0.7';

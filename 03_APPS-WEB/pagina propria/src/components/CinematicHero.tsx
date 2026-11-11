@@ -72,44 +72,87 @@ export function CinematicHero() {
 
       // Redraw current frame
       const currentIdx = Math.min(TOTAL_FRAMES - 1, Math.max(0, Math.round(shown * (TOTAL_FRAMES - 1))));
-      const img = frames[currentIdx] || frames[0];
+      const img = getBestAvailableFrame(currentIdx);
       if (img && img.complete) {
         drawCover(img);
       }
     };
 
+    // Helper: find nearest loaded frame to guarantee continuous playback without blanks
+    const getBestAvailableFrame = (idx: number): HTMLImageElement | null => {
+      if (frames[idx]?.complete) return frames[idx];
+      for (let offset = 1; offset < TOTAL_FRAMES; offset++) {
+        const left = idx - offset;
+        const right = idx + offset;
+        if (left >= 0 && frames[left]?.complete) return frames[left];
+        if (right < TOTAL_FRAMES && frames[right]?.complete) return frames[right];
+      }
+      return frames[0] || null;
+    };
+
     window.addEventListener('resize', handleResize);
     handleResize();
 
-    // 1. Instant load of frame 0 for 0ms First Meaningful Paint
-    const frame0 = new Image();
-    frame0.src = '/assets/frames_webp/f_000.webp';
-    frame0.onload = () => {
-      if (isDisposed) return;
-      frames[0] = frame0;
-      framesLoaded++;
-      setIsInitialReady(true);
-      drawCover(frame0);
+    // High-performance non-blocking frame loader helper
+    const loadSingleFrame = (i: number): Promise<void> => {
+      if (i >= TOTAL_FRAMES || frames[i] || isDisposed) return Promise.resolve();
+      return new Promise((resolve) => {
+        const img = new Image();
+        const numStr = String(i).padStart(3, '0');
+        img.src = `/assets/frames_webp/f_${numStr}.webp`;
+        img.decoding = 'async';
+        img.onload = () => {
+          if (!isDisposed) {
+            frames[i] = img;
+            framesLoaded++;
+            setLoadedCount(framesLoaded);
+            if (ring) {
+              const frac = framesLoaded / TOTAL_FRAMES;
+              ring.style.strokeDashoffset = `${126 * (1 - frac)}`;
+            }
+          }
+          resolve();
+        };
+        img.onerror = () => resolve();
+      });
     };
 
-    // 2. Stream remaining 139 frames progressively
-    for (let i = 1; i < TOTAL_FRAMES; i++) {
-      const img = new Image();
-      const numStr = String(i).padStart(3, '0');
-      img.src = `/assets/frames_webp/f_${numStr}.webp`;
-      img.onload = () => {
-        if (isDisposed) return;
-        frames[i] = img;
-        framesLoaded++;
-        setLoadedCount(framesLoaded);
+    // Phase 1: Critical First Frame (0ms First Meaningful Paint)
+    loadSingleFrame(0).then(() => {
+      if (isDisposed) return;
+      setIsInitialReady(true);
+      if (frames[0]) drawCover(frames[0]);
 
-        if (ring) {
-          const frac = framesLoaded / TOTAL_FRAMES;
-          const strokeDash = 126 * (1 - frac);
-          ring.style.strokeDashoffset = `${strokeDash}`;
+      // Phase 2: Immediate preload of first 15 frames for instant scroll response
+      const initialChunk = Array.from({ length: 15 }, (_, i) => i + 1);
+      Promise.all(initialChunk.map(loadSingleFrame)).then(() => {
+        if (isDisposed) return;
+
+        // Phase 3: Staggered background worker for remaining frames (gentle batches of 8)
+        let nextIndex = 16;
+        const scheduleNextChunk = () => {
+          if (isDisposed || nextIndex >= TOTAL_FRAMES) return;
+          const chunk: number[] = [];
+          for (let c = 0; c < 8 && nextIndex < TOTAL_FRAMES; c++, nextIndex++) {
+            chunk.push(nextIndex);
+          }
+          Promise.all(chunk.map(loadSingleFrame)).then(() => {
+            if (isDisposed) return;
+            if ('requestIdleCallback' in window) {
+              window.requestIdleCallback(scheduleNextChunk, { timeout: 250 });
+            } else {
+              setTimeout(scheduleNextChunk, 60);
+            }
+          });
+        };
+
+        if ('requestIdleCallback' in window) {
+          window.requestIdleCallback(scheduleNextChunk, { timeout: 250 });
+        } else {
+          setTimeout(scheduleNextChunk, 60);
         }
-      };
-    }
+      });
+    });
 
     // Smoothstep utility (10k-websites standard)
     const smoothstep = (p: number, e0: number, e1: number) => {
@@ -177,7 +220,7 @@ export function CinematicHero() {
 
       // 1. Draw synchronous canvas frame
       const frameIdx = Math.min(TOTAL_FRAMES - 1, Math.max(0, Math.round(shown * (TOTAL_FRAMES - 1))));
-      const img = frames[frameIdx] || frames[0];
+      const img = getBestAvailableFrame(frameIdx);
       if (img && img.complete) {
         drawCover(img);
       }
