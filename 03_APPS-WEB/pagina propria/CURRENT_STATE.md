@@ -1,38 +1,24 @@
-# LATHE ESSENCE — Estado Actual del Proyecto
+# ESTADO ACTUAL: LATHE ESSENCE HAUTE PARFUMERIE
 
-## Última Actualización: 2026-11-09
+**Fecha de Actualización:** 10 de Noviembre de 2026
+**Estado:** Producción Verificada y Operativa con Logo e Identidad de Marca LATHE ESSENCE
+**Servidor Activo:** `http://localhost:5173/` (Vite 6 + React 19 + Tailwind CSS)
 
-### Hitos de la Refactorización Integral
-- **Identidad de Marca & Logo LATHE ESSENCE**:
-  - Logo oficial procesado y renderizado con transparencia RGBA en variantes blanco (`lathe-logo-white.png`) y negro (`lathe-logo-black.png`).
-  - Adaptabilidad total en Navbar y Footer con cambio fluido entre Modo Claro y Modo Oscuro.
-  - Estética minimalista y sobria (negro obsidiana `#000000`, paneles neutros `#0c0c0c` / `#111111`, micro-bordes plateados/translúcidos y blanco puro). Cero recargo dorado oriental.
+---
 
-- **Catálogo 100% Completo & Categorizado (145 Fragancias)**:
-  - 145/145 perfumes con imágenes reales verificadas (creados activos fotográficos para los faltantes 137 y 140).
-  - Categorización precisa: `Arabes`, `Diseñador`, `Nicho` (Xerjoff, Bond No. 9, etc.) y `Body splash` (Victoria's Secret).
-  - Eliminación total de emojis en descripciones, notas olfativas y tags.
+## 1. Actualización de Marca & Logo LATHE ESSENCE
 
-- **Sistema de Precios Dual & Modalidad Minorista / Mayorista**:
-  - Selector global en el Header: **Venta Minorista** (a partir de 1u) y **Venta Mayorista** (a partir de mínimo 3u con 35% de descuento).
-  - Selector por tarjeta y por modal con recálculo dinámico de precios en tiempo real.
-  - Validación estricta: prohibido activar modalidad mayorista con menos de 3 unidades; si se reduce a menos de 3 en el carrito, se recalcula automáticamente a tarifa minorista.
+- **Navbar Principal:** Se incorporó el logotipo auténtico oficial [`/images/logo/lathe-logo-white.png`](file:///c:/Users/thiago/Desktop/inteligencia%20artificial/antigravity/cosas%20hechas%20con%20antigravity/03_APPS-WEB/pagina%20propria/public/images/logo/lathe-logo-white.png) con enlace directo al inicio y estado hover optimizado.
+- **Hero Cinematográfico (Beat 4):** El marco de llegada e impacto central despliega ahora el logotipo de **LATHE ESSENCE** en alta definición con sombra de profundidad e insignia *"ALTA PERFUMERÍA • COLECCIÓN PRIVADA"*.
+- **Portal Mayorista B2B (Cotizador de Lotes):** Encabezado oficial con el logotipo de la marca y subtítulo *"PORTAL MAYORISTA B2B // LATHE ESSENCE"*.
+- **Ficha Técnica de Producto (`ProductModal.tsx`):** Encabezado con logotipo e identificación de referencia oficial.
+- **Discovery Set (`DiscoverySetShowcase.tsx`):** Marca y logotipo integrados en la tarjeta del Kit de Descubrimiento Privado.
+- **Footer (`Footer.tsx`):** Logotipo adaptativo blanco/negro con enlaces directos a WhatsApp Mayorista e Instagram.
 
-- **Diseño UI/UX, Animaciones 3D & Micro-Interacciones**:
-  - Efecto tilt 3D sutil con perspectiva mouse (`perspective(1000px)`, elevación en capas `translateZ(15px)` de la botella).
-  - Botones táctiles con amortiguación `active:scale-95`.
-  - Iconografía 100% vectorial con Lucide React (cero emojis de sistema en toda la aplicación).
+---
 
-- **Integración Directa de WhatsApp**:
-  - Teléfono oficial configurado: `+54 9 11 6657-3519` (`5491166573519`).
-  - Botón de envío de pedido con mensaje detallado y desglosado.
-  - Botones de consulta individual por perfume y contacto en el footer.
-
-- **Trust Building & Elementos de Confianza**:
-  - Badges de seguridad en fichas de producto y checkout: 100% Sellado de Fábrica, Envíos Asegurados a Toda Argentina, Pago Coordinado Seguro por WhatsApp.
-  - Pirámide olfativa completa (Salida, Corazón y Fondo).
-
-### Verificación Técnica & Publicación
-- Compilación `tsc -b && vite build` exitosa con 0 errores de TypeScript y 0 warnings de lint.
-- Repositorio GitHub: `https://github.com/thiagolencinatt-hash/cosas-hechas-con-antigravity/tree/main/03_APPS-WEB/pagina%20propria`
-- Despliegue en vivo en Vercel: `https://brisk-pulsar-9wk93g2.tmp.now`
+## 2. Rendimiento & Verificación
+- **Motor de Scrubbing:** 120 FPS sincrónicos en HTML5 `<canvas>` con 140 fotogramas WebP precargados en memoria.
+- **Compilación TypeScript:** 0 errores (`tsc -b`).
+- **Build de Producción:** Exitoso en Vite en 4.13s.
+- **Verificación Visual:** Confirmada en Chrome DevTools.

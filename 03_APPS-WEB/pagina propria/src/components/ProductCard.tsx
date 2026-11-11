@@ -1,4 +1,4 @@
-import { useState, useRef, MouseEvent } from 'react';
+import { useState, useRef, useEffect, MouseEvent } from 'react';
 import { Heart, Plus, Minus, ShoppingBag, Eye } from 'lucide-react';
 import { Product, PricingMode } from '../types';
 import { useShop, WHOLESALE_MIN_UNITS } from '../context/ShopContext';
@@ -21,6 +21,11 @@ export function ProductCard({ product }: ProductCardProps) {
 
   // Local card pricing mode (defaults to global, can be toggled locally on each card)
   const [cardMode, setCardMode] = useState<PricingMode>(globalPricingMode);
+
+  // Sync with global mode when user switches mode in navbar
+  useEffect(() => {
+    setCardMode(globalPricingMode);
+  }, [globalPricingMode]);
 
   // 3D Card Tilt State
   const cardRef = useRef<HTMLDivElement>(null);
@@ -89,7 +94,7 @@ export function ProductCard({ product }: ProductCardProps) {
             e.stopPropagation();
             toggleWishlist(product.id);
           }}
-          className={`absolute top-2.5 right-2.5 z-10 w-8 h-8 rounded-full flex items-center justify-center backdrop-blur-md transition-all active:scale-90 ${
+          className={`absolute top-2.5 right-2.5 z-10 w-8 h-8 rounded-full flex items-center justify-center backdrop-blur-md transition-[color,background-color,border-color,transform] duration-150 ease-out active:scale-[0.97] cursor-pointer ${
             isLiked
               ? 'bg-neutral-900 text-red-500 border border-red-500/30'
               : 'bg-black/20 dark:bg-black/40 text-neutral-700 dark:text-neutral-300 hover:text-white hover:bg-black/60'
@@ -150,7 +155,7 @@ export function ProductCard({ product }: ProductCardProps) {
           <button
             type="button"
             onClick={() => setCardMode('minorista')}
-            className={`py-1 text-[10px] font-sans font-medium rounded-lg transition-all text-center ${
+            className={`py-1 text-[10px] font-sans font-medium rounded-lg transition-colors duration-150 ease-out active:scale-[0.97] cursor-pointer text-center ${
               cardMode === 'minorista'
                 ? 'bg-white text-black dark:bg-black dark:text-white font-semibold shadow-sm'
                 : 'text-neutral-500 dark:text-neutral-400 hover:text-black dark:hover:text-white'
@@ -161,7 +166,7 @@ export function ProductCard({ product }: ProductCardProps) {
           <button
             type="button"
             onClick={() => setCardMode('mayorista')}
-            className={`py-1 text-[10px] font-sans font-medium rounded-lg transition-all text-center ${
+            className={`py-1 text-[10px] font-sans font-medium rounded-lg transition-colors duration-150 ease-out active:scale-[0.97] cursor-pointer text-center ${
               cardMode === 'mayorista'
                 ? 'bg-black text-white dark:bg-white dark:text-black font-semibold shadow-sm'
                 : 'text-neutral-500 dark:text-neutral-400 hover:text-black dark:hover:text-white'
@@ -195,7 +200,7 @@ export function ProductCard({ product }: ProductCardProps) {
             <div className="flex items-center justify-between w-full h-9 rounded-full bg-neutral-200 dark:bg-white/10 p-1">
               <button
                 onClick={() => updateQuantity(cartItemId, -1)}
-                className="w-7 h-7 rounded-full bg-white dark:bg-neutral-800 text-black dark:text-white flex items-center justify-center font-bold active:scale-90 transition-transform shadow-sm"
+                className="w-7 h-7 rounded-full bg-white dark:bg-neutral-800 text-black dark:text-white flex items-center justify-center font-bold active:scale-[0.97] transition-transform duration-150 ease-out cursor-pointer shadow-sm"
                 aria-label="Disminuir cantidad"
               >
                 <Minus className="w-3.5 h-3.5" />
@@ -205,7 +210,7 @@ export function ProductCard({ product }: ProductCardProps) {
               </span>
               <button
                 onClick={() => updateQuantity(cartItemId, 1)}
-                className="w-7 h-7 rounded-full bg-white dark:bg-neutral-800 text-black dark:text-white flex items-center justify-center font-bold active:scale-90 transition-transform shadow-sm"
+                className="w-7 h-7 rounded-full bg-white dark:bg-neutral-800 text-black dark:text-white flex items-center justify-center font-bold active:scale-[0.97] transition-transform duration-150 ease-out cursor-pointer shadow-sm"
                 aria-label="Aumentar cantidad"
               >
                 <Plus className="w-3.5 h-3.5" />
@@ -214,7 +219,7 @@ export function ProductCard({ product }: ProductCardProps) {
           ) : (
             <button
               onClick={handleAddToCart}
-              className="w-full h-9 rounded-full bg-black text-white dark:bg-white dark:text-black hover:opacity-90 font-sans font-semibold text-xs flex items-center justify-center gap-1.5 active:scale-95 transition-all shadow-sm"
+              className="w-full h-9 rounded-full bg-black text-white dark:bg-white dark:text-black hover:opacity-90 font-sans font-semibold text-xs flex items-center justify-center gap-1.5 active:scale-[0.97] transition-[opacity,transform] duration-150 ease-out cursor-pointer shadow-sm"
             >
               <ShoppingBag className="w-3.5 h-3.5" />
               <span>

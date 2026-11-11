@@ -1,0 +1,667 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="es"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_standard" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { "colors": { "surface": "#121317", "surface-variant": "#343439", "on-surface-variant": "#c5c6ca", "primary-container": "#e0e2e6", "outline": "#8f9194", "surface-tint": "#c4c7ca", "tertiary": "#ffffff", "primary": "#ffffff", "on-tertiary-container": "#57657a", "primary-fixed-dim": "#c4c7ca", "surface-bright": "#38393e", "on-secondary-fixed": "#0d1c2d", "on-tertiary": "#233144", "secondary-container": "#39485a", "on-primary": "#2d3134", "on-secondary": "#233143", "surface-container-lowest": "#0d0e12", "surface-container-low": "#1a1b20", "surface-dim": "#121317", "primary-fixed": "#e0e2e6", "on-tertiary-fixed-variant": "#3a485b", "on-error-container": "#ffdad6", "secondary-fixed": "#d4e4fa", "on-tertiary-fixed": "#0d1c2e", "on-background": "#e3e2e8", "tertiary-fixed": "#d5e3fc", "on-error": "#690005", "surface-container-highest": "#343439", "tertiary-fixed-dim": "#b9c7df", "on-surface": "#e3e2e8", "secondary-fixed-dim": "#b9c8de", "error-container": "#93000a", "inverse-surface": "#e3e2e8", "on-primary-fixed": "#191c1f", "inverse-on-surface": "#2f3035", "on-secondary-fixed-variant": "#39485a", "outline-variant": "#44474a", "on-primary-container": "#626568", "surface-container": "#1f1f24", "tertiary-container": "#d5e3fc", "background": "#121317", "secondary": "#b9c8de", "error": "#ffb4ab", "on-primary-fixed-variant": "#44474a", "surface-container-high": "#292a2e", "inverse-primary": "#5c5f62", "on-secondary-container": "#a7b6cc" }, "borderRadius": { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" }, "spacing": { "margin-tablet": "2rem", "margin-mobile": "1.25rem", "space-xs": "0.25rem", "space-xl": "3rem", "gutter": "1.5rem", "gutter-mobile": "1rem", "space-lg": "1.75rem", "space-md": "1rem", "space-sm": "0.5rem", "margin": "4rem" }, "fontFamily": { "label-mono": [ "Geist" ], "body-sm": [ "Plus Jakarta Sans" ], "title-md": [ "Plus Jakarta Sans" ], "body-md": [ "Plus Jakarta Sans" ], "headline-md-mobile": [ "EB Garamond" ], "headline-lg": [ "EB Garamond" ], "body-lg": [ "Plus Jakarta Sans" ], "label-caps": [ "Plus Jakarta Sans" ], "display-xl": [ "EB Garamond" ], "title-lg": [ "Plus Jakarta Sans" ], "headline-md": [ "EB Garamond" ], "headline-lg-mobile": [ "EB Garamond" ], "display-xl-mobile": [ "EB Garamond" ] }, "fontSize": { "label-mono": [ "0.75rem", { "lineHeight": "1rem", "letterSpacing": "0.12em", "fontWeight": "500" } ], "body-sm": [ "0.8125rem", { "lineHeight": "1.375rem", "letterSpacing": "0.01em", "fontWeight": "400" } ], "title-md": [ "1rem", { "lineHeight": "1.5rem", "letterSpacing": "0.02em", "fontWeight": "500" } ], "body-md": [ "0.9375rem", { "lineHeight": "1.625rem", "letterSpacing": "0", "fontWeight": "400" } ], "headline-md-mobile": [ "1.5rem", { "lineHeight": "2rem", "letterSpacing": "0", "fontWeight": "400" } ], "headline-lg": [ "3rem", { "lineHeight": "3.5rem", "letterSpacing": "-0.01em", "fontWeight": "400" } ], "body-lg": [ "1.125rem", { "lineHeight": "1.875rem", "letterSpacing": "0.01em", "fontWeight": "300" } ], "label-caps": [ "0.6875rem", { "lineHeight": "0.875rem", "letterSpacing": "0.2em", "fontWeight": "600" } ], "display-xl": [ "4.5rem", { "lineHeight": "5rem", "letterSpacing": "-0.02em", "fontWeight": "400" } ], "title-lg": [ "1.25rem", { "lineHeight": "1.75rem", "letterSpacing": "0.01em", "fontWeight": "600" } ], "headline-md": [ "2rem", { "lineHeight": "2.5rem", "letterSpacing": "0", "fontWeight": "400" } ], "headline-lg-mobile": [ "2rem", { "lineHeight": "2.5rem", "letterSpacing": "0", "fontWeight": "400" } ], "display-xl-mobile": [ "2.75rem", { "lineHeight": "3.25rem", "letterSpacing": "-0.01em", "fontWeight": "400" } ] } } } };</script></head><body class="bg-surface text-on-surface font-body-md text-body-md selection:bg-surface-variant selection:text-primary min-h-screen"><header class="fixed top-0 left-0 w-full z-50 bg-surface/90 backdrop-blur-xl border-b border-surface-variant/40"><div class="h-20 w-full max-w-[1440px] mx-auto px-margin-mobile md:px-margin-tablet lg:px-margin flex items-center justify-between gap-gutter"><div class="flex items-center gap-space-md shrink-0"><img alt="Nocturne Haute Parfumerie Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/ALJJyrDs9Zdc8H5GpSYaYU_rs0rwwbPRy8u0IJFrDi3v8DvLo6Dzf9FQmxXZXgx2H_1KX2dC6_JZKMd2pXJqdEuOiTCq1vVIRonme3_K8zJTTuoVyD_UAqxpAF1GCeaijGQUhJk1B_O-8K3RZJUDmJF5qhcVMiaP8pt-DYkFPr0DFON6UXT8qA3hKS7rW3947DIlNx1YCOB2qkmjJBeD5BibvVobhRp5kTM_Vg1ITIkNycu5"/><div class="flex flex-col"><span class="font-label-caps text-label-caps uppercase text-primary tracking-[0.25em]">NOCTURNE</span><span class="font-label-mono text-[0.625rem] text-on-surface-variant tracking-wider uppercase">Haute Parfumerie</span></div></div><nav class="hidden xl:flex items-center gap-gutter" data-active-classes="text-primary border-b border-primary"><a class="font-label-caps text-label-caps uppercase text-on-surface-variant hover:text-on-surface transition-colors py-space-xs" data-path="inicio" href="#">Inicio</a><a class="font-label-caps text-label-caps uppercase text-on-surface-variant hover:text-on-surface transition-colors py-space-xs" data-path="catalogo-general" href="#">Catálogo General</a><a aria-current="page" class="font-label-caps uppercase transition-colors py-space-xs text-primary border-b border-primary" data-path="ficha-de-producto" href="#">Ficha de Producto</a><a class="font-label-caps text-label-caps uppercase text-on-surface-variant hover:text-on-surface transition-colors py-space-xs" data-path="portal-mayorista-b2b" href="#">Portal Mayorista B2B</a></nav><div class="flex items-center gap-space-sm sm:gap-space-md shrink-0"><div class="hidden lg:flex items-center bg-surface-container-low border border-surface-variant px-space-sm py-1"><span class="font-label-mono text-[0.6875rem] text-primary pr-2 border-r border-surface-variant uppercase">B2C / B2B</span><span class="font-label-mono text-[0.6875rem] text-on-surface-variant pl-2 uppercase">Minorista</span></div><div class="hidden md:flex items-center bg-surface-container-low border border-surface-variant px-3 py-1.5 gap-2"><span class="material-symbols-outlined text-[16px] text-outline">search</span><span class="font-label-mono text-label-mono text-outline">BUSCAR ESCENCIA...</span><kbd class="bg-surface-variant/60 text-on-surface-variant font-label-mono text-[0.625rem] px-1.5 py-0.5 rounded">⌘K</kbd></div><button aria-label="Cambiar Tema" class="p-2 text-on-surface-variant hover:text-primary transition-colors flex items-center justify-center"><span class="material-symbols-outlined text-[20px]">dark_mode</span></button><button aria-label="Favoritos" class="p-2 text-on-surface-variant hover:text-primary transition-colors relative flex items-center justify-center"><span class="material-symbols-outlined text-[20px]">favorite</span><span class="absolute top-1 right-1 w-1.5 h-1.5 rounded-full bg-primary"></span></button><button aria-label="Cesta de Compra" class="p-2 text-on-surface-variant hover:text-primary transition-colors relative flex items-center justify-center"><span class="material-symbols-outlined text-[20px]">shopping_bag</span><span class="absolute -top-0.5 -right-0.5 bg-surface-variant text-primary font-label-mono text-[0.5625rem] px-1 rounded-full border border-surface">0</span></button><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center shrink-0 ml-1"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header><main class="w-full pt-20 bg-surface min-h-[calc(100vh-80px)]"><div class="flex flex-col w-full">
+<!-- Breadcrumb Navigation Bar -->
+<div class="w-full bg-surface-container-lowest">
+<div class="max-w-[1440px] mx-auto px-margin-mobile md:px-margin-tablet lg:px-margin py-space-sm flex items-center justify-between text-on-surface-variant">
+<nav class="flex items-center gap-2 font-label-mono text-label-mono">
+<a class="hover:text-primary transition-colors" href="#">INICIO</a>
+<span class="text-surface-variant">/</span>
+<a class="hover:text-primary transition-colors" href="#">CATÁLOGO</a>
+<span class="text-surface-variant">/</span>
+<a class="hover:text-primary transition-colors" href="#">AMADERADOS</a>
+<span class="text-surface-variant">/</span>
+<span class="text-primary font-semibold">SANTAL NOIR</span>
+</nav>
+<div class="hidden sm:flex items-center gap-space-sm font-label-mono text-[0.6875rem] text-outline">
+<span class="flex items-center gap-1"><span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span> STOCK DISPONIBLE EN ATELIER</span>
+<span class="text-surface-variant">|</span>
+<span>BATCH #NT-8942-EX</span>
+</div>
+</div>
+</div>
+<!-- Main Product Detail Canvas -->
+<div class="w-full max-w-[1440px] mx-auto px-margin-mobile md:px-margin-tablet lg:px-margin py-space-md lg:py-space-lg">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter lg:gap-space-xl items-start">
+<!-- LEFT COLUMN: Gallery & Editorial Imagery (7 cols on lg) -->
+<div class="lg:col-span-7 flex flex-col gap-space-md">
+<!-- Main Display Frame with Refractive Depth -->
+<div class="relative w-full aspect-[4/5] bg-surface-container-lowest overflow-hidden shadow-2xl rounded-sm">
+<div class="absolute inset-0 bg-gradient-to-t from-surface-container-lowest via-transparent to-transparent z-10 pointer-events-none opacity-40"></div>
+<img class="w-full h-full object-cover transition-transform duration-700 ease-out hover:scale-105" data-alt="Monolithic luxury perfume bottle of Santal Noir, heavy dark smoked obsidian glass with crisp sharp edges, solid brushed titanium magnetic cap, resting on a wet slate architectural pedestal, high contrast dramatic studio lighting, deep moody shadows with icy mercury rim lights, editorial minimalist photograph in the style of high perfumery." id="main-product-img" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBx3qY3iNKr5ZRZtqzSObARTFsJCzO7Qsi6oBB2DhjxA_MFBHEtyIHYPJvQJWW2Iul82r0JhK_ftugcWlZNgi_g-ULA1fLpuQk3EOr10L_KiK65igi6PRdHV6y5RaM1Smf5KP2J7EQMt8HaAPZxnEx2w_DDRssuvdJUjikbYK0wRYcVzoYQKgDjjTmUdv6rw93Iq44qsnkWiCzdhyE_nZDpKmn81H6FM0Kx-jnkRzwZ"/>
+<!-- Overlaid Metadata Tag -->
+<div class="absolute top-4 left-4 z-20 flex flex-col gap-1">
+<span class="px-2.5 py-1 bg-surface-container-low/90 backdrop-blur-md text-primary font-label-mono text-[0.6875rem] tracking-wider uppercase">Extrait 30% Vol</span>
+<span class="px-2.5 py-1 bg-surface-container-highest/80 backdrop-blur-md text-on-surface-variant font-label-mono text-[0.625rem]">REF. SN-E100</span>
+</div>
+<button aria-label="Ampliar Imagen" class="absolute bottom-4 right-4 z-20 w-10 h-10 bg-surface-container-low/80 backdrop-blur-md text-primary flex items-center justify-center hover:bg-surface-variant transition-colors" id="zoom-btn">
+<span class="material-symbols-outlined text-[20px]">fullscreen</span>
+</button>
+</div>
+<!-- Thumbnails Selector Grid -->
+<div class="grid grid-cols-4 gap-space-sm">
+<button class="thumb-btn relative aspect-square bg-surface-container-low overflow-hidden transition-all ring-1 ring-primary p-0.5" onclick="setMainImage(0, this)">
+<img class="w-full h-full object-cover" data-alt="Close up architectural view of heavy black glass perfume bottle with minimalist typography, pure obsidian background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAApleEnS60z-OF9KyLRRkqEgKkw21MwkQu4nrZxC2nTJN5vg4pm8Bp-77GVdCZExK8ZEcWizuYj5LmSHzN2R25rk_y1ioke028gA_Nki4A6aCny-U88D1rXBtzyG08Av8gg658VWsuoqoDk0-nmMUeTGeFp37vbqZH5EjqFXm4YIEXt4r8j6UvDrJZTFsk6ZwfG6mkZMMRhRPYi4ne1FujxsjIvjz5piGmohA_m6mH"/>
+<span class="absolute bottom-1 right-1 font-label-mono text-[0.5625rem] bg-surface-container-lowest/80 text-primary px-1">01</span>
+</button>
+<button class="thumb-btn relative aspect-square bg-surface-container-low overflow-hidden opacity-70 hover:opacity-100 transition-all ring-0 p-0.5" onclick="setMainImage(1, this)">
+<img class="w-full h-full object-cover" data-alt="Macro detail of brushed titanium magnetic cap and nozzle atomizer with precision laser engraving of Nocturne Atelier monogram." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDZ1SIO9NVjHMVr4f2NQJMyerZsnmSYiwyRz4rpLulC-kfYmSNiVQd2OCIcdJwi7zrWWd65LVeUF0nvRGkeXUPTQzzI6QwpAnIg07i9pWSinWFzuuWyQ92y3S-6-ajwa1RebPR5VzS1pamkRDXawB18zOjj7qRmRcFkRw2_IuaFn5kHVMJfRgcisxA64vD6jxNYycoeJaH0qRmh3O_yFOxKieXTE5RY3avHAmwS2HP-"/>
+<span class="absolute bottom-1 right-1 font-label-mono text-[0.5625rem] bg-surface-container-lowest/80 text-primary px-1">02</span>
+</button>
+<button class="thumb-btn relative aspect-square bg-surface-container-low overflow-hidden opacity-70 hover:opacity-100 transition-all ring-0 p-0.5" onclick="setMainImage(2, this)">
+<img class="w-full h-full object-cover" data-alt="Sleek rigid matte black luxury presentation box with embossed silver foil lettering open on dark volcanic stone." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDxCpztmcExWOOyO-4qOyvgqrBLbeBiuWINoPxaxFzYRnEdzfwZVxzsTR85nnikqO3-YdvDQJnVkGPV-op-aIsxLi3iRG6icO-gj9reBx1eHXp-EDrmzlCG-yQBV04OB586kcol4xqbbH85PfVXIwY-4bY-o1-NMzG1FhK3X-2pHxZX_P_cZCoJsvEry1L8ObEX9CXBD_fziIyci2x8SvkEuMMw27c4nAXk6cxFybd9"/>
+<span class="absolute bottom-1 right-1 font-label-mono text-[0.5625rem] bg-surface-container-lowest/80 text-primary px-1">03</span>
+</button>
+<button class="thumb-btn relative aspect-square bg-surface-container-low overflow-hidden opacity-70 hover:opacity-100 transition-all ring-0 p-0.5" onclick="setMainImage(3, this)">
+<img class="w-full h-full object-cover" data-alt="B2B master wholesale crate showing 12 individually sealed luxury perfume boxes neatly nestled in custom foam architecture." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAmzlA08gwjnRJnhz7_xGAfnC80X4Huydhu5p3ENhHUFNrstPOzIQXQlYk29kDzjheVyBvUH5MR7hyIPyiPCrpOsOfFG2KgqSsXkKX69e1GwrSU7FKgp4v-Y4satb7OsGxnEpeNdDQYEIw1hsxknV6B6A_YikRFVHFLcD3kgVg_zq6Gc50Z2yltQIxC-WwVB2VDqOrApuqxp1J1x19XndGKyme9_njq8GhYNfT2oQIt"/>
+<span class="absolute bottom-1 right-1 font-label-mono text-[0.5625rem] bg-surface-container-lowest/80 text-primary px-1">04</span>
+</button>
+</div>
+<!-- Sensory Signature Highlights (Inline Bento Bar) -->
+<div class="grid grid-cols-3 gap-space-sm mt-space-xs">
+<div class="bg-surface-container-low p-space-sm flex flex-col justify-between">
+<span class="font-label-mono text-[0.625rem] text-outline uppercase tracking-wider">Densidad</span>
+<span class="font-title-md text-title-md text-primary mt-1">30% Puro</span>
+<span class="font-body-sm text-[0.6875rem] text-on-surface-variant">Extrait Concentrado</span>
+</div>
+<div class="bg-surface-container-low p-space-sm flex flex-col justify-between">
+<span class="font-label-mono text-[0.625rem] text-outline uppercase tracking-wider">Longevidad</span>
+<span class="font-title-md text-title-md text-primary mt-1">14 - 18 Horas</span>
+<span class="font-body-sm text-[0.6875rem] text-on-surface-variant">Fijación Estructural</span>
+</div>
+<div class="bg-surface-container-low p-space-sm flex flex-col justify-between">
+<span class="font-label-mono text-[0.625rem] text-outline uppercase tracking-wider">Perfil</span>
+<span class="font-title-md text-title-md text-primary mt-1">Sándalo &amp; Humo</span>
+<span class="font-body-sm text-[0.6875rem] text-on-surface-variant">Maderas Nocturnas</span>
+</div>
+</div>
+</div>
+<!-- RIGHT COLUMN: Commercial Controls & Matrix (5 cols on lg) -->
+<div class="lg:col-span-5 flex flex-col gap-space-md">
+<!-- Header Info -->
+<div class="flex flex-col gap-space-xs">
+<div class="flex items-center justify-between">
+<span class="font-label-caps text-label-caps text-surface-tint uppercase tracking-[0.25em]">NOCTURNE ATELIER · GRASSE</span>
+<span class="inline-flex items-center gap-1 text-[0.6875rem] font-label-mono bg-surface-container-high px-2 py-0.5 text-primary">
+<span class="material-symbols-outlined text-[12px] text-emerald-400">verified</span>
+              LOT DIPLOMATIQUE
+            </span>
+</div>
+<h1 class="font-headline-lg text-headline-lg text-primary tracking-tight">Santal Noir</h1>
+<p class="font-headline-md text-headline-md-mobile text-on-surface-variant italic">Extrait de Parfum 30%</p>
+<!-- Verified Customer Rating Bar -->
+<div class="flex items-center gap-space-sm mt-space-xs">
+<div class="flex items-center text-primary">
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star_half</span>
+</div>
+<span class="font-label-mono text-label-mono text-primary font-semibold">4.9 / 5.0</span>
+<span class="text-surface-variant">•</span>
+<a class="font-body-sm text-body-sm text-outline hover:text-primary transition-colors underline decoration-surface-variant" href="#tab-reviews">184 Evaluaciones Certificadas</a>
+</div>
+</div>
+<!-- Dual Pricing Module & Wholesale Escala Card -->
+<div class="bg-surface-container-low p-space-md flex flex-col gap-space-md">
+<div class="flex items-baseline justify-between">
+<div>
+<span class="font-label-mono text-label-mono text-outline block uppercase">PVP Minorista Oficial</span>
+<div class="flex items-baseline gap-2 mt-0.5">
+<span class="font-headline-md text-headline-md text-primary font-normal" id="unit-display-price">$185.00</span>
+<span class="font-label-mono text-[0.6875rem] text-on-surface-variant uppercase">USD / Unidad</span>
+</div>
+</div>
+<div class="text-right">
+<span class="font-label-mono text-[0.625rem] bg-secondary-container text-on-secondary-container px-2 py-0.5 uppercase tracking-wider">Margen B2B Hasta 54%</span>
+</div>
+</div>
+<!-- Interactive Wholesale Tier Matrix Table -->
+<div class="flex flex-col gap-space-xs">
+<div class="flex items-center justify-between">
+<span class="font-label-mono text-[0.6875rem] text-primary uppercase font-medium">Escala de Descuentos para Boutiques &amp; Mayoristas</span>
+<span class="font-label-mono text-[0.625rem] text-outline">EX-WORKS PARIS</span>
+</div>
+<div class="grid grid-cols-4 gap-1 text-center font-label-mono text-[0.6875rem]">
+<!-- Tier 1 -->
+<div class="tier-card p-2 bg-surface-container cursor-pointer transition-colors" id="tier-1" onclick="selectTier(1, 185)">
+<div class="text-outline text-[0.625rem] uppercase">1 - 5 Uds</div>
+<div class="text-primary font-bold mt-1 text-[0.8125rem]">$185</div>
+<div class="text-[0.5625rem] text-surface-variant mt-0.5">Base Retail</div>
+</div>
+<!-- Tier 2 -->
+<div class="tier-card p-2 bg-surface-container cursor-pointer transition-colors" id="tier-2" onclick="selectTier(6, 135)">
+<div class="text-outline text-[0.625rem] uppercase">6 - 11 Uds</div>
+<div class="text-primary font-bold mt-1 text-[0.8125rem]">$135</div>
+<div class="text-[0.5625rem] text-secondary font-medium mt-0.5">-27% OFF</div>
+</div>
+<!-- Tier 3 -->
+<div class="tier-card p-2 bg-surface-container cursor-pointer transition-colors" id="tier-3" onclick="selectTier(12, 105)">
+<div class="text-outline text-[0.625rem] uppercase">12 - 24 Uds</div>
+<div class="text-primary font-bold mt-1 text-[0.8125rem]">$105</div>
+<div class="text-[0.5625rem] text-secondary font-medium mt-0.5">-43% OFF</div>
+</div>
+<!-- Tier 4 -->
+<div class="tier-card p-2 bg-surface-container cursor-pointer transition-colors" id="tier-4" onclick="selectTier(25, 85)">
+<div class="text-outline text-[0.625rem] uppercase">25+ Uds</div>
+<div class="text-primary font-bold mt-1 text-[0.8125rem]">$85</div>
+<div class="text-[0.5625rem] text-secondary font-medium mt-0.5">-54% OFF</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Size & Format Selector -->
+<div class="flex flex-col gap-space-xs">
+<div class="flex justify-between items-center">
+<span class="font-label-mono text-label-mono text-outline uppercase">Formato de Presentación</span>
+<span class="font-label-mono text-[0.6875rem] text-primary" id="selected-format-label">Frasco 100ml Standard</span>
+</div>
+<div class="grid grid-cols-3 gap-space-sm">
+<button class="format-btn p-3 bg-surface-container-low text-left hover:bg-surface-container transition-all" onclick="selectFormat('50ml', 130, this)">
+<span class="font-label-mono text-[0.6875rem] text-outline block">INDIVIDUAL</span>
+<span class="font-title-md text-title-md text-on-surface block font-medium">50 ml</span>
+<span class="font-label-mono text-[0.6875rem] text-surface-tint mt-1 block">$130 USD</span>
+</button>
+<button class="format-btn active-format p-3 bg-surface-container-high text-left hover:bg-surface-container-high transition-all" onclick="selectFormat('100ml', 185, this)">
+<span class="font-label-mono text-[0.6875rem] text-primary block">INSIGNIA</span>
+<span class="font-title-md text-title-md text-primary block font-medium">100 ml</span>
+<span class="font-label-mono text-[0.6875rem] text-surface-tint mt-1 block">$185 USD</span>
+</button>
+<button class="format-btn p-3 bg-surface-container-low text-left hover:bg-surface-container transition-all" onclick="selectFormat('b2b-box', 1260, this)">
+<span class="font-label-mono text-[0.6875rem] text-secondary block">LOTE B2B</span>
+<span class="font-title-md text-title-md text-on-surface block font-medium">Caja 12 Uds</span>
+<span class="font-label-mono text-[0.6875rem] text-secondary mt-1 block">$1,260 USD</span>
+</button>
+</div>
+</div>
+<!-- Quantity Selector & Live Subtotal Engine -->
+<div class="bg-surface-container-low p-space-sm flex flex-col gap-space-sm">
+<div class="flex items-center justify-between gap-space-md">
+<!-- Counter Controls -->
+<div class="flex items-center bg-surface-container-lowest">
+<button aria-label="Reducir Cantidad" class="w-10 h-11 flex items-center justify-center text-on-surface hover:text-primary hover:bg-surface-container transition-colors" onclick="adjustQty(-1)">
+<span class="material-symbols-outlined text-[16px]">remove</span>
+</button>
+<input class="w-14 bg-transparent text-center font-label-mono text-title-md text-primary focus:outline-none [appearance:textfield] [&amp;::-webkit-outer-spin-button]:appearance-none [&amp;::-webkit-inner-spin-button]:appearance-none" id="qty-input" max="500" min="1" onchange="manualQtyUpdate(this.value)" type="number" value="1"/>
+<button aria-label="Aumentar Cantidad" class="w-10 h-11 flex items-center justify-center text-on-surface hover:text-primary hover:bg-surface-container transition-colors" onclick="adjustQty(1)">
+<span class="material-symbols-outlined text-[16px]">add</span>
+</button>
+</div>
+<!-- Dynamic Live Subtotal -->
+<div class="flex flex-col text-right">
+<span class="font-label-mono text-[0.625rem] text-outline uppercase tracking-wider">Subtotal Estimado</span>
+<div class="flex items-baseline justify-end gap-1">
+<span class="font-title-lg text-title-lg text-primary font-bold" id="total-price-display">$185.00</span>
+<span class="font-label-mono text-[0.6875rem] text-on-surface-variant">USD</span>
+</div>
+</div>
+</div>
+<!-- Commercial Actions -->
+<div class="flex flex-col gap-space-xs mt-space-xs">
+<button class="w-full py-3.5 px-space-md bg-primary text-on-primary font-label-caps text-label-caps uppercase tracking-[0.18em] hover:bg-surface-tint active:scale-[0.99] transition-all flex items-center justify-center gap-space-xs" id="add-to-cart-btn">
+<span class="material-symbols-outlined text-[18px]">shopping_bag</span>
+<span id="cart-btn-text">AÑADIR A LA CESTA</span>
+</button>
+<button class="w-full py-2.5 px-space-md bg-surface-container text-on-surface-variant hover:text-primary hover:bg-surface-container-high font-label-mono text-label-mono uppercase transition-all flex items-center justify-center gap-space-xs" onclick="requestB2BSample()">
+<span class="material-symbols-outlined text-[16px]">science</span>
+              SOLICITAR MUESTRA COMERCIAL (5ML VIAL B2B)
+            </button>
+</div>
+</div>
+<!-- Trust Badges & Fulfillment Ledger -->
+<div class="bg-surface-container-lowest p-space-sm flex flex-col gap-space-xs text-on-surface-variant">
+<div class="flex items-start gap-space-xs">
+<span class="material-symbols-outlined text-primary text-[18px] shrink-0 mt-0.5">verified_user</span>
+<div class="flex flex-col">
+<span class="font-title-md text-[0.8125rem] text-primary">Autenticidad Criptográfica Garantizada</span>
+<span class="font-body-sm text-[0.75rem]">Cada frasco incorpora microchip NFC inviolable vinculado a registro de lote en Grasse.</span>
+</div>
+</div>
+<div class="flex items-start gap-space-xs pt-space-xs border-t border-surface-variant/30">
+<span class="material-symbols-outlined text-primary text-[18px] shrink-0 mt-0.5">local_shipping</span>
+<div class="flex flex-col">
+<span class="font-title-md text-[0.8125rem] text-primary">Logística Segura &amp; Ex-Works</span>
+<span class="font-body-sm text-[0.75rem]">Minorista: 24/48h DHL Express asegurado. Mayorista: Flete aéreo palletizado 3-5 días hábiles.</span>
+</div>
+</div>
+<div class="flex items-start gap-space-xs pt-space-xs border-t border-surface-variant/30">
+<span class="material-symbols-outlined text-primary text-[18px] shrink-0 mt-0.5">inventory_2</span>
+<div class="flex flex-col">
+<span class="font-title-md text-[0.8125rem] text-primary">Control de Lote Activo</span>
+<span class="font-label-mono text-[0.6875rem] text-outline">LOTE: 2025-02-NOCT | CADUCIDAD ÓPTIMA: 36 MESES TRAS APERTURA</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- SECTION: Technical & Sensory Deep Dive (Tabs & Interactive Pyramid) -->
+<div class="w-full bg-surface-container-lowest py-space-xl mt-space-lg">
+<div class="max-w-[1440px] mx-auto px-margin-mobile md:px-margin-tablet lg:px-margin">
+<!-- Interactive Navigation Tabs -->
+<div class="flex flex-wrap items-center gap-space-md mb-space-lg pb-space-xs border-b border-surface-variant/30">
+<button class="spec-tab active-tab font-label-caps text-label-caps text-primary uppercase pb-2 tracking-[0.2em] transition-colors relative" onclick="switchTab('pyramid', this)">
+          PIRÁMIDE OLFATIVA
+          <span class="tab-indicator absolute bottom-0 left-0 w-full h-[2px] bg-primary"></span>
+</button>
+<button class="spec-tab font-label-caps text-label-caps text-outline hover:text-on-surface uppercase pb-2 tracking-[0.2em] transition-colors relative" onclick="switchTab('tech-specs', this)">
+          FICHA TÉCNICA STOCKIST (B2B)
+          <span class="tab-indicator hidden absolute bottom-0 left-0 w-full h-[2px] bg-primary"></span>
+</button>
+<button class="spec-tab font-label-caps text-label-caps text-outline hover:text-on-surface uppercase pb-2 tracking-[0.2em] transition-colors relative" onclick="switchTab('faq', this)">
+          LOGÍSTICA &amp; CONDICIONES B2B / B2C
+          <span class="tab-indicator hidden absolute bottom-0 left-0 w-full h-[2px] bg-primary"></span>
+</button>
+</div>
+<!-- TAB PANEL 1: Olfactory Architecture Pyramid -->
+<div class="tab-content block" id="tab-pyramid">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter items-center">
+<!-- Visual Note Structure breakdown -->
+<div class="lg:col-span-7 flex flex-col gap-space-md">
+<div>
+<span class="font-label-mono text-label-mono text-outline uppercase">Arquitectura Olfativa Tridimensional</span>
+<h2 class="font-headline-lg text-headline-lg text-primary tracking-tight mt-1">Estructura &amp; Destilación</h2>
+<p class="font-body-md text-body-md text-on-surface-variant mt-2 max-w-xl">
+                Santal Noir rechaza las aperturas efímeras convencionales. El acorde de sándalo australiano silvestre ha sido macerado durante 180 días con resinas ahumadas para forjar un impacto lineal, oscuro y envolvente que resiste el paso del tiempo con dignidad marmórea.
+              </p>
+</div>
+<!-- The Pyramid Accordion / Stack -->
+<div class="flex flex-col gap-space-sm">
+<!-- Top Notes -->
+<div class="bg-surface-container-low p-space-md flex flex-col sm:flex-row sm:items-center justify-between gap-space-sm">
+<div class="flex items-center gap-space-sm">
+<span class="w-8 h-8 rounded-full bg-surface-container flex items-center justify-center font-label-mono text-label-mono text-primary">01</span>
+<div>
+<span class="font-label-mono text-[0.6875rem] text-outline block uppercase tracking-wider">Notas de Salida (0 - 30 Minutos)</span>
+<span class="font-title-md text-title-md text-primary font-medium">Cardamomo Negro de Guatemala &amp; Bergamota de Calabria</span>
+</div>
+</div>
+<span class="font-label-mono text-[0.6875rem] text-secondary uppercase tracking-widest shrink-0">Cítrico Especiado</span>
+</div>
+<!-- Heart Notes -->
+<div class="bg-surface-container-low p-space-md flex flex-col sm:flex-row sm:items-center justify-between gap-space-sm">
+<div class="flex items-center gap-space-sm">
+<span class="w-8 h-8 rounded-full bg-surface-container flex items-center justify-center font-label-mono text-label-mono text-primary">02</span>
+<div>
+<span class="font-label-mono text-[0.6875rem] text-outline block uppercase tracking-wider">Notas de Corazón (30 Minutos - 4 Horas)</span>
+<span class="font-title-md text-title-md text-primary font-medium">Sándalo Australiano Vintage, Papiro Egipcio &amp; Concreto de Iris</span>
+</div>
+</div>
+<span class="font-label-mono text-[0.6875rem] text-secondary uppercase tracking-widest shrink-0">Amaderado Polvoso</span>
+</div>
+<!-- Base Notes -->
+<div class="bg-surface-container-low p-space-md flex flex-col sm:flex-row sm:items-center justify-between gap-space-sm">
+<div class="flex items-center gap-space-sm">
+<span class="w-8 h-8 rounded-full bg-surface-container flex items-center justify-center font-label-mono text-label-mono text-primary">03</span>
+<div>
+<span class="font-label-mono text-[0.6875rem] text-outline block uppercase tracking-wider">Notas de Fondo (4 - 18 Horas)</span>
+<span class="font-title-md text-title-md text-primary font-medium">Cedro del Atlas, Resina de Ámbar Gris Mineral &amp; Cuero Ahumado</span>
+</div>
+</div>
+<span class="font-label-mono text-[0.6875rem] text-secondary uppercase tracking-widest shrink-0">Balsámico Animal</span>
+</div>
+</div>
+</div>
+<!-- Note Composition Visual Graphic -->
+<div class="lg:col-span-5 flex flex-col items-center justify-center p-space-lg bg-surface-container-low">
+<div class="w-full max-w-sm flex flex-col items-center text-center gap-space-md">
+<span class="font-label-mono text-label-mono text-outline uppercase tracking-widest">Matriz de Evaporación Molecular</span>
+<!-- Custom SVG Volatility Curve Chart -->
+<svg class="w-full h-auto text-primary" fill="none" stroke="currentColor" viewbox="0 0 320 200">
+<!-- Grid Lines -->
+<line stroke="#343439" stroke-dasharray="2 2" stroke-width="1" x1="40" x2="40" y1="20" y2="170"></line>
+<line stroke="#343439" stroke-width="1" x1="40" x2="300" y1="170" y2="170"></line>
+<line stroke="#343439" stroke-dasharray="2 2" stroke-width="1" x1="40" x2="300" y1="100" y2="100"></line>
+<line stroke="#343439" stroke-dasharray="2 2" stroke-width="1" x1="40" x2="300" y1="30" y2="30"></line>
+<!-- Curve 1: Top -->
+<path d="M40,30 Q90,130 160,170" stroke="#8f9194" stroke-dasharray="3 3" stroke-width="1.5"></path>
+<!-- Curve 2: Heart -->
+<path d="M40,80 Q130,50 240,165" stroke="#b9c8de" stroke-width="2"></path>
+<!-- Curve 3: Base (Linear high tenacity) -->
+<path d="M40,120 Q120,70 300,75" stroke="#ffffff" stroke-width="2.5"></path>
+<!-- Axis Labels -->
+<text fill="#8f9194" font-family="Geist" font-size="9" text-anchor="start" x="35" y="190">0H (Aplicación)</text>
+<text fill="#8f9194" font-family="Geist" font-size="9" text-anchor="middle" x="160" y="190">6 Horas</text>
+<text fill="#8f9194" font-family="Geist" font-size="9" text-anchor="end" x="300" y="190">18+ Horas</text>
+</svg>
+<div class="flex items-center justify-between w-full font-label-mono text-[0.625rem] text-on-surface-variant pt-space-xs">
+<span class="flex items-center gap-1.5"><span class="w-2 h-2 bg-outline rounded-full"></span> Salida</span>
+<span class="flex items-center gap-1.5"><span class="w-2 h-2 bg-secondary rounded-full"></span> Corazón</span>
+<span class="flex items-center gap-1.5"><span class="w-2 h-2 bg-primary rounded-full"></span> Fondo Extrait</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- TAB PANEL 2: Technical Stockist Dossier (B2B Specs) -->
+<div class="tab-content hidden" id="tab-tech-specs">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter">
+<div class="lg:col-span-8 flex flex-col gap-space-md">
+<div>
+<span class="font-label-mono text-label-mono text-outline uppercase">Especificación Técnica &amp; Regulaciones Comerciales</span>
+<h2 class="font-headline-lg text-headline-lg text-primary tracking-tight mt-1">Dossier de Exportación &amp; Stockist</h2>
+<p class="font-body-md text-body-md text-on-surface-variant mt-1">
+                Documentación rigurosamente estandarizada para importadores autorizados, grandes almacenes y perfumerías nicho independientes.
+              </p>
+</div>
+<!-- Dense Specification Data Table -->
+<div class="bg-surface-container-low overflow-hidden">
+<table class="w-full text-left font-label-mono text-[0.75rem]">
+<tbody>
+<tr class="border-b border-surface-variant/40">
+<td class="p-3 text-outline uppercase bg-surface-container-lowest/50 w-1/3">Nombre Olfativo</td>
+<td class="p-3 text-primary font-medium">Santal Noir — Extrait de Parfum 30% Vol</td>
+</tr>
+<tr class="border-b border-surface-variant/40">
+<td class="p-3 text-outline uppercase bg-surface-container-lowest/50">Lugar de Maceración y Llenado</td>
+<td class="p-3 text-on-surface">Laboratoires Nocturne, Grasse, Provenza (Francia)</td>
+</tr>
+<tr class="border-b border-surface-variant/40">
+<td class="p-3 text-outline uppercase bg-surface-container-lowest/50">Cumplimiento Normativo</td>
+<td class="p-3 text-on-surface">Conforme al 51º Enmienda IFRA, EU Regulation (EC) No 1223/2009, FDA Voluntary Filing</td>
+</tr>
+<tr class="border-b border-surface-variant/40">
+<td class="p-3 text-outline uppercase bg-surface-container-lowest/50">Dimensiones de Unidad Retail (100ml)</td>
+<td class="p-3 text-on-surface">62mm x 62mm x 142mm | Peso Bruto: 520 gramos (Frasco de vidrio pesado 180g)</td>
+</tr>
+<tr class="border-b border-surface-variant/40">
+<td class="p-3 text-outline uppercase bg-surface-container-lowest/50">Especificación Master Carton (12 Uds)</td>
+<td class="p-3 text-on-surface">260mm x 195mm x 165mm | Peso Total Embalaje: 6.85 kg | Palletizado Eur 120x80</td>
+</tr>
+<tr class="border-b border-surface-variant/40">
+<td class="p-3 text-outline uppercase bg-surface-container-lowest/50">Código Arancelario (HS Code)</td>
+<td class="p-3 text-on-surface">3303.00.10 (Perfumes y aguas de tocador que contengan alcohol)</td>
+</tr>
+<tr>
+<td class="p-3 text-outline uppercase bg-surface-container-lowest/50">Términos de Envío Predeterminados</td>
+<td class="p-3 text-on-surface">EX-WORKS (Grasse / Paris) o DAP Internacional vía DHL Global Forwarding</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<!-- Document Downloads Box -->
+<div class="lg:col-span-4 flex flex-col gap-space-sm bg-surface-container-low p-space-md self-start">
+<span class="font-label-mono text-label-mono text-primary uppercase">Descarga de Certificados Oficiales</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Acceso libre para responsables de compras y agencias aduaneras.</p>
+<div class="flex flex-col gap-2 mt-space-xs">
+<a class="p-3 bg-surface-container hover:bg-surface-container-high transition-colors flex items-center justify-between" href="#">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-outline text-[18px]">description</span>
+<span class="font-label-mono text-[0.6875rem] text-primary">MSDS_SANTAL_NOIR_2025.PDF</span>
+</div>
+<span class="font-label-mono text-[0.625rem] text-outline">1.2 MB</span>
+</a>
+<a class="p-3 bg-surface-container hover:bg-surface-container-high transition-colors flex items-center justify-between" href="#">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-outline text-[18px]">verified</span>
+<span class="font-label-mono text-[0.6875rem] text-primary">IFRA_51_COMPLIANCE_CERT.PDF</span>
+</div>
+<span class="font-label-mono text-[0.625rem] text-outline">840 KB</span>
+</a>
+<a class="p-3 bg-surface-container hover:bg-surface-container-high transition-colors flex items-center justify-between" href="#">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-outline text-[18px]">table_chart</span>
+<span class="font-label-mono text-[0.6875rem] text-primary">WHOLESALE_TARIFF_TIER_EUR_USD.XLSX</span>
+</div>
+<span class="font-label-mono text-[0.625rem] text-outline">240 KB</span>
+</a>
+</div>
+<div class="mt-space-sm p-3 bg-surface-container-high">
+<span class="font-label-mono text-[0.625rem] text-secondary uppercase block mb-1">¿Necesita Acuerdo de Exclusividad?</span>
+<span class="font-body-sm text-[0.75rem] text-on-surface-variant block">Para solicitudes territoriales de distribución exclusiva, comuníquese directamente con la mesa comercial de París.</span>
+</div>
+</div>
+</div>
+</div>
+<!-- TAB PANEL 3: Logistics & Wholesale FAQ -->
+<div class="tab-content hidden" id="tab-faq">
+<div class="max-w-4xl flex flex-col gap-space-md">
+<div>
+<span class="font-label-mono text-label-mono text-outline uppercase">Preguntas Frecuentes Comerciales</span>
+<h2 class="font-headline-lg text-headline-lg text-primary tracking-tight mt-1">Condiciones de Despacho &amp; Pedidos Lote</h2>
+</div>
+<div class="flex flex-col gap-space-sm">
+<!-- FAQ item 1 -->
+<div class="bg-surface-container-low p-space-md">
+<h3 class="font-title-md text-title-md text-primary">¿Cuál es el tiempo de despacho para pedidos comerciales de más de 25 unidades?</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mt-2">
+                Los pedidos de escala mayorista de hasta 120 unidades se despachan en un plazo de 72 horas desde nuestro centro logístico en París o Grasse. Para volúmenes superiores a 250 unidades, el plazo de ensamblaje y control organoléptico es de 10 a 14 días laborables.
+              </p>
+</div>
+<!-- FAQ item 2 -->
+<div class="bg-surface-container-low p-space-md">
+<h3 class="font-title-md text-title-md text-primary">¿Cómo funciona el crédito comercial y los términos de pago para boutiques autorizadas?</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mt-2">
+                El primer pedido se procesa bajo modalidad Prepago (Proforma). A partir de la segunda compra y previa validación de solvencia fiscal europea o internacional, habilitamos términos de pago a 30 días naturales (Net 30) mediante transferencia bancaria SWIFT / SEPA.
+              </p>
+</div>
+<!-- FAQ item 3 -->
+<div class="bg-surface-container-low p-space-md">
+<h3 class="font-title-md text-title-md text-primary">¿Qué incluye la garantía de preservación física en tránsito de mercancías peligrosas?</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mt-2">
+                Debido a la alta concentración de extracto aromático y alcohol orgánico, todos los envíos cuentan con certificación IATA DGR (Dangerous Goods Regulations). Los pallets están termorregulados y asegurados al 100% de su valor comercial contra roturas térmicas o mecánicas.
+              </p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- SECTION: Complimentary Olfactory Pairings (Cross-Sell Editorial Grid) -->
+<div class="w-full max-w-[1440px] mx-auto px-margin-mobile md:px-margin-tablet lg:px-margin py-space-xl">
+<div class="flex flex-col md:flex-row md:items-end justify-between mb-space-lg gap-space-sm">
+<div>
+<span class="font-label-mono text-label-mono text-outline uppercase tracking-wider">Cura Olfativa &amp; Superposición</span>
+<h2 class="font-headline-lg text-headline-lg text-primary tracking-tight mt-1">Composiciones Afines</h2>
+</div>
+<a class="font-label-caps text-label-caps text-primary hover:text-surface-tint uppercase tracking-[0.2em] flex items-center gap-1 transition-colors" href="#">
+        EXPLORAR EL CATÁLOGO COMPLETO
+        <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</a>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
+<!-- Card 1 -->
+<div class="group bg-surface-container-low overflow-hidden flex flex-col transition-all">
+<div class="relative aspect-[4/5] bg-surface-container-lowest overflow-hidden">
+<img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" data-alt="Dark aesthetic luxury bottle of perfume named Cuir Fumé, dense black smoky background, cold cinematic lighting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCliXG80-0nhVabVKyFiH6Gd6tL-lFfIbwDcf96YTy0eW_vsdw8YWoLnyCsLbwxfmPr2eORcjIYkQ8A7uh-QiAIh1Mhbb2ycuYGiSJPi6ajpUMRZckEF0KueBLNtJZp9MgK40VlN1Xi-xCtOWSknY_ummwa61gYoiLVzb8Le_AE2HjWC_enICzHLCqVHA6H0A5SUybV_uIfqFUxpGg-9i4T6grUs4VAH1_8mC5Kgn0Z"/>
+<div class="absolute top-3 left-3 bg-surface-container-lowest/80 px-2 py-0.5 font-label-mono text-[0.625rem] text-primary">CUERO &amp; HUMO</div>
+</div>
+<div class="p-space-md flex flex-col justify-between flex-1 gap-space-sm">
+<div>
+<h3 class="font-title-lg text-title-lg text-primary font-medium">Cuir Fumé</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">Abedul quemado, ládano de Creta y azafrán negro.</p>
+</div>
+<div class="flex items-center justify-between pt-space-xs border-t border-surface-variant/30">
+<span class="font-label-mono text-label-mono text-primary">$195 USD</span>
+<a class="font-label-mono text-[0.6875rem] text-secondary hover:text-primary uppercase tracking-wider" href="#">Ver Ficha →</a>
+</div>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="group bg-surface-container-low overflow-hidden flex flex-col transition-all">
+<div class="relative aspect-[4/5] bg-surface-container-lowest overflow-hidden">
+<img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" data-alt="Refined perfume flask of Encens Astral on black granite with faint starlight reflection, premium ultra-minimal packaging." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB7NYV9-ES8tEcM4yH5WWrCaPG8t62ELCl0sa2rF818Zo5Yi_qJe45TMYavgi37e1VQ4bcCxFxdwiKDAVq0tLuaNqzu793lQvyZuv9KME8LKeoI0s5CCrF5Jex7gXwYmnoo5-hUpzfYidd6_lHZq69oc8STy5A3-pQFZanLcc5kt4DhhOox9dcpnAkJJaY6zILR7m9_hrw9neewaK1NC-UPFeicu0xMEfTaXk2eXEM7"/>
+<div class="absolute top-3 left-3 bg-surface-container-lowest/80 px-2 py-0.5 font-label-mono text-[0.625rem] text-primary">RESINAS PURAS</div>
+</div>
+<div class="p-space-md flex flex-col justify-between flex-1 gap-space-sm">
+<div>
+<h3 class="font-title-lg text-title-lg text-primary font-medium">Encens Astral</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">Incienso de Omán, mirra roja y aldehídos fríos.</p>
+</div>
+<div class="flex items-center justify-between pt-space-xs border-t border-surface-variant/30">
+<span class="font-label-mono text-label-mono text-primary">$210 USD</span>
+<a class="font-label-mono text-[0.6875rem] text-secondary hover:text-primary uppercase tracking-wider" href="#">Ver Ficha →</a>
+</div>
+</div>
+</div>
+<!-- Card 3 -->
+<div class="group bg-surface-container-low overflow-hidden flex flex-col transition-all">
+<div class="relative aspect-[4/5] bg-surface-container-lowest overflow-hidden">
+<img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" data-alt="Discovery Coffret Box set containing six 10ml travel vials in dark obsidian flacons nestled in black velvet." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAp2rsVy6k_FCUizhpX098NHy42irS53zvkCvHBQoZkGzxgEDgOtzcv3w4-PxidnpWjDuw7ZvVCNtnaHCrxARfA78Lbbom3icQCfj89a06xNmT4ubAdd5uWorGcb2aAERn6p0elY_u_bECitZc3GFMOLWRrt3Ajj1jj5o_FklHx9NOZVnH-abm-92Hr0IJjOkPjQYqZgrWRdH9-NG_MWxZLfndvBjwe0aySm5DKEVSX"/>
+<div class="absolute top-3 left-3 bg-surface-container-lowest/80 px-2 py-0.5 font-label-mono text-[0.625rem] text-primary">COFFRET DISCOVERY</div>
+</div>
+<div class="p-space-md flex flex-col justify-between flex-1 gap-space-sm">
+<div>
+<h3 class="font-title-lg text-title-lg text-primary font-medium">Le Coffret Noir (6x10ml)</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">La antología completa de extractos puros en formato de viaje.</p>
+</div>
+<div class="flex items-center justify-between pt-space-xs border-t border-surface-variant/30">
+<span class="font-label-mono text-label-mono text-primary">$140 USD</span>
+<a class="font-label-mono text-[0.6875rem] text-secondary hover:text-primary uppercase tracking-wider" href="#">Ver Ficha →</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Interactive JavaScript State Logic -->
+<script>
+    // State variables
+    let currentQuantity = 1;
+    let selectedBasePrice = 185;
+    let activeTier = 1;
+
+    // Gallery images registry
+    const gallerySources = [
+      "Monolithic luxury perfume bottle of Santal Noir, heavy dark smoked obsidian glass with crisp sharp edges, solid brushed titanium magnetic cap, resting on a wet slate architectural pedestal, high contrast dramatic studio lighting, deep moody shadows with icy mercury rim lights, editorial minimalist photograph in the style of high perfumery.",
+      "Macro detail of brushed titanium magnetic cap and nozzle atomizer with precision laser engraving of Nocturne Atelier monogram.",
+      "Sleek rigid matte black luxury presentation box with embossed silver foil lettering open on dark volcanic stone.",
+      "B2B master wholesale crate showing 12 individually sealed luxury perfume boxes neatly nestled in custom foam architecture."
+    ];
+
+    function setMainImage(index, btnElement) {
+      const img = document.getElementById('main-product-img');
+      img.setAttribute('data-alt', gallerySources[index]);
+      
+      // Update active thumbnail styles
+      document.querySelectorAll('.thumb-btn').forEach(btn => {
+        btn.classList.remove('ring-1', 'ring-primary', 'opacity-100');
+        btn.classList.add('opacity-70', 'ring-0');
+      });
+      btnElement.classList.remove('opacity-70', 'ring-0');
+      btnElement.classList.add('ring-1', 'ring-primary', 'opacity-100');
+    }
+
+    function calculateUnitPrice(qty) {
+      if (qty >= 25) return 85;
+      if (qty >= 12) return 105;
+      if (qty >= 6) return 135;
+      return 185;
+    }
+
+    function updateTierHighlight(qty) {
+      document.querySelectorAll('.tier-card').forEach(c => {
+        c.classList.remove('bg-surface-container-high', 'ring-1', 'ring-primary');
+        c.classList.add('bg-surface-container');
+      });
+
+      let tierId = 'tier-1';
+      if (qty >= 25) tierId = 'tier-4';
+      else if (qty >= 12) tierId = 'tier-3';
+      else if (qty >= 6) tierId = 'tier-2';
+
+      const target = document.getElementById(tierId);
+      if (target) {
+        target.classList.remove('bg-surface-container');
+        target.classList.add('bg-surface-container-high', 'ring-1', 'ring-primary');
+      }
+    }
+
+    function recalculatePricing() {
+      const unitPrice = calculateUnitPrice(currentQuantity);
+      const total = currentQuantity * unitPrice;
+      
+      document.getElementById('unit-display-price').textContent = `$${unitPrice}.00`;
+      document.getElementById('total-price-display').textContent = `$${total.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
+      
+      const cartBtn = document.getElementById('cart-btn-text');
+      if (currentQuantity >= 6) {
+        cartBtn.textContent = `ORDENAR LOTE MAYORISTA (${currentQuantity} UDS)`;
+      } else {
+        cartBtn.textContent = `AÑADIR A LA CESTA (${currentQuantity} UD)`;
+      }
+
+      updateTierHighlight(currentQuantity);
+    }
+
+    function adjustQty(delta) {
+      currentQuantity = Math.max(1, currentQuantity + delta);
+      document.getElementById('qty-input').value = currentQuantity;
+      recalculatePricing();
+    }
+
+    function manualQtyUpdate(val) {
+      const parsed = parseInt(val, 10);
+      currentQuantity = isNaN(parsed) || parsed < 1 ? 1 : parsed;
+      document.getElementById('qty-input').value = currentQuantity;
+      recalculatePricing();
+    }
+
+    function selectTier(minQty, price) {
+      currentQuantity = minQty;
+      document.getElementById('qty-input').value = currentQuantity;
+      recalculatePricing();
+    }
+
+    function selectFormat(type, price, btn) {
+      document.querySelectorAll('.format-btn').forEach(b => {
+        b.classList.remove('bg-surface-container-high', 'ring-1', 'ring-primary');
+        b.classList.add('bg-surface-container-low');
+      });
+      btn.classList.remove('bg-surface-container-low');
+      btn.classList.add('bg-surface-container-high', 'ring-1', 'ring-primary');
+
+      const label = document.getElementById('selected-format-label');
+      if (type === '50ml') {
+        label.textContent = "Frasco 50ml Petit";
+        currentQuantity = 1;
+      } else if (type === '100ml') {
+        label.textContent = "Frasco 100ml Standard";
+        currentQuantity = 1;
+      } else if (type === 'b2b-box') {
+        label.textContent = "Caja Sellada B2B (12 x 100ml)";
+        currentQuantity = 12;
+      }
+      document.getElementById('qty-input').value = currentQuantity;
+      recalculatePricing();
+    }
+
+    function switchTab(tabKey, btn) {
+      // Hide all tabs
+      document.querySelectorAll('.tab-content').forEach(tc => {
+        tc.classList.add('hidden');
+        tc.classList.remove('block');
+      });
+      
+      // Remove active states from buttons
+      document.querySelectorAll('.spec-tab').forEach(b => {
+        b.classList.remove('text-primary');
+        b.classList.add('text-outline');
+        const indicator = b.querySelector('.tab-indicator');
+        if (indicator) indicator.classList.add('hidden');
+      });
+
+      // Activate current
+      const activePanel = document.getElementById(`tab-${tabKey}`);
+      if (activePanel) {
+        activePanel.classList.remove('hidden');
+        activePanel.classList.add('block');
+      }
+      btn.classList.add('text-primary');
+      btn.classList.remove('text-outline');
+      const indicator = btn.querySelector('.tab-indicator');
+      if (indicator) indicator.classList.remove('hidden');
+    }
+
+    function requestB2BSample() {
+      alert("Solicitud de Muestra Stockist registrada. Nuestro concierge B2B verificará su número fiscal de boutique antes de despachar el vial de 5ml.");
+    }
+
+    // Initialize initial tier highlight on page load
+    document.addEventListener("DOMContentLoaded", () => {
+      recalculatePricing();
+    });
+  </script>
+</div></main><footer class="w-full bg-surface-container-lowest border-t border-surface-variant/40 mt-space-xl"><div class="w-full max-w-[1440px] mx-auto px-margin-mobile md:px-margin-tablet lg:px-margin py-space-xl"><div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-gutter mb-space-xl"><div class="lg:col-span-4 flex flex-col gap-space-sm"><div class="flex items-center gap-space-sm mb-space-xs"><img alt="Nocturne Logo" class="h-6 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/ALJJyrDs9Zdc8H5GpSYaYU_rs0rwwbPRy8u0IJFrDi3v8DvLo6Dzf9FQmxXZXgx2H_1KX2dC6_JZKMd2pXJqdEuOiTCq1vVIRonme3_K8zJTTuoVyD_UAqxpAF1GCeaijGQUhJk1B_O-8K3RZJUDmJF5qhcVMiaP8pt-DYkFPr0DFON6UXT8qA3hKS7rW3947DIlNx1YCOB2qkmjJBeD5BibvVobhRp5kTM_Vg1ITIkNycu5"/><span class="font-label-caps text-label-caps text-primary tracking-[0.25em]">NOCTURNE</span></div><p class="font-body-sm text-body-sm text-on-surface-variant max-w-sm">Arquitectura olfativa de alta precisión. Composiciones artesanales creadas para coleccionistas privados y exclusivas boutiques internacionales.</p><div class="mt-space-md flex flex-col gap-space-xs"><span class="font-label-mono text-label-mono text-outline uppercase">Suscripción Privada</span><div class="flex items-center max-w-sm border border-surface-variant bg-surface-container-low"><input class="bg-transparent px-space-sm py-2 font-label-mono text-label-mono text-on-surface placeholder:text-outline focus:outline-none w-full" placeholder="DIRECCIÓN DE CORREO..." type="email"/><button class="px-space-md py-2 font-label-caps text-label-caps bg-primary text-on-primary uppercase hover:bg-surface-tint transition-colors">Unirse</button></div></div></div><div class="lg:col-span-2 flex flex-col gap-space-xs"><span class="font-label-mono text-label-mono text-primary uppercase mb-space-xs">Colecciones</span><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors" href="#">Extractos Puros</a><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors" href="#">Maderas Nocturnas</a><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors" href="#">Cuero &amp; Humo</a><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors" href="#">Muestras Discovery Set</a><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors" href="#">Ediciones Limitadas</a></div><div class="lg:col-span-3 flex flex-col gap-space-xs"><span class="font-label-mono text-label-mono text-primary uppercase mb-space-xs">División B2B Mayorista</span><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors" href="#">Acceso Portal Trade</a><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors" href="#">Matrices de Volumen (MOQ)</a><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors" href="#">Términos de Envío Ex-Works</a><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors" href="#">Documentación IFRA &amp; MSDS</a><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors" href="#">Solicitud de Muestras Stockist</a></div><div class="lg:col-span-3 flex flex-col gap-space-xs"><span class="font-label-mono text-label-mono text-primary uppercase mb-space-xs">Atención &amp; Normativa</span><p class="font-body-sm text-body-sm text-on-surface-variant">Atelier Paris: Place Vendôme, 75001 Paris</p><p class="font-body-sm text-body-sm text-on-surface-variant">Concierge: concierge@nocturneparfums.com</p><div class="flex items-center gap-space-sm mt-space-sm"><span class="border border-surface-variant px-2 py-0.5 font-label-mono text-[0.625rem] text-on-surface-variant">ISO 22716</span><span class="border border-surface-variant px-2 py-0.5 font-label-mono text-[0.625rem] text-on-surface-variant">IFRA COMPLIANT</span><span class="border border-surface-variant px-2 py-0.5 font-label-mono text-[0.625rem] text-on-surface-variant">CRUELTY FREE</span></div></div></div><div class="pt-space-md border-t border-surface-variant/30 flex flex-col md:flex-row items-center justify-between gap-space-sm"><span class="font-label-mono text-[0.6875rem] text-outline uppercase">© 2025 NOCTURNE HAUTE PARFUMERIE. TODOS LOS DERECHOS RESERVADOS.</span><div class="flex items-center gap-space-md"><a class="font-label-mono text-[0.6875rem] text-outline hover:text-on-surface transition-colors uppercase" href="#">Privacidad</a><a class="font-label-mono text-[0.6875rem] text-outline hover:text-on-surface transition-colors uppercase" href="#">Términos Legales</a><a class="font-label-mono text-[0.6875rem] text-outline hover:text-on-surface transition-colors uppercase" href="#">Trazabilidad</a></div></div></div></footer></body></html>

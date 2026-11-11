@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..700;1,400..700&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&family=Geist+Mono:wght@300;400;500;600&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -6,7 +6,10 @@
 
 @layer base {
   :root {
-    --obsidian: 10 10 10;
+    --obsidian: 11 12 16;
+    --surface: 18 19 23;
+    --surface-low: 26 27 32;
+    --surface-high: 41 42 46;
     --sandstone: 236 232 225;
     --transition-spring: cubic-bezier(0.16, 1, 0.3, 1);
   }
@@ -19,7 +22,7 @@
   }
 
   body {
-    background-color: #0A0A0A;
+    background-color: #0B0C10;
     color: #F5F5F0;
     font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
     overflow-x: hidden;

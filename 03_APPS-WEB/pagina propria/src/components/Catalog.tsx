@@ -1,6 +1,7 @@
+import { useState } from 'react';
 import { ProductCard } from './ProductCard';
 import { useShop } from '../context/ShopContext';
-import { SlidersHorizontal, X, Sparkles } from 'lucide-react';
+import { SlidersHorizontal, X, LayoutGrid, Table, Download, FileSpreadsheet, Eye, Sparkles } from 'lucide-react';
 
 export function Catalog() {
   const {
@@ -16,81 +17,141 @@ export function Catalog() {
     clearFilters,
     activeFiltersCount,
     setIsFilterDrawerOpen,
+    formatPrice,
+    globalPricingMode,
+    addToCart,
+    setSelectedProductForModal,
+    showToast,
   } = useShop();
 
+  const [viewMode, setViewMode] = useState<'grid' | 'table'>('grid');
+
+  const handleExportExcel = () => {
+    showToast('Generando planilla de inventario y tarifas mayoristas (.XLSX)...');
+  };
+
+  const handleExportPDF = () => {
+    showToast('Generando Catálogo Técnico Oficial B2B (.PDF)...');
+  };
+
   return (
-    <section id="catalogo" className="py-10 sm:py-16 bg-white dark:bg-[#000000] transition-colors duration-200">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="catalogo" className="py-16 bg-[#0B0C10] text-white border-b border-white/10 transition-colors duration-200">
+      <div className="max-w-[1440px] mx-auto px-4 sm:px-8 lg:px-12">
         
-        {/* Header & Title */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-8">
+        {/* Header & Title Bar */}
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-8">
           <div>
-            <div className="inline-flex items-center gap-2 mb-2">
-              <span className="w-1.5 h-1.5 rounded-full bg-neutral-400 dark:bg-white" />
-              <span className="text-[11px] font-sans font-semibold tracking-widest uppercase text-neutral-500 dark:text-neutral-400">
-                Importaciones Directas
-              </span>
+            <div className="inline-flex items-center gap-2 font-mono text-[11px] text-[#c9a24b] uppercase tracking-[0.25em] mb-2">
+              <Sparkles className="w-3.5 h-3.5" />
+              <span>02 / Curaduría de Alta Perfumería</span>
             </div>
-            <h2 className="font-sans text-2xl sm:text-4xl font-semibold text-neutral-900 dark:text-white tracking-tight">
-              Catálogo de Fragancias
+            <h2 className="font-serif text-3xl sm:text-5xl font-normal tracking-tight text-white">
+              Catálogo General de Fragancias
             </h2>
-            <p className="font-sans text-xs sm:text-sm text-neutral-500 dark:text-neutral-400 mt-1 max-w-2xl font-normal">
-              Precios dinámicos según tu modalidad: compra minorista desde <strong className="text-black dark:text-white font-semibold">1 unidad</strong> o compra mayorista desde <strong className="text-black dark:text-white font-semibold">3 unidades combinables</strong> con tarifa preferencial.
+            <p className="font-sans text-xs sm:text-sm text-neutral-400 mt-2 max-w-2xl font-light leading-relaxed">
+              Composiciones extraídas en micro-lotes. Precios dinámicos en tiempo real según modalidad: menudeo minorista desde <strong className="text-white font-medium">1 unidad</strong> o adquisición mayorista desde <strong className="text-white font-medium">3 unidades surtidas</strong> con margen de hasta el 55%.
             </p>
           </div>
 
-          {/* Quick Filter Drawer Trigger & Counter */}
-          <div className="flex items-center gap-3">
-            <span className="text-xs font-sans text-neutral-500 dark:text-neutral-400 font-medium">
-              {filteredProducts.length} {filteredProducts.length === 1 ? 'perfume' : 'perfumes'}
-            </span>
+          {/* View Switcher & Actions */}
+          <div className="flex flex-wrap items-center gap-3">
+            {/* View Mode Toggle (Stitch Specification) */}
+            <div className="flex items-center bg-[#14161D] border border-white/10 p-1">
+              <button
+                type="button"
+                onClick={() => setViewMode('grid')}
+                className={`flex items-center gap-1.5 px-3 py-1.5 font-mono text-xs uppercase tracking-wider transition-colors ${
+                  viewMode === 'grid'
+                    ? 'bg-white text-black font-semibold'
+                    : 'text-neutral-400 hover:text-white'
+                }`}
+                title="Vista Cuadrícula"
+              >
+                <LayoutGrid className="w-3.5 h-3.5" />
+                <span className="hidden sm:inline">Cuadrícula</span>
+              </button>
 
+              <button
+                type="button"
+                onClick={() => setViewMode('table')}
+                className={`flex items-center gap-1.5 px-3 py-1.5 font-mono text-xs uppercase tracking-wider transition-colors ${
+                  viewMode === 'table'
+                    ? 'bg-white text-black font-semibold'
+                    : 'text-neutral-400 hover:text-white'
+                }`}
+                title="Vista Tabla Técnica B2B"
+              >
+                <Table className="w-3.5 h-3.5" />
+                <span className="hidden sm:inline">Tabla B2B</span>
+              </button>
+            </div>
+
+            {/* Filter Drawer Trigger */}
             <button
               onClick={() => setIsFilterDrawerOpen(true)}
-              className="flex items-center gap-2 px-4 py-2 rounded-full border border-black/10 dark:border-white/10 hover:border-black/30 dark:hover:border-white/30 text-neutral-800 dark:text-neutral-200 text-xs font-sans font-medium transition-colors"
+              className="flex items-center gap-2 px-4 py-2 bg-[#14161D] border border-white/10 hover:border-white/30 text-white font-mono text-xs uppercase tracking-wider transition-colors"
             >
-              <SlidersHorizontal className="w-3.5 h-3.5" />
+              <SlidersHorizontal className="w-3.5 h-3.5 text-[#c9a24b]" />
               <span>Filtros {activeFiltersCount > 0 ? `(${activeFiltersCount})` : ''}</span>
+            </button>
+
+            {/* Export Buttons */}
+            <button
+              onClick={handleExportExcel}
+              className="hidden lg:flex items-center gap-1.5 px-3 py-2 bg-white/5 hover:bg-white/10 border border-white/10 text-neutral-300 hover:text-white font-mono text-xs uppercase tracking-wider transition-colors"
+              title="Descargar Excel"
+            >
+              <FileSpreadsheet className="w-3.5 h-3.5 text-emerald-400" />
+              <span>Excel</span>
+            </button>
+
+            <button
+              onClick={handleExportPDF}
+              className="hidden lg:flex items-center gap-1.5 px-3 py-2 bg-white/5 hover:bg-white/10 border border-white/10 text-neutral-300 hover:text-white font-mono text-xs uppercase tracking-wider transition-colors"
+              title="Descargar Catálogo PDF"
+            >
+              <Download className="w-3.5 h-3.5 text-[#c9a24b]" />
+              <span>PDF Trade</span>
             </button>
           </div>
         </div>
 
-        {/* Active Filter Badges (if any applied) */}
+        {/* Active Filters Bar */}
         {activeFiltersCount > 0 && (
-          <div className="flex flex-wrap items-center gap-2 mb-6 p-3 rounded-2xl bg-neutral-100 dark:bg-white/[0.04] border border-black/5 dark:border-white/5 text-xs font-sans">
-            <span className="text-neutral-500 dark:text-neutral-400">Filtros activos:</span>
+          <div className="flex flex-wrap items-center gap-2 mb-6 p-3 bg-[#12141A] border border-white/10 text-xs font-mono">
+            <span className="text-neutral-400 uppercase">Filtros activos:</span>
             
             {selectedBrand !== 'Todas' && (
-              <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-black/5 dark:bg-white/10 text-neutral-800 dark:text-white border border-black/10 dark:border-white/15">
+              <span className="inline-flex items-center gap-1.5 px-3 py-1 bg-black/60 text-white border border-white/15">
                 Marca: {selectedBrand}
-                <button onClick={() => setSelectedBrand('Todas')} className="hover:text-neutral-500">
+                <button onClick={() => setSelectedBrand('Todas')} className="hover:text-red-400">
                   <X className="w-3 h-3" />
                 </button>
               </span>
             )}
 
             {selectedGender !== 'Todos' && (
-              <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-black/5 dark:bg-white/10 text-neutral-800 dark:text-white border border-black/10 dark:border-white/15">
+              <span className="inline-flex items-center gap-1.5 px-3 py-1 bg-black/60 text-white border border-white/15">
                 Para: {selectedGender}
-                <button onClick={() => setSelectedGender('Todos')} className="hover:text-neutral-500">
+                <button onClick={() => setSelectedGender('Todos')} className="hover:text-red-400">
                   <X className="w-3 h-3" />
                 </button>
               </span>
             )}
 
             {selectedCategory !== 'Todos' && (
-              <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-black/5 dark:bg-white/10 text-neutral-800 dark:text-white border border-black/10 dark:border-white/15">
-                Categoría: {selectedCategory}
-                <button onClick={() => setSelectedCategory('Todos')} className="hover:text-neutral-500">
+              <span className="inline-flex items-center gap-1.5 px-3 py-1 bg-black/60 text-white border border-white/15">
+                Familia: {selectedCategory}
+                <button onClick={() => setSelectedCategory('Todos')} className="hover:text-red-400">
                   <X className="w-3 h-3" />
                 </button>
               </span>
             )}
 
             {searchQuery && (
-              <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-black/5 dark:bg-white/10 text-neutral-800 dark:text-white border border-black/10 dark:border-white/15">
+              <span className="inline-flex items-center gap-1.5 px-3 py-1 bg-black/60 text-white border border-white/15">
                 Búsqueda: "{searchQuery}"
-                <button onClick={() => setSearchQuery('')} className="hover:text-neutral-500">
+                <button onClick={() => setSearchQuery('')} className="hover:text-red-400">
                   <X className="w-3 h-3" />
                 </button>
               </span>
@@ -98,35 +159,94 @@ export function Catalog() {
 
             <button
               onClick={clearFilters}
-              className="ml-auto text-xs text-neutral-500 hover:text-black dark:hover:text-white underline underline-offset-2"
+              className="text-[#c9a24b] hover:underline font-mono text-xs ml-auto"
             >
-              Borrar todos los filtros
+              Limpiar todo
             </button>
           </div>
         )}
 
-        {/* Products Grid */}
-        {filteredProducts.length > 0 ? (
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-3 sm:gap-5">
-            {filteredProducts.map((product) => (
-              <ProductCard key={product.id} product={product} />
+        {/* View Mode 1: Luxury Product Card Grid */}
+        {viewMode === 'grid' ? (
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+            {filteredProducts.map((p) => (
+              <ProductCard key={p.id} product={p} />
             ))}
           </div>
         ) : (
-          <div className="py-20 text-center rounded-3xl border border-dashed border-black/10 dark:border-white/10 p-8">
-            <Sparkles className="w-8 h-8 text-neutral-400 mx-auto mb-3 opacity-60" />
-            <h3 className="font-sans text-xl font-semibold text-neutral-800 dark:text-white mb-2">
-              No encontramos perfumes con esos filtros
-            </h3>
-            <p className="font-sans text-xs sm:text-sm text-neutral-500 dark:text-neutral-400 max-w-md mx-auto mb-6">
-              Probá cambiando la búsqueda o restableciendo los filtros para ver los 145 perfumes de nuestro catálogo.
-            </p>
-            <button
-              onClick={clearFilters}
-              className="px-6 py-2.5 rounded-full bg-black text-white dark:bg-white dark:text-black font-sans font-semibold text-xs tracking-wide hover:opacity-90 transition-all"
-            >
-              Ver todos los perfumes
-            </button>
+          /* View Mode 2: Stitch B2B Technical Table */
+          <div className="overflow-x-auto border border-white/10 bg-[#12141A] shadow-2xl">
+            <table className="w-full text-left border-collapse">
+              <thead>
+                <tr className="border-b border-white/10 bg-[#171A22] text-[10px] font-mono text-neutral-400 uppercase tracking-widest">
+                  <th className="py-3 px-4">Fragancia & Referencia</th>
+                  <th className="py-3 px-4">Familia Olfativa</th>
+                  <th className="py-3 px-4">Formato / Conc.</th>
+                  <th className="py-3 px-4">PVP Minorista</th>
+                  <th className="py-3 px-4 text-[#c9a24b]">Tarifa Mayorista B2B</th>
+                  <th className="py-3 px-4">Stock</th>
+                  <th className="py-3 px-4 text-right">Acción</th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-white/5 font-mono text-xs">
+                {filteredProducts.map((p) => (
+                  <tr key={p.id} className="hover:bg-white/[0.03] transition-colors">
+                    <td className="py-3.5 px-4">
+                      <div className="flex items-center gap-3">
+                        <img
+                          src={p.image}
+                          alt={p.name}
+                          className="w-10 h-10 object-contain bg-black/60 border border-white/10 p-1 shrink-0"
+                        />
+                        <div>
+                          <div className="font-serif text-sm text-white font-normal">{p.name}</div>
+                          <div className="text-[10px] text-neutral-400 uppercase">{p.brand} • REF #{p.id.toString().padStart(4, '0')}</div>
+                        </div>
+                      </div>
+                    </td>
+                    <td className="py-3.5 px-4 text-neutral-300">
+                      {p.category}
+                    </td>
+                    <td className="py-3.5 px-4 text-neutral-300">
+                      {p.size || '100 ML'} • 32% Extrait
+                    </td>
+                    <td className="py-3.5 px-4 text-neutral-400">
+                      {p.retailPrice ? formatPrice(p.retailPrice) : formatPrice(Math.round(p.price * 1.5))}
+                    </td>
+                    <td className="py-3.5 px-4 font-semibold text-[#c9a24b]">
+                      {formatPrice(p.price)}
+                      <span className="text-[9px] text-neutral-500 block">(-35% MOQ 3u)</span>
+                    </td>
+                    <td className="py-3.5 px-4">
+                      <span className="inline-flex items-center gap-1.5 text-emerald-400 text-[11px]">
+                        <span className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
+                        {p.inStock !== false ? '140+ uds' : 'Consultar'}
+                      </span>
+                    </td>
+                    <td className="py-3.5 px-4 text-right">
+                      <div className="inline-flex items-center gap-2">
+                        <button
+                          onClick={() => setSelectedProductForModal(p)}
+                          className="p-1.5 text-neutral-400 hover:text-white bg-white/5 hover:bg-white/10 transition-colors"
+                          title="Ver Ficha Técnica"
+                        >
+                          <Eye className="w-4 h-4" />
+                        </button>
+                        <button
+                          onClick={() => {
+                            addToCart(p, 1, globalPricingMode);
+                            showToast(`Añadido ${p.name} al pedido.`);
+                          }}
+                          className="px-3 py-1.5 bg-white text-black hover:bg-neutral-200 font-mono text-[11px] uppercase font-semibold transition-all active:scale-[0.97]"
+                        >
+                          Añadir
+                        </button>
+                      </div>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
           </div>
         )}
 

@@ -271,7 +271,7 @@ export function CartDrawer() {
             <button
               onClick={sendOrderViaWhatsApp}
               disabled={!canSubmitOrder}
-              className={`w-full py-3.5 rounded-full flex items-center justify-center gap-2 font-sans font-bold text-xs uppercase tracking-wider transition-all duration-200 active:scale-95 shadow-md ${
+              className={`w-full py-3.5 rounded-full flex items-center justify-center gap-2 font-sans font-bold text-xs uppercase tracking-wider transition-[color,background-color,transform] duration-200 ease-out active:scale-[0.97] shadow-md ${
                 canSubmitOrder
                   ? 'bg-[#25D366] hover:bg-[#20ba5a] text-black cursor-pointer shadow-[0_4px_16px_rgba(37,211,102,0.25)]'
                   : 'bg-neutral-300 dark:bg-white/10 text-neutral-500 cursor-not-allowed opacity-60'

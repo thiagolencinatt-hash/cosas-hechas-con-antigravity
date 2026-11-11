@@ -100,7 +100,7 @@ export function FragranceQuizModal() {
             </div>
             <div className="w-full h-1.5 rounded-full bg-neutral-200 dark:bg-white/10 overflow-hidden">
               <div
-                className="h-full bg-black dark:bg-white transition-all duration-300"
+                className="h-full bg-black dark:bg-white transition-[width] duration-300 ease-out"
                 style={{ width: `${(step / 3) * 100}%` }}
               />
             </div>
@@ -132,7 +132,7 @@ export function FragranceQuizModal() {
                 <button
                   key={label}
                   onClick={() => handleSelectAnswer('atmosphere', label)}
-                  className="p-4 rounded-2xl bg-neutral-50 dark:bg-white/[0.04] border border-black/5 dark:border-white/10 hover:border-black/20 dark:hover:border-white/30 text-left transition-all active:scale-98 group"
+                  className="p-4 rounded-2xl bg-neutral-50 dark:bg-white/[0.04] border border-black/5 dark:border-white/10 hover:border-black/20 dark:hover:border-white/30 text-left transition-[color,background-color,border-color,transform] duration-150 ease-out active:scale-[0.97] cursor-pointer group"
                 >
                   <div className="w-10 h-10 rounded-xl bg-white dark:bg-white/10 border border-black/5 dark:border-white/10 flex items-center justify-center text-neutral-800 dark:text-neutral-200 mb-3 group-hover:scale-105 transition-transform">
                     <Icon className="w-5 h-5" />
@@ -172,7 +172,7 @@ export function FragranceQuizModal() {
                 <button
                   key={label}
                   onClick={() => handleSelectAnswer('ingredient', label)}
-                  className="p-4 rounded-2xl bg-neutral-50 dark:bg-white/[0.04] border border-black/5 dark:border-white/10 hover:border-black/20 dark:hover:border-white/30 text-left transition-all active:scale-98 group"
+                  className="p-4 rounded-2xl bg-neutral-50 dark:bg-white/[0.04] border border-black/5 dark:border-white/10 hover:border-black/20 dark:hover:border-white/30 text-left transition-[color,background-color,border-color,transform] duration-150 ease-out active:scale-[0.97] cursor-pointer group"
                 >
                   <div className="w-10 h-10 rounded-xl bg-white dark:bg-white/10 border border-black/5 dark:border-white/10 flex items-center justify-center text-neutral-800 dark:text-neutral-200 mb-3 group-hover:scale-105 transition-transform">
                     <Icon className="w-5 h-5" />
@@ -212,7 +212,7 @@ export function FragranceQuizModal() {
                 <button
                   key={label}
                   onClick={() => handleSelectAnswer('occasion', label)}
-                  className="p-4 rounded-2xl bg-neutral-50 dark:bg-white/[0.04] border border-black/5 dark:border-white/10 hover:border-black/20 dark:hover:border-white/30 text-left transition-all active:scale-98 group"
+                  className="p-4 rounded-2xl bg-neutral-50 dark:bg-white/[0.04] border border-black/5 dark:border-white/10 hover:border-black/20 dark:hover:border-white/30 text-left transition-[color,background-color,border-color,transform] duration-150 ease-out active:scale-[0.97] cursor-pointer group"
                 >
                   <div className="w-10 h-10 rounded-xl bg-white dark:bg-white/10 border border-black/5 dark:border-white/10 flex items-center justify-center text-neutral-800 dark:text-neutral-200 mb-3 group-hover:scale-105 transition-transform">
                     <Icon className="w-5 h-5" />
@@ -272,7 +272,7 @@ export function FragranceQuizModal() {
                   addToCart(recommendedProduct);
                   setIsQuizOpen(false);
                 }}
-                className="w-full sm:w-auto px-7 py-3 rounded-full bg-black text-white dark:bg-white dark:text-black hover:opacity-90 font-sans font-bold text-xs uppercase tracking-wider flex items-center justify-center gap-2 transition-all active:scale-95 shadow-md"
+                className="w-full sm:w-auto px-7 py-3 rounded-full bg-black text-white dark:bg-white dark:text-black hover:opacity-90 font-sans font-bold text-xs uppercase tracking-wider flex items-center justify-center gap-2 transition-[opacity,transform] duration-150 ease-out active:scale-[0.97] cursor-pointer shadow-md"
               >
                 <ShoppingBag className="w-4 h-4" />
                 <span>Sumar al pedido</span>
@@ -283,7 +283,7 @@ export function FragranceQuizModal() {
                   setSelectedProductForModal(recommendedProduct);
                   setIsQuizOpen(false);
                 }}
-                className="w-full sm:w-auto px-5 py-3 rounded-full border border-black/15 dark:border-white/15 hover:border-black/30 dark:hover:border-white/30 text-neutral-900 dark:text-white font-sans font-medium text-xs flex items-center justify-center gap-1.5 transition-colors"
+                className="w-full sm:w-auto px-5 py-3 rounded-full border border-black/15 dark:border-white/15 hover:border-black/30 dark:hover:border-white/30 text-neutral-900 dark:text-white font-sans font-medium text-xs flex items-center justify-center gap-1.5 transition-[colors,transform] duration-150 ease-out active:scale-[0.97] cursor-pointer"
               >
                 <Eye className="w-4 h-4" />
                 <span>Ver ficha técnica</span>
@@ -291,7 +291,7 @@ export function FragranceQuizModal() {
 
               <button
                 onClick={resetQuiz}
-                className="p-3 text-neutral-500 dark:text-neutral-400 hover:text-black dark:hover:text-white transition-colors"
+                className="p-3 text-neutral-500 dark:text-neutral-400 hover:text-black dark:hover:text-white transition-colors cursor-pointer"
                 title="Reiniciar test"
               >
                 <RotateCcw className="w-4 h-4" />

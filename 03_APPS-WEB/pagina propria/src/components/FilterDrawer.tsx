@@ -65,7 +65,7 @@ export function FilterDrawer() {
                 <button
                   key={g}
                   onClick={() => setSelectedGender(g)}
-                  className={`px-3.5 py-1.5 rounded-full text-xs font-sans transition-all ${
+                  className={`px-3.5 py-1.5 rounded-full text-xs font-sans transition-colors duration-150 ease-out active:scale-[0.97] cursor-pointer ${
                     selectedGender === g
                       ? 'bg-black text-white dark:bg-white dark:text-black font-semibold shadow-sm'
                       : 'bg-neutral-100 dark:bg-white/5 border border-black/5 dark:border-white/10 text-neutral-700 dark:text-neutral-300 hover:border-black/20 dark:hover:border-white/20'
@@ -91,7 +91,7 @@ export function FilterDrawer() {
                 <button
                   key={opt.id}
                   onClick={() => setSelectedShow(opt.id as ShowOption)}
-                  className={`px-3.5 py-1.5 rounded-full text-xs font-sans transition-all ${
+                  className={`px-3.5 py-1.5 rounded-full text-xs font-sans transition-colors duration-150 ease-out active:scale-[0.97] cursor-pointer ${
                     selectedShow === opt.id
                       ? 'bg-black text-white dark:bg-white dark:text-black font-semibold shadow-sm'
                       : 'bg-neutral-100 dark:bg-white/5 border border-black/5 dark:border-white/10 text-neutral-700 dark:text-neutral-300 hover:border-black/20 dark:hover:border-white/20'
@@ -113,7 +113,7 @@ export function FilterDrawer() {
                 <button
                   key={cat}
                   onClick={() => setSelectedCategory(cat)}
-                  className={`px-3.5 py-1.5 rounded-full text-xs font-sans transition-all ${
+                  className={`px-3.5 py-1.5 rounded-full text-xs font-sans transition-colors duration-150 ease-out active:scale-[0.97] cursor-pointer ${
                     selectedCategory === cat
                       ? 'bg-black text-white dark:bg-white dark:text-black font-semibold shadow-sm'
                       : 'bg-neutral-100 dark:bg-white/5 border border-black/5 dark:border-white/10 text-neutral-700 dark:text-neutral-300 hover:border-black/20 dark:hover:border-white/20'
@@ -142,7 +142,7 @@ export function FilterDrawer() {
                   <button
                     key={sort.id}
                     onClick={() => setSortBy(sort.id as SortOption)}
-                    className={`w-full text-left px-4 py-2.5 rounded-xl border text-xs font-sans flex items-center justify-between transition-all ${
+                    className={`w-full text-left px-4 py-2.5 rounded-xl border text-xs font-sans flex items-center justify-between transition-colors duration-150 ease-out active:scale-[0.98] cursor-pointer ${
                       isSelected
                         ? 'border-black dark:border-white bg-black/10 dark:bg-white/15 text-neutral-900 dark:text-white font-medium'
                         : 'border-black/5 dark:border-white/10 bg-neutral-50 dark:bg-white/[0.02] text-neutral-700 dark:text-neutral-300 hover:border-black/20 dark:hover:border-white/20'
@@ -162,7 +162,7 @@ export function FilterDrawer() {
         <div className="p-4 sm:p-5 border-t border-black/10 dark:border-white/10 space-y-2 bg-neutral-50 dark:bg-transparent">
           <button
             onClick={() => setIsFilterDrawerOpen(false)}
-            className="w-full py-3 rounded-full bg-black text-white dark:bg-white dark:text-black hover:opacity-90 font-sans font-bold text-xs tracking-wider uppercase transition-opacity shadow-sm"
+            className="w-full py-3 rounded-full bg-black text-white dark:bg-white dark:text-black hover:opacity-90 font-sans font-bold text-xs tracking-wider uppercase transition-[opacity,transform] duration-150 ease-out active:scale-[0.97] cursor-pointer shadow-sm"
           >
             Ver {filteredProducts.length} perfumes
           </button>

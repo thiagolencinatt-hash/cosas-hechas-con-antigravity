@@ -21,7 +21,7 @@ export function BrandBar() {
               <button
                 key={brand}
                 onClick={() => setSelectedBrand(brand)}
-                className={`flex-none text-xs sm:text-[13px] font-sans px-4 py-2 rounded-full border transition-all duration-200 active:scale-95 ${
+                className={`flex-none text-xs sm:text-[13px] font-sans px-4 py-2 rounded-full border transition-[color,background-color,border-color,transform] duration-200 ease-out active:scale-[0.97] cursor-pointer ${
                   isSelected
                     ? 'bg-black text-white dark:bg-white dark:text-black font-semibold border-transparent shadow-sm'
                     : 'bg-transparent border-black/10 dark:border-white/10 text-neutral-600 dark:text-neutral-300 hover:border-black/30 dark:hover:border-white/30 hover:text-black dark:hover:text-white'
