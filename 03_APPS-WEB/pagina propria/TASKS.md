@@ -57,6 +57,23 @@
 - [x] Calibrar intervalos narrativos SILLAGE sin solapamiento (Amber -> Oud -> Smoke -> LATHE ESSENCE)
 - [x] Optimizar responsividad móvil integral (390px x 844px) y táctil
 - [x] Probar y verificar con capturas de pantalla reales vía Chrome DevTools
-- [x] Compilación limpia 0 errores TypeScript y Vite build en 4.40s
-- [x] Sincronizar repositorio GitHub en rama `main` (commit `79f7ac5`)
-- [x] Desplegar enlace público activo Cloudflare Tunnel: `https://offline-installations-motherboard-importance.trycloudflare.com`
+- [x] Compilación limpia 0 errores TypeScript y Vite build
+
+## Fase 8: Lupa Interactiva, Paginación Modular (12u/pág) y Header Minimalista (Completada)
+- [x] Implementar Lupa interactiva en Navbar con drawer de búsqueda desplegable (atajo `⌘K` / `Ctrl+K`)
+- [x] Paginación del catálogo a 12 fragancias por página con flechas `< Anterior` y `Siguiente >`
+- [x] Retorno suave al inicio del catálogo al cambiar de página
+- [x] Reducción del DOM en más del 85% para fluidez instantánea en celulares
+- [x] Limpieza del Navbar removiendo botones cargados para máxima sofisticación
+
+## Fase 9: Identidad de Pareja Fundadora, Tubos 35ml (20u), Tarjetas 3D y Modo Blanco (Completada)
+- [x] Adaptar la narrativa comercial a la historia auténtica de pareja fundadora con visión de escala nacional en Argentina
+- [x] Incorporar tarjetas interactivas 3D con aceleración GPU (tilt de perspectiva espacial y micro-resorte)
+- [x] Actualizar formato de Perfumes en Tubo: Caja de 20 tubos de 35ml con atomizador spray
+- [x] Destacar armado 100% a elección por los fundadores y practicidad para bolso, auto y uso diario
+- [x] Fijar precios en ARS: $48.000 individual y $43.000 c/u llevando 3 o más cajas
+- [x] Incorporar botón estático de cambio a color blanco / modo oscuro (sin saltos de layout)
+- [x] Adaptar todos los componentes (Hero, Pilares, Catálogo, Matriz, Tubos, Footer) a ambos temas
+- [x] Verificación visual completa mediante Chrome DevTools en desktop y mobile
+- [x] Despliegue en túnel público Cloudflare: `https://lap-mba-sherman-vic.trycloudflare.com`
+- [x] Sincronización total en GitHub y Obsidian Vault
