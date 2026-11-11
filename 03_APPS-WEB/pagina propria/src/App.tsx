@@ -15,6 +15,7 @@ import { WishlistModal } from './components/WishlistModal';
 import { FragranceQuizModal } from './components/FragranceQuizModal';
 import { WholesalePortalModal } from './components/WholesalePortalModal';
 import { CookieBanner } from './components/CookieBanner';
+import { PWAInstallPrompt } from './components/PWAInstallPrompt';
 import { Check } from 'lucide-react';
 
 function StoreLayout() {
@@ -64,6 +65,9 @@ function StoreLayout() {
 
       {/* Luxury Privacy & Cookie Consent Banner */}
       <CookieBanner />
+
+      {/* PWA Install Prompt (Add to Home Screen) */}
+      <PWAInstallPrompt />
 
       {/* Global Minimalist Toast Notification */}
       {toastMessage && (

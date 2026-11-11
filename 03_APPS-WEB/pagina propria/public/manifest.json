@@ -1,0 +1,49 @@
+{
+  "name": "LATHE ESSENCE — Alta Perfumería & Venta Mayorista",
+  "short_name": "LATHE ESSENCE",
+  "description": "Venta por mayor y menor de fragancias importadas de alta gama. Importaciones directas en micro-lotes.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "background_color": "#0B0C10",
+  "theme_color": "#0B0C10",
+  "categories": ["shopping", "lifestyle", "business"],
+  "lang": "es-AR",
+  "icons": [
+    {
+      "src": "/icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/icons/icon-maskable-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Catálogo de Perfumes",
+      "short_name": "Catálogo",
+      "description": "Explorar catálogo completo de fragancias",
+      "url": "/#catalogo",
+      "icons": [{ "src": "/icons/icon-192.png", "sizes": "192x192" }]
+    },
+    {
+      "name": "Portal Mayorista B2B",
+      "short_name": "Mayorista",
+      "description": "Cotizador de lotes y tarifas trade",
+      "url": "/#b2b-matriz",
+      "icons": [{ "src": "/icons/icon-192.png", "sizes": "192x192" }]
+    }
+  ]
+}

@@ -70,3 +70,4 @@ export function sanitizeEmail(raw: string, maxLength: number = 100): string {
   const clean = raw.trim().replace(/[<>"'`;\\$\s]/g, '');
   return clean.slice(0, maxLength);
 }
+
