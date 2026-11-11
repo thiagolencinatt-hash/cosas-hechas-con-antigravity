@@ -1,27 +1,28 @@
-# CHECKPOINT: LATHE ESSENCE — Perfección Visual, Ficha Técnica y Modo Dual
+# CHECKPOINT: LATHE ESSENCE — Test Olfativo 3D & Recomendador Top 3
 
 - **Fecha:** 2026-11-11
-- **Estado General:** 100% Funcional y Verificado en Navegador (Build limpio y sin errores).
-- **Túnel Activo:** `https://lap-mba-sherman-vic.trycloudflare.com` (Cloudflare Tunnel hacia `localhost:5173`).
-- **Repositorio:** Sincronizado en `origin/main` en GitHub.
+- **Túnel Activo en Vivo:** `https://lap-mba-sherman-vic.trycloudflare.com`
+- **Git Commit:** `71c7e48` (pushed to `origin/main`)
 
-### Logros Implementados y Verificados:
-1. **Ficha Técnica & Notas Olfativas Rediseñadas (`ProductModal.tsx`):**
-   - Tipografía moderna `font-sans` limpia, ultra legible y de alta perfumería.
-   - Notas distribuidas en chips/pills para Salida (0-30m), Corazón (30m-4h) y Fondo (4h-18h+).
-   - Métricas técnicas: Longevidad (12-18h), Estela (2m), Concentración (32% Extrait) y Lotes Certificados IFRA.
-   - Gráfico de evaporación molecular de alto contraste.
-2. **Modo Claro (Color Blanco) y Oscuro Dual:**
-   - Eliminadas sobreescrituras CSS destructivas con `!important`.
-   - Contraste absoluto en textos, tarjetas, botones e inputs tanto en modo claro como oscuro.
-   - Solucionado solapamiento del navbar sticky con `scroll-mt-24` en anclas (`#pilares`, `#catalogo`, `#b2b-matriz`).
-3. **Botones B2B y Lupa en Navbar (`Navbar.tsx`):**
-   - Incorporados los botones `[ MAYORISTA B2B -35% ]` (conmutador minorista/mayorista) y `[ 🛡️ COTIZADOR B2B ]`.
-   - Lupa de búsqueda con drawer desplegable interactivo.
-   - Interruptor de tema blanco/oscuro estático y anclado a la derecha.
-   - Logo LATHE ESSENCE con animación de ola 3D en tono crema/champagne de alto contraste.
-4. **Caja 20 Tubos de 35ml (`DiscoverySetShowcase.tsx` & `MatrizComercialB2B.tsx`):**
-   - Carrusel de fotos reales sobre césped con flechas superior e inferior, indicador de fotos y marca de agua.
-   - Especificaciones: 20 tubos x 35ml a elección armadas personalmente, $48.000 individual, $43.000 x 3 o más.
-5. **Historia y Visión de Negocio:**
-   - Negocio fundado por una pareja con ambición de escala nacional, pedidos personalizados, combos emprendedores y envíos a todo el país.
+### Logros Implementados:
+1. **Nuevo Nombre y Enfoque Directo:**
+   - Cambiado el antiguo nombre "Oráculo" por **"Descubrí tu Fragancia Ideal"** (Navbar: "Descubrí tu Fragancia" con ícono de destellos dorados `Sparkles`).
+   - Comunica inmediatamente que es una herramienta para conocer sus gustos olfativos y encontrar su perfume ideal.
+2. **Estructura de 5 Preguntas con Selección Múltiple y Navegación:**
+   - **Paso 1 (Perfil/Género):** Hombre, Mujer o Unisex/Compartir.
+   - **Paso 2 (Líneas/Origen - Multi-select):** Árabes, Diseñador, Nicho y Tubos 35ml.
+   - **Paso 3 (Notas Olfativas - Multi-select):** Gourmand & Dulces, Maderas & Oud, Cítricos & Acuáticos, Ámbar & Especias, Florales Blancos.
+   - **Paso 4 (Intensidad):** Bomba Olfativa (+12h a 18h), Elegante & Magnética (8h a 12h), Fresca & Versátil (6h a 8h).
+   - **Paso 5 (Ocasión - Multi-select):** Salidas Nocturnas/Fiestas, Citas Románticas, Uso Diario/Oficina, Eventos Formales, Días de Calor/Gimnasio.
+3. **Navegación Fluida:**
+   - Botón **"← Volver Atrás"** para retroceder y editar respuestas sin perder el progreso.
+   - Botón **"Reiniciar"** en el encabezado.
+   - Barra de progreso interactiva (20% por paso).
+4. **Resultados con TOP 3 Perfumes Recomendados:**
+   - Curaduría inteligente de 3 fragancias según afinidad olfativa (% Match).
+   - Explicación de **Ocasión & Momento**, chips de **Notas Predominantes**, fotos reales y precios en ARS (minorista y mayorista).
+   - Botón para **Sumar al Pedido** y **Ver Ficha Técnica** (abre el `ProductModal`).
+   - Botones inferiores para **Probar con Otros Gustos** o **Asesoramiento por WhatsApp**.
+5. **Efectos 3D y Compatibilidad:**
+   - Tarjetas con micro-inclinación 3D (tilt perspective).
+   - 100% responsivo en mobile y desktop, compatible con Modo Blanco y Modo Oscuro.
