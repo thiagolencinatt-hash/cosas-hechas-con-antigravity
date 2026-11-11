@@ -397,11 +397,84 @@ export function ShopProvider({ children }: { children: React.ReactNode }) {
       result = result.filter((p) => p.gender?.toLowerCase() === selectedGender.toLowerCase());
     }
 
-    // Category
+    // Category or Olfactory Family Filter (Smart Semantic Match)
     if (selectedCategory !== 'Todos') {
-      result = result.filter(
-        (p) => p.category?.toLowerCase() === selectedCategory.toLowerCase()
-      );
+      const target = selectedCategory.toLowerCase();
+      result = result.filter((p) => {
+        const cat = (p.category || '').toLowerCase();
+        const fam = (p.family || '').toLowerCase();
+        const tag = (p.tag || '').toLowerCase();
+        const notes = (p.keyNotePills || []).map((k) => k.toLowerCase()).join(' ');
+        const pyramidNotes = [
+          ...(p.pyramid?.top || []),
+          ...(p.pyramid?.heart || []),
+          ...(p.pyramid?.base || []),
+        ]
+          .map((n) => n.toLowerCase())
+          .join(' ');
+        const desc = (p.description || '').toLowerCase();
+        const name = (p.name || '').toLowerCase();
+
+        // 1. Direct Category Match (e.g. Arabes, Diseñador, Body splash, Nicho)
+        if (cat === target) return true;
+
+        // 2. Direct string inclusion across family, tags, notes, description
+        if (
+          fam.includes(target) ||
+          tag.includes(target) ||
+          notes.includes(target) ||
+          pyramidNotes.includes(target) ||
+          desc.includes(target) ||
+          name.includes(target)
+        ) {
+          return true;
+        }
+
+        // 3. Olfactory Pillars Semantic Mapping
+        if (
+          target === 'amaderado' &&
+          (fam.includes('cuero') ||
+            fam.includes('tabaco') ||
+            notes.includes('madera') ||
+            pyramidNotes.includes('cedro') ||
+            pyramidNotes.includes('sándalo') ||
+            desc.includes('madera'))
+        ) {
+          return true;
+        }
+        if (
+          target === 'cítrico' &&
+          (pyramidNotes.includes('bergamota') ||
+            pyramidNotes.includes('mandarina') ||
+            pyramidNotes.includes('limón') ||
+            notes.includes('fruta') ||
+            fam.includes('frutal'))
+        ) {
+          return true;
+        }
+        if (
+          target === 'oriental' &&
+          (cat === 'arabes' ||
+            fam.includes('especiad') ||
+            pyramidNotes.includes('ámbar') ||
+            pyramidNotes.includes('incienso') ||
+            pyramidNotes.includes('oud'))
+        ) {
+          return true;
+        }
+        if (
+          target === 'floral' &&
+          (fam.includes('gourmand') ||
+            pyramidNotes.includes('rosa') ||
+            pyramidNotes.includes('orquídea') ||
+            pyramidNotes.includes('jazmín') ||
+            desc.includes('floral'))
+        ) {
+          return true;
+        }
+
+        return false;
+      });
     }
 
     // Show (ofertas, stock)

@@ -72,7 +72,7 @@ export function PilaresOlfativos() {
   };
 
   return (
-    <section id="pilares" className="w-full bg-neutral-100 dark:bg-[#0B0C10] py-8 sm:py-10 border-b border-black/10 dark:border-white/10 relative z-20 transition-colors duration-200">
+    <section id="pilares" className="scroll-mt-24 w-full bg-neutral-100 dark:bg-[#0B0C10] py-8 sm:py-10 border-b border-black/10 dark:border-white/10 relative z-20 transition-colors duration-200">
       <div className="max-w-[1440px] mx-auto px-4 sm:px-8 lg:px-12">
         
         {/* Compact & Discreet Section Header */}

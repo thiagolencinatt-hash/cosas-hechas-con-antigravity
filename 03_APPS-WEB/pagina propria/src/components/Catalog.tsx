@@ -69,7 +69,7 @@ export function Catalog() {
   };
 
   return (
-    <section id="catalogo" className="py-16 bg-white dark:bg-[#0B0C10] text-neutral-900 dark:text-white border-b border-black/10 dark:border-white/10 transition-colors duration-200">
+    <section id="catalogo" className="scroll-mt-24 py-16 bg-white dark:bg-[#0B0C10] text-neutral-900 dark:text-white border-b border-black/10 dark:border-white/10 transition-colors duration-200">
       <div className="max-w-[1440px] mx-auto px-4 sm:px-8 lg:px-12">
         
         {/* Header & Title Bar */}

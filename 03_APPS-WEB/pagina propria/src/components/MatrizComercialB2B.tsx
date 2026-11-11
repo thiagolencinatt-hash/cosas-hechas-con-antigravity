@@ -112,7 +112,7 @@ export function MatrizComercialB2B({ onOpenWholesaleModal }: MatrizComercialProp
   return (
     <section
       id="b2b-matriz"
-      className="w-full bg-neutral-100 dark:bg-[#0E1015] text-neutral-900 dark:text-white py-20 sm:py-28 border-b border-black/10 dark:border-white/10 relative transition-colors duration-200"
+      className="scroll-mt-24 w-full bg-neutral-100 dark:bg-[#0E1015] text-neutral-900 dark:text-white py-20 sm:py-28 border-b border-black/10 dark:border-white/10 relative transition-colors duration-200"
     >
       <div className="max-w-[1440px] mx-auto px-4 sm:px-8 lg:px-12">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-start">

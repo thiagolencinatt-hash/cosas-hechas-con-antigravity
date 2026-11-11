@@ -1,5 +1,5 @@
 import { useState, useRef, useEffect } from 'react';
-import { Search, ShoppingBag, Heart, X, Compass, ArrowRight, Sun, Moon } from 'lucide-react';
+import { Search, ShoppingBag, Heart, X, Compass, ArrowRight, Sun, Moon, ShieldCheck } from 'lucide-react';
 import { useShop } from '../context/ShopContext';
 
 interface NavbarProps {
@@ -8,6 +8,8 @@ interface NavbarProps {
 
 export function Navbar({ onOpenWholesaleModal }: NavbarProps) {
   const {
+    globalPricingMode,
+    setGlobalPricingMode,
     cartItemsCount,
     setIsCartOpen,
     wishlist,
@@ -18,10 +20,21 @@ export function Navbar({ onOpenWholesaleModal }: NavbarProps) {
     filteredProducts,
     theme,
     toggleTheme,
+    showToast,
   } = useShop();
 
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   const searchInputRef = useRef<HTMLInputElement>(null);
+
+  const handleToggleMode = () => {
+    const newMode = globalPricingMode === 'mayorista' ? 'minorista' : 'mayorista';
+    setGlobalPricingMode(newMode);
+    showToast(
+      newMode === 'mayorista'
+        ? 'Modalidad Mayorista activada (-35% a -55% de descuento en catálogo).'
+        : 'Modalidad Minorista activada (Venta individual sin mínimo).'
+    );
+  };
 
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
@@ -113,9 +126,39 @@ export function Navbar({ onOpenWholesaleModal }: NavbarProps) {
             </button>
           </nav>
 
-          {/* Right Action Controls: Lupa Search, Wishlist, Cart, Static Theme Switcher */}
+          {/* Right Action Controls: B2B Switcher, Cotizador B2B, Lupa Search, Wishlist, Cart, Static Theme Switcher */}
           <div className="flex items-center gap-2 sm:gap-3 shrink-0">
             
+            {/* Mode Switcher Button (B2C / B2B) - Exact match to user reference */}
+            <button
+              onClick={handleToggleMode}
+              className="hidden sm:flex items-center bg-neutral-100 dark:bg-[#14161D] border border-black/10 dark:border-white/10 px-3 py-1.5 gap-2 hover:border-black/30 dark:hover:border-white/30 transition-all cursor-pointer select-none active:scale-[0.97]"
+              title="Alternar entre Precios Minorista y Mayorista"
+            >
+              <span className={`font-mono text-[10px] uppercase font-bold tracking-wider ${
+                globalPricingMode === 'mayorista' ? 'text-[#c9a24b]' : 'text-neutral-600 dark:text-neutral-400'
+              }`}>
+                {globalPricingMode === 'mayorista' ? 'MAYORISTA B2B' : 'MINORISTA'}
+              </span>
+              <span className={`font-mono text-[9px] px-1.5 py-0.5 font-semibold ${
+                globalPricingMode === 'mayorista'
+                  ? 'bg-[#c9a24b]/20 text-[#c9a24b] border border-[#c9a24b]/40'
+                  : 'bg-black/5 dark:bg-white/10 text-neutral-700 dark:text-neutral-300'
+              }`}>
+                {globalPricingMode === 'mayorista' ? '-35%' : '1u'}
+              </span>
+            </button>
+
+            {/* B2B Portal Modal Trigger Button - Exact match to user reference */}
+            <button
+              onClick={onOpenWholesaleModal}
+              className="hidden md:flex items-center gap-1.5 px-3 py-1.5 bg-neutral-100 dark:bg-white/10 hover:bg-neutral-200 dark:hover:bg-white/20 border border-black/10 dark:border-white/20 text-neutral-900 dark:text-white font-mono text-xs uppercase tracking-wider transition-colors cursor-pointer active:scale-[0.97]"
+              title="Abrir Cotizador B2B"
+            >
+              <ShieldCheck className="w-3.5 h-3.5 text-[#c9a24b]" />
+              <span className="font-semibold text-[11px]">COTIZADOR B2B</span>
+            </button>
+
             {/* Lupa (Search Button) - Visible on ALL screens */}
             <button
               onClick={() => {
