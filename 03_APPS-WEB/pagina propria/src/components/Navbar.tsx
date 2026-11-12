@@ -117,15 +117,19 @@ export function Navbar({ onOpenWholesaleModal }: NavbarProps) {
           {/* Brand Logo Real (LATHE ESSENCE) - Luxury Cream 3D Wave Animation */}
           <a
             href="#top"
-            className="flex items-center gap-3 group flex-shrink-0 text-inherit no-underline select-none"
-            aria-label="LATHE ESSENCE Inicio"
+            className="flex items-center gap-2.5 sm:gap-3 group flex-shrink-0 text-inherit no-underline select-none"
+            aria-label="Lathe Essence Inicio"
+            title="Lathe Essence"
           >
             <div className="relative h-8 sm:h-11 w-28 sm:w-36 transition-transform duration-300 group-hover:scale-[1.03] flex items-center">
               <div
                 className="w-full h-full logo-cream-wave"
-                title="LATHE ESSENCE Haute Parfumerie"
+                title="Lathe Essence Haute Parfumerie"
               />
             </div>
+            <span className="font-serif text-xs sm:text-sm tracking-[0.2em] uppercase text-neutral-900 dark:text-[#f5f5f0] font-normal hidden lg:inline border-l border-black/10 dark:border-white/15 pl-2.5">
+              Lathe Essence
+            </span>
           </a>
 
           {/* Navigation Links (Desktop) */}

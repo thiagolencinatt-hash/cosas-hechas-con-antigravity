@@ -358,10 +358,10 @@ export function CinematicHero() {
           style={{ opacity: 1, transform: 'translate3d(0, 0, 0)' }}
         >
           <h1 className="font-serif text-5xl sm:text-7xl md:text-8xl lg:text-9xl tracking-tight text-[#f8f8f6] leading-none drop-shadow-[0_12px_40px_rgba(0,0,0,0.95)] mb-3 font-normal">
-            Amber.
+            Lathe Essence
           </h1>
           <p className="font-sans text-sm sm:text-xl md:text-2xl text-[#d4d4d0] max-w-lg mx-auto font-light leading-relaxed tracking-wide drop-shadow-[0_4px_20px_rgba(0,0,0,0.95)]">
-            Warm. The first thing they notice.
+            Alta Perfumería • Venta Mayorista & Minorista
           </p>
         </div>
 
