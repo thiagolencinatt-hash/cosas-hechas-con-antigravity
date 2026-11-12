@@ -1,16 +1,20 @@
-# CHECKPOINT: LATHE ESSENCE — Social Links (Instagram & TikTok)
+# CHECKPOINT: LATHE ESSENCE — Exportación Final de Producción
 
-- **Fecha:** 2026-11-11 20:52
-- **Git Commit:** `fe38ced` (Sincronizado en `origin/main` en GitHub)
-- **Túnel Activo:** `https://lap-mba-sherman-vic.trycloudflare.com`
+- **Fecha:** 2026-11-11 21:13
+- **Git Commit:** `efd79d4` (Sincronizado en `origin/main` en GitHub)
+- **Carpeta de Producción en Escritorio:** `C:\Users\thiago\Desktop\Lathe_Essence_Web`
 
 ### Logros Implementados en esta Sesión:
-1. **Redes Sociales Oficiales Integradas (Instagram & TikTok):**
-   - Iconos geométricos de lujo en la barra de navegación principal ([`Navbar.tsx`](file:///c:/Users/thiago/Desktop/inteligencia%20artificial/antigravity/cosas%20hechas%20con%20antigravity/03_APPS-WEB/pagina%20propria/src/components/Navbar.tsx)), al lado de la búsqueda y el carrito, visibles en todo momento.
-   - Enlaces en la barra superior de anuncios (Micro Ticker) y en el pie de página ([`Footer.tsx`](file:///c:/Users/thiago/Desktop/inteligencia%20artificial/antigravity/cosas%20hechas%20con%20antigravity/03_APPS-WEB/pagina%20propria/src/components/Footer.tsx)).
-   - Enlaces exactos configurados:
-     - Instagram: `https://www.instagram.com/lathe.essence?obrf=djBtZ2UwNGtseXBr&utm_source=qr`
-     - TikTok: `https://www.tiktok.com/@lathe.essence?_r=1&_t=ZS-9BKR3UQA0Ty`
-   - Efecto hover en oro `#c9a24b`, estado activo táctil y apertura segura en nueva pestaña (`target="_blank" rel="noopener noreferrer"`).
-2. **PWA y Open Graph previas:**
-   - 100% activas y sincronizadas.
+1. **Compilación y Exportación Completa a Producción:**
+   - Creada físicamente la carpeta: `C:\Users\thiago\Desktop\Lathe_Essence_Web`.
+   - Archivo principal obligatorio: `index.html` (todo en minúsculas).
+   - Archivo de estilos: `style.css` (enlazado directamente al HTML).
+   - Archivo de lógica: `script.js` (enlazado directamente al HTML).
+   - Subcarpeta obligatoria: `imagenes\` con 180 imágenes de perfumes, logos y fotos de tubos.
+   - Carpeta espejo `images\` y `assets\` con 140 fotogramas para el video-scrubbing.
+2. **Branding Oficial 'Lathe Essence':**
+   - `<title>` de la página: `Lathe Essence — Alta Perfumería & Venta Mayorista`.
+   - Encabezado principal H1: `Lathe Essence`.
+   - Menú superior y logotipo con texto explícito: `Lathe Essence`.
+3. **Verificación:**
+   - Servidor estático probado en la carpeta del Escritorio: 0 errores, 0 códigos 404, imágenes cargadas desde `imagenes/`, Service Worker activo y PWA funcional.
